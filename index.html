@@ -105,6 +105,7 @@
 }
 
 /* الهيدر */
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 .menu-header{
   display:flex;
   align-items:center;
@@ -1075,3 +1076,62 @@ function moveMini(direction){
 }
 
 </style>
+/* ================= FIX MOBILE RESPONSIVE ================= */
+
+*{
+  max-width:100%;
+}
+
+/* إصلاح الهيرو */
+@media(max-width:768px){
+
+.hero-text h1{
+  font-size:32px !important;
+}
+
+.hero{
+  flex-direction:column;
+  text-align:center;
+  gap:20px;
+}
+
+/* الكروت */
+.services{
+  grid-template-columns:1fr !important;
+}
+
+/* السلايدر */
+.software-slider{
+  padding:10px 15px !important;
+}
+
+/* الكروت الصغيرة */
+.soft-card{
+  min-width:140px !important;
+}
+
+/* الجاليري */
+.gallery-card{
+  min-width:240px !important;
+  height:300px !important;
+}
+
+/* القائمة الجانبية */
+.side-menu{
+  width:260px !important;
+}
+
+/* الزر */
+.menu-toggle{
+  width:46px !important;
+  height:46px !important;
+  top:12px;
+  right:12px;
+}
+
+/* الصور */
+.hero-image img{
+  max-width:280px !important;
+}
+
+}
