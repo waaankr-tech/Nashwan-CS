@@ -31,6 +31,27 @@ html,body{
 
 body{
   color:#111827;
+  <!-- زر المينيو -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- القائمة الجانبية -->
+<div class="side-menu" id="sideMenu">
+
+  <div class="menu-header">
+    <h2>My Site</h2>
+    <span onclick="toggleMenu()">✖</span>
+  </div>
+
+  <a href="#">الرئيسية</a>
+  <a href="#">الخدمات</a>
+  <a href="#">الإعلانات</a>
+  <a href="#">تواصل</a>
+
+</div>
 }
 
 /* HEADER */
@@ -46,7 +67,77 @@ body{
   top:0;
   z-index:9999;
   border-bottom:1px solid #f3f4f6;
+
+body{
+  font-family:'Cairo',sans-serif;
 }
+
+/* زر المينيو */
+.menu-toggle{
+  width:48px;
+  height:48px;
+  background:#111827;
+  border-radius:14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:10001;
+}
+
+.menu-toggle span{
+  width:22px;
+  height:2px;
+  background:white;
+  display:block;
+}
+
+/* القائمة */
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-260px;
+  width:260px;
+  height:100vh;
+  background:#ffffff;
+  box-shadow:-10px 0 25px rgba(0,0,0,0.1);
+  padding:20px;
+  transition:0.3s;
+  z-index:10000;
+}
+
+/* لما تفتح */
+.side-menu.active{
+  right:0;
+}
+
+/* هيدر المينيو */
+.menu-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.menu-header h2{
+  font-size:18px;
+}
+
+/* الروابط */
+.side-menu a{
+  display:block;
+  padding:12px 0;
+  text-decoration:none;
+  color:#111827;
+  border-bottom:1px solid #f3f4f6;
+}
+}
+  
 
 .logo{
   font-size:24px;
