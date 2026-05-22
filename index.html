@@ -1,3 +1,179 @@
+<!-- زر القائمة -->
+<div class="menu-toggle" onclick="openMenu()">
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+</div>
+
+<!-- القائمة -->
+<div class="side-menu" id="sideMenu">
+
+  <div class="menu-header">
+
+    <h2>Nashwan CS</h2>
+
+    <button onclick="closeMenu()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+  </div>
+
+  <a href="#">
+    <i class="fa-solid fa-house"></i>
+    الرئيسية
+  </a>
+
+  <a href="#">
+    <i class="fa-solid fa-laptop-code"></i>
+    الدعم التقني
+  </a>
+
+  <a href="#">
+    <i class="fa-solid fa-camera"></i>
+    الكاميرات الشبكية
+  </a>
+
+  <a href="#">
+    <i class="fa-solid fa-store"></i>
+    المتاجر الإلكترونية
+  </a>
+
+  <a href="#">
+    <i class="fa-solid fa-bullhorn"></i>
+    الإعلانات الممولة
+  </a>
+
+  <a href="#">
+    <i class="fa-brands fa-whatsapp"></i>
+    تواصل واتساب
+  </a>
+
+</div>
+
+<style>
+
+/* زر الثلاث خطوط */
+.menu-toggle{
+  position:fixed;
+  top:18px;
+  right:18px;
+  width:52px;
+  height:52px;
+  background:#ffffff;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+  z-index:99999;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.menu-toggle:hover{
+  transform:scale(1.05);
+}
+
+.menu-toggle span{
+  width:24px;
+  height:2.5px;
+  background:#111827;
+  border-radius:10px;
+}
+
+/* القائمة */
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-320px;
+  width:300px;
+  height:100%;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(14px);
+  padding:24px;
+  z-index:999999;
+  transition:0.4s;
+  box-shadow:-10px 0 30px rgba(0,0,0,0.08);
+}
+
+.side-menu.active{
+  right:0;
+}
+
+/* الهيدر */
+.menu-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:35px;
+}
+
+.menu-header h2{
+  font-size:24px;
+  color:#111827;
+}
+
+.menu-header button{
+  width:40px;
+  height:40px;
+  border:none;
+  background:#f3f4f6;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* الروابط */
+.side-menu a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:#111827;
+  padding:16px 18px;
+  border-radius:18px;
+  margin-bottom:12px;
+  transition:0.3s;
+  background:#ffffff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.04);
+}
+
+.side-menu a:hover{
+  background:#f3f4f6;
+  transform:translateX(-5px);
+}
+
+.side-menu a i{
+  width:42px;
+  height:42px;
+  background:#eef4ff;
+  color:#2563eb;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+</style>
+
+<script>
+
+function openMenu(){
+  document.getElementById("sideMenu")
+  .classList.add("active");
+}
+
+function closeMenu(){
+  document.getElementById("sideMenu")
+  .classList.remove("active");
+}
+
+</script>
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -794,4 +970,108 @@ function moveMini(direction){
   slider.scrollLeft += direction * 220;
 }
 </script>
-```
+<!-- معرض صور متحرك -->
+<section class="phone-gallery">
+
+  <div class="gallery-head">
+    <h2>خدماتنا التقنية</h2>
+    <p>اسحب يمين ويسار لمشاهدة الخدمات</p>
+  </div>
+
+  <div class="gallery-slider">
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
+      <div class="overlay">صيانة الحاسبات</div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop">
+      <div class="overlay">كاميرات المراقبة</div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+      <div class="overlay">المتاجر الإلكترونية</div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop">
+      <div class="overlay">الدعم عن بعد</div>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.phone-gallery{
+  padding:55px 20px;
+  background:#ffffff;
+}
+
+.gallery-head{
+  margin-bottom:25px;
+}
+
+.gallery-head h2{
+  font-size:34px;
+  color:#111827;
+  margin-bottom:10px;
+}
+
+.gallery-head p{
+  color:#6b7280;
+  font-size:14px;
+}
+
+/* السحب */
+.gallery-slider{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:10px;
+}
+
+.gallery-slider::-webkit-scrollbar{
+  display:none;
+}
+
+/* الكارت */
+.gallery-card{
+  min-width:280px;
+  height:360px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  flex-shrink:0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.gallery-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.gallery-card:hover img{
+  transform:scale(1.08);
+}
+
+/* الكتابة */
+.overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:22px;
+  background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+  color:white;
+  font-size:22px;
+  font-weight:700;
+}
+
+</style>
