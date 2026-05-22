@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SaaS Hero</title>
+<title>IT Hero Section</title>
 
-<link href="<a href="" border="0"></a>"">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -22,13 +25,15 @@ body{
     overflow-x:hidden;
 }
 
+/* HERO */
+
 .hero{
     padding:80px 20px 0;
     text-align:center;
 }
 
 .hero h1{
-    font-size:72px;
+    font-size:68px;
     font-weight:800;
     color:#1b2b41;
     line-height:1.1;
@@ -36,18 +41,20 @@ body{
 }
 
 .hero p{
-    font-size:24px;
-    color:#56657a;
-    max-width:800px;
+    font-size:22px;
+    color:#5f6c80;
+    max-width:850px;
     margin:auto;
-    line-height:1.7;
+    line-height:1.8;
 }
 
+/* VISUAL AREA */
+
 .visual{
-    margin-top:70px;
     position:relative;
     max-width:1300px;
-    margin-inline:auto;
+    margin:auto;
+    margin-top:70px;
     height:760px;
 }
 
@@ -60,22 +67,241 @@ body{
     border-radius:60px;
 }
 
-/* PERSON */
+/* PERSON IMAGE */
 
 .person{
     position:absolute;
-    bottom:0;
     left:50%;
+    bottom:0;
     transform:translateX(-50%);
     z-index:5;
 }
 
 .person img{
-    width:620px;
+    width:580px;
     object-fit:contain;
     display:block;
 }
 
+/* SERVER BOX */
+
+.server{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:340px;
+    height:180px;
+    border-radius:12px;
+    background:linear-gradient(to bottom,#8b95a1,#5f6977);
+    z-index:1;
+}
+
+/* FLOAT ICONS */
+
+.float{
+    position:absolute;
+    width:82px;
+    height:82px;
+    border-radius:24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:30px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+    z-index:10;
+}
+
+.float:hover{
+    transform:translateY(-10px) scale(1.05);
+}
+
+/* ICON COLORS */
+
+.f1{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    right:120px;
+    top:260px;
+}
+
+.f2{
+    background:linear-gradient(135deg,#f59e0b,#ea580c);
+    left:90px;
+    bottom:120px;
+}
+
+.f3{
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    right:240px;
+    top:120px;
+}
+
+.f4{
+    background:linear-gradient(135deg,#10b981,#047857);
+    left:120px;
+    top:260px;
+}
+
+/* BLUE LINES */
+
+.circle-line{
+    position:absolute;
+    border:3px solid #0d8dff;
+    width:240px;
+    height:80px;
+    border-radius:50%;
+    left:120px;
+    top:300px;
+    transform:rotate(-12deg);
+}
+
+.circle-line.two{
+    top:390px;
+    left:170px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+    padding-top:50px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+.visual{
+    height:560px;
+}
+
+.bg-shape{
+    height:460px;
+    border-radius:40px;
+}
+
+.person img{
+    width:350px;
+}
+
+.server{
+    width:220px;
+    height:110px;
+}
+
+.float{
+    width:60px;
+    height:60px;
+    font-size:24px;
+    border-radius:18px;
+}
+
+.f1{
+    right:15px;
+    top:200px;
+}
+
+.f2{
+    left:15px;
+    bottom:80px;
+}
+
+.f3{
+    right:80px;
+    top:100px;
+}
+
+.f4{
+    left:20px;
+    top:220px;
+}
+
+.circle-line{
+    width:150px;
+    height:50px;
+    left:20px;
+    top:250px;
+}
+
+.circle-line.two{
+    left:50px;
+    top:320px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <h1>دعم تقني وصيانة احترافية</h1>
+
+    <p>
+        نقدم حلول البرمجيات، صيانة الحاسوب،
+        السيرفرات، الحماية، والدعم الفني
+        بأحدث التقنيات الحديثة.
+    </p>
+
+    <div class="visual">
+
+        <div class="bg-shape"></div>
+
+        <div class="circle-line"></div>
+        <div class="circle-line two"></div>
+
+        <!-- FLOAT ICONS -->
+
+        <div class="float f1">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <div class="float f2">
+            <i class="fa-solid fa-laptop-medical"></i>
+        </div>
+
+        <div class="float f3">
+            <i class="fa-solid fa-server"></i>
+        </div>
+
+        <div class="float f4">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <!-- SERVER -->
+
+        <div class="server"></div>
+
+        <!-- PERSON -->
+
+        <div class="person">
+            <img src="https://pngimg.com/d/man_PNG6533.png">
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
 /* SERVER */
 
 .server{
