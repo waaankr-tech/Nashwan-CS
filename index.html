@@ -639,3 +639,159 @@ slider.scrollLeft += direction * 220;
   </a>
 
 </div>
+```html id="more-premium-sections"
+<!-- TITLE -->
+<div style="padding:10px 25px 0;">
+  <h2 style="
+    font-size:34px;
+    color:#111827;
+    margin-bottom:8px;
+    font-weight:700;
+  ">
+    البرامج والخدمات الاحترافية
+  </h2>
+
+  <p style="
+    color:#6b7280;
+    font-size:15px;
+    line-height:1.8;
+  ">
+    تثبيت البرامج، التفعيل، الدعم عن بعد، وإنشاء المتاجر الإلكترونية.
+  </p>
+</div>
+
+<!-- PREMIUM CARDS -->
+<section class="services">
+
+  <div class="service-card">
+    <div class="icon-box blue">
+      <i class="fa-brands fa-windows"></i>
+    </div>
+    <h3>تفعيل Windows</h3>
+    <p>تنصيب وتفعيل الويندوز مع التعريفات الكاملة.</p>
+  </div>
+
+  <div class="service-card">
+    <div class="icon-box orange">
+      <i class="fa-solid fa-file-word"></i>
+    </div>
+    <h3>Microsoft Office</h3>
+    <p>تفعيل أوفيس وإعداد البرامج المكتبية بالكامل.</p>
+  </div>
+
+  <div class="service-card">
+    <div class="icon-box purple">
+      <i class="fa-solid fa-globe"></i>
+    </div>
+    <h3>إنشاء المواقع</h3>
+    <p>تصميم مواقع احترافية سريعة ومتجاوبة.</p>
+  </div>
+
+  <div class="service-card">
+    <div class="icon-box green">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <h3>إنشاء متجر إلكتروني</h3>
+    <p>تصميم متجر وربطه بالدفع والمنتجات.</p>
+  </div>
+
+</section>
+
+<!-- MINI SLIDER -->
+<div class="slider-wrapper">
+
+  <button class="nav-btn left" onclick="moveMini(-1)">
+    <i class="fa-solid fa-angle-left"></i>
+  </button>
+
+  <div class="software-slider" id="miniSlider">
+
+    <div class="soft-card">
+      <i class="fa-brands fa-google windows"></i>
+      <span>Google</span>
+    </div>
+
+    <div class="soft-card">
+      <i class="fa-brands fa-facebook-f office"></i>
+      <span>Meta Ads</span>
+    </div>
+
+    <div class="soft-card">
+      <i class="fa-brands fa-instagram photoshop"></i>
+      <span>Instagram</span>
+    </div>
+
+    <div class="soft-card">
+      <i class="fa-brands fa-tiktok premiere"></i>
+      <span>TikTok</span>
+    </div>
+
+    <div class="soft-card">
+      <i class="fa-solid fa-shield-halved antivirus"></i>
+      <span>Security</span>
+    </div>
+
+    <div class="soft-card">
+      <i class="fa-solid fa-network-wired drivers"></i>
+      <span>Networking</span>
+    </div>
+
+  </div>
+
+  <button class="nav-btn right" onclick="moveMini(1)">
+    <i class="fa-solid fa-angle-right"></i>
+  </button>
+
+</div>
+
+<!-- CONTACT BAR -->
+<div style="
+width:100%;
+padding:20px;
+display:flex;
+justify-content:center;
+">
+
+<div style="
+background:#ffffff;
+border-radius:26px;
+padding:20px 25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+">
+
+<div style="color:#111827;font-size:15px;">
+📞 07734449499
+</div>
+
+<div style="color:#6b7280;font-size:15px;">
+العراق - دعم فني عن بعد
+</div>
+
+<a href="https://wa.me/9647734449499"
+style="
+background:#25d366;
+color:white;
+text-decoration:none;
+padding:12px 22px;
+border-radius:40px;
+font-size:14px;
+">
+واتساب
+</a>
+
+</div>
+
+</div>
+
+<script>
+function moveMini(direction){
+  const slider = document.getElementById("miniSlider");
+  slider.scrollLeft += direction * 220;
+}
+</script>
+```
