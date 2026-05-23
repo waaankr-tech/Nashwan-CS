@@ -13,137 +13,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===== القسم ===== */
 
-.cards-section{
-  width:100%;
-  padding:60px 20px;
-  background:#f5f5f7;
-  overflow:hidden;
-}
-
-.section-title{
-  font-size:42px;
-  font-weight:800;
-  color:#111;
-  margin-bottom:35px;
-  line-height:1.3;
-}
-
-/* ===== السلايدر ===== */
-
-.cards-wrapper{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
-}
-
-.cards-wrapper::-webkit-scrollbar{
-  display:none;
-}
-
-/* ===== الكروت ===== */
-
-.service-card{
-  position:relative;
-  min-width:320px;
-  height:520px;
-  border-radius:30px;
-  overflow:hidden;
-  flex-shrink:0;
-  background:#000;
-  transition:0.4s ease;
-  cursor:pointer;
-}
-
-.service-card:hover{
-  transform:translateY(-8px) scale(1.02);
-}
-
-/* الصورة */
-
-.service-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* طبقة سوداء خفيفة */
-
-.service-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.1)
-  );
-}
-
-/* المحتوى */
-
-.card-content{
-  position:absolute;
-  bottom:30px;
-  right:25px;
-  left:25px;
-  z-index:2;
-  color:#fff;
-}
-
-.card-content span{
-  font-size:14px;
-  opacity:0.9;
-}
-
-.card-content h3{
-  font-size:30px;
-  margin:12px 0;
-  line-height:1.4;
-  font-weight:800;
-}
-
-.card-content p{
-  font-size:16px;
-  line-height:1.7;
-  opacity:0.9;
-}
-
-/* ===== موبايل ===== */
-
-@media(max-width:768px){
-
-  .section-title{
-    font-size:32px;
-  }
-
-  .service-card{
-    min-width:280px;
-    height:460px;
-  }
-
-  .card-content h3{
-    font-size:24px;
-  }
-
-}
-  
-  *{
+/* ===== عام ===== */
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
 body{
-  font-family:'Cairo',sans-serif;
+  font-family:'Cairo', sans-serif;
   background:#fff;
   overflow-x:hidden;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   display:flex;
   justify-content:space-between;
@@ -209,162 +93,80 @@ body{
 @keyframes float{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
-
-<!-- قسم كروت متحركة مثل Apple Store -->
-<section class="cards-section">
-
-  <h2 class="section-title">
-    خدماتنا الاحترافية
-  </h2>
-
-  <div class="cards-wrapper">
-
-    <!-- الكرت 1 -->
-    <div class="service-card">
-      <img src="<a href="https://ibb.co/DD6wydTq"><img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="Whats-App-Image-2026-05-23-a" border="0"></a>" alt="تصميم مواقع">
-
-      <div class="card-content">
-        <span>تصميم المواقع</span>
-
-        <h3>
-          إنشاء مواقع ومتاجر إلكترونية
-          بتصميم احترافي وحديث
-        </h3>
-
-        <p>
-          مواقع سريعة ومتجاوبة مع جميع الأجهزة.
-        </p>
-      </div>
-    </div>
-
-    <!-- الكرت 2 -->
-    <div class="service-card">
-      <img src="<a href="https://ibb.co/DD6wydTq"><img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="Whats-App-Image-2026-05-23-a" border="0"></a>" alt="برمجة">
-
-      <div class="card-content">
-        <span>البرمجة</span>
-
-        <h3>
-          تطوير أنظمة وبرامج
-          للشركات والأعمال
-        </h3>
-
-        <p>
-          حلول تقنية متكاملة وواجهة عصرية.
-        </p>
-      </div>
-    </div>
-
-    <!-- الكرت 3 -->
-    <div class="service-card">
-      <img src="<a href="https://ibb.co/DD6wydTq"><img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="Whats-App-Image-2026-05-23-a" border="0"></a>" alt="دعم فني">
-
-      <div class="card-content">
-        <span>الدعم الفني</span>
-
-        <h3>
-          صيانة الحاسبات
-          والدعم عن بعد
-        </h3>
-
-        <p>
-          حل المشاكل التقنية بسرعة واحترافية.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
 }
 
-/* SERVICES */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-  padding:20px;
+/* ===== SERVICES ===== */
+.cards-section{
+  width:100%;
+  padding:60px 20px;
+  background:#f5f5f7;
+}
+
+.section-title{
+  font-size:42px;
+  font-weight:800;
+  margin-bottom:35px;
+}
+
+.cards-wrapper{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+
+.cards-wrapper::-webkit-scrollbar{
+  display:none;
 }
 
 .service-card{
-  background:#fff;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* SLIDER */
-.slider-wrapper{
+  min-width:320px;
+  height:520px;
+  border-radius:30px;
+  overflow:hidden;
   position:relative;
-  padding:20px;
+  background:#000;
+  flex-shrink:0;
 }
 
-.software-slider{
-  display:flex;
-  overflow-x:auto;
-  gap:15px;
-  scroll-behavior:smooth;
-  padding:10px;
+.service-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.soft-card{
-  min-width:150px;
-  background:#fff;
-  padding:15px;
-  border-radius:18px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  text-align:center;
-}
-
-.nav-btn{
+.service-card::after{
+  content:"";
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#fff;
-  border:none;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
 }
 
-.left{left:5px;}
-.right{right:5px;}
-
-/* SOCIAL */
-.social-fixed{
-  position:fixed;
-  bottom:15px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:10px;
-  background:#fff;
-  padding:10px;
-  border-radius:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.card-content{
+  position:absolute;
+  bottom:30px;
+  right:25px;
+  left:25px;
+  color:#fff;
+  z-index:2;
 }
 
-.social-fixed a{
-  width:40px;
-  height:40px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:12px;
+.card-content span{
+  font-size:14px;
+  opacity:0.9;
 }
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:15px;
-  margin-top:20px;
-  border-top:1px solid #eee;
+.card-content h3{
+  font-size:26px;
+  margin:10px 0;
 }
 
-/* MOBILE */
+.card-content p{
+  font-size:14px;
+  opacity:0.9;
+}
+
+/* ===== MOBILE ===== */
 @media(max-width:768px){
   .hero{
     flex-direction:column;
@@ -374,127 +176,18 @@ body{
   .hero-text h1{
     font-size:30px;
   }
-}
-</style
-  /* ===== القسم ===== */
-
-.cards-section{
-  width:100%;
-  padding:60px 20px;
-  background:#f5f5f7;
-  overflow:hidden;
-}
-
-.section-title{
-  font-size:42px;
-  font-weight:800;
-  color:#111;
-  margin-bottom:35px;
-  line-height:1.3;
-}
-
-/* ===== السلايدر ===== */
-
-.cards-wrapper{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
-}
-
-.cards-wrapper::-webkit-scrollbar{
-  display:none;
-}
-
-/* ===== الكروت ===== */
-
-.service-card{
-  position:relative;
-  min-width:320px;
-  height:520px;
-  border-radius:30px;
-  overflow:hidden;
-  flex-shrink:0;
-  background:#000;
-  transition:0.4s ease;
-  cursor:pointer;
-}
-
-.service-card:hover{
-  transform:translateY(-8px) scale(1.02);
-}
-
-/* الصورة */
-
-.service-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* طبقة سوداء خفيفة */
-
-.service-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.1)
-  );
-}
-
-/* المحتوى */
-
-.card-content{
-  position:absolute;
-  bottom:30px;
-  right:25px;
-  left:25px;
-  z-index:2;
-  color:#fff;
-}
-
-.card-content span{
-  font-size:14px;
-  opacity:0.9;
-}
-
-.card-content h3{
-  font-size:30px;
-  margin:12px 0;
-  line-height:1.4;
-  font-weight:800;
-}
-
-.card-content p{
-  font-size:16px;
-  line-height:1.7;
-  opacity:0.9;
-}
-
-/* ===== موبايل ===== */
-
-@media(max-width:768px){
 
   .section-title{
-    font-size:32px;
+    font-size:30px;
   }
 
   .service-card{
     min-width:280px;
     height:460px;
   }
-
-  .card-content h3{
-    font-size:24px;
-  }
-
 }
-  
-  >
+
+</style>
 </head>
 
 <body>
@@ -509,87 +202,53 @@ body{
   </div>
 
   <div class="hero-image">
-
-    <!-- ✅ الصورة المصححة -->
     <img src="https://i.ibb.co/99y6dkPg/Whats-App-Image-2026-05-23-at-1-24-10-PM.jpg" alt="hero">
 
     <div class="floating card1">دعم فني</div>
     <div class="floating card2">Office</div>
     <div class="floating card3">Photoshop</div>
     <div class="floating card4">كاميرات IP</div>
-
   </div>
 
-</script>
+</section>
 
-</body
-  
-  <!-- قسم كروت متحركة مثل Apple Store -->
+<!-- SERVICES -->
 <section class="cards-section">
 
-  <h2 class="section-title">
-    خدماتنا الاحترافية
-  </h2>
+  <h2 class="section-title">خدماتنا الاحترافية</h2>
 
   <div class="cards-wrapper">
 
-    <!-- الكرت 1 -->
     <div class="service-card">
-      <img src="images/web.jpg" alt="تصميم مواقع">
-
+      <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="تصميم مواقع">
       <div class="card-content">
         <span>تصميم المواقع</span>
-
-        <h3>
-          إنشاء مواقع ومتاجر إلكترونية
-          بتصميم احترافي وحديث
-        </h3>
-
-        <p>
-          مواقع سريعة ومتجاوبة مع جميع الأجهزة.
-        </p>
+        <h3>إنشاء مواقع ومتاجر إلكترونية</h3>
+        <p>مواقع سريعة ومتجاوبة مع جميع الأجهزة.</p>
       </div>
     </div>
 
-    <!-- الكرت 2 -->
     <div class="service-card">
-      <img src="<a href="https://ibb.co/DD6wydTq"><img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="Whats-App-Image-2026-05-23-a" border="0"></a>" alt="برمجة">
-
+      <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="برمجة">
       <div class="card-content">
         <span>البرمجة</span>
-
-        <h3>
-          تطوير أنظمة وبرامج
-          للشركات والأعمال
-        </h3>
-
-        <p>
-          حلول تقنية متكاملة وواجهة عصرية.
-        </p>
+        <h3>تطوير أنظمة وبرامج</h3>
+        <p>حلول تقنية متكاملة وواجهة عصرية.</p>
       </div>
     </div>
 
-    <!-- الكرت 3 -->
     <div class="service-card">
-      <img src="<a href="https://ibb.co/DD6wydTq"><img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="Whats-App-Image-2026-05-23-a" border="0"></a>" alt="دعم فني">
-
+      <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="دعم فني">
       <div class="card-content">
         <span>الدعم الفني</span>
-
-        <h3>
-          صيانة الحاسبات
-          والدعم عن بعد
-        </h3>
-
-        <p>
-          حل المشاكل التقنية بسرعة واحترافية.
-        </p>
+        <h3>صيانة الحاسبات</h3>
+        <p>حل المشاكل التقنية بسرعة واحترافية.</p>
       </div>
     </div>
 
   </div>
 
 </section>
-  
-  >
+
+</body>
 </html>
