@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nashwan CS</title>
+
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -11,107 +19,81 @@
   box-sizing:border-box;
 }
 
-html,body{
-  width:100%;
-  overflow-x:hidden;
-  background:#ffffff;
+body{
   font-family:'Cairo',sans-serif;
-  scroll-behavior:smooth;
+  background:#fff;
+  overflow-x:hidden;
 }
 
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
-  width:100%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:40px;
-  padding:25px;
-  background:#ffffff;
+  align-items:center;
   flex-wrap:wrap;
+  padding:25px;
+  gap:30px;
 }
 
 .hero-text{
   flex:1;
-  min-width:300px;
+  min-width:280px;
 }
 
 .badge{
   display:inline-block;
   background:#eef4ff;
   color:#2563eb;
-  padding:10px 18px;
-  border-radius:30px;
-  margin-bottom:20px;
-  font-size:14px;
+  padding:8px 14px;
+  border-radius:20px;
+  margin-bottom:15px;
 }
 
 .hero-text h1{
-  font-size:50px;
-  line-height:1.2;
-  color:#111827;
-  margin-bottom:20px;
+  font-size:42px;
+  margin-bottom:15px;
 }
 
 .hero-text p{
-  color:#6b7280;
-  line-height:1.9;
-  font-size:16px;
+  color:#666;
+  line-height:1.8;
 }
 
 .hero-image{
   flex:1;
-  position:relative;
   display:flex;
   justify-content:center;
+  position:relative;
 }
 
 .hero-image img{
   width:100%;
-  max-width:420px;
-  border-radius:30px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+  max-width:380px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .floating{
   position:absolute;
-  background:rgba(255,255,255,0.9);
-  padding:12px 18px;
-  border-radius:18px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  background:#fff;
+  padding:10px 14px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
   font-size:13px;
-  animation:float 4s ease-in-out infinite;
+  animation:float 4s infinite ease-in-out;
 }
 
-.card1{
-  top:10%;
-  left:0;
-}
-
-.card2{
-  top:20%;
-  right:0;
-}
-
-.card3{
-  bottom:18%;
-  left:10%;
-}
-
-.card4{
-  bottom:5%;
-  right:5%;
-}
+.card1{top:10%;left:0;}
+.card2{top:20%;right:0;}
+.card3{bottom:20%;left:10%;}
+.card4{bottom:5%;right:10%;}
 
 @keyframes float{
-  0%{transform:translateY(0);}
+  0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
 }
 
-/* ================= SERVICES ================= */
-
+/* SERVICES */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -120,271 +102,115 @@ html,body{
 }
 
 .service-card{
-  background:#ffffff;
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-  transition:.3s;
-}
-
-.service-card:hover{
-  transform:translateY(-6px);
-}
-
-.icon-box{
-  width:55px;
-  height:55px;
+  background:#fff;
+  padding:20px;
   border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:15px;
-  font-size:22px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.blue{
-  background:#e8f1ff;
-  color:#0078d4;
-}
-
-.purple{
-  background:#f3e8ff;
-  color:#7c3aed;
-}
-
-.green{
-  background:#e8fff1;
-  color:#16a34a;
-}
-
-.orange{
-  background:#fff4e8;
-  color:#ea580c;
-}
-
-.service-card h3{
-  margin-bottom:10px;
-  color:#111827;
-}
-
-.service-card p{
-  color:#6b7280;
-  font-size:14px;
-  line-height:1.7;
-}
-
-/* ================= SLIDER ================= */
-
+/* SLIDER */
 .slider-wrapper{
   position:relative;
-  width:100%;
-  overflow:hidden;
-  padding:25px 0;
+  padding:20px;
 }
 
 .software-slider{
   display:flex;
-  gap:16px;
   overflow-x:auto;
+  gap:15px;
   scroll-behavior:smooth;
-  padding:10px 60px;
-}
-
-.software-slider::-webkit-scrollbar{
-  display:none;
+  padding:10px;
 }
 
 .soft-card{
-  min-width:160px;
+  min-width:150px;
   background:#fff;
-  border-radius:24px;
-  padding:18px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-  transition:.3s;
-}
-
-.soft-card:hover{
-  transform:translateY(-6px);
-}
-
-.soft-card i{
-  width:62px;
-  height:62px;
+  padding:15px;
   border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-}
-
-.windows{
-  background:#e8f1ff;
-  color:#0078d4;
-}
-
-.office{
-  background:#fff1e8;
-  color:#d83b01;
-}
-
-.photoshop{
-  background:#e8f0ff;
-  color:#31a8ff;
-}
-
-.premiere{
-  background:#f3e8ff;
-  color:#9999ff;
-}
-
-.antivirus{
-  background:#e8fff1;
-  color:#16a34a;
-}
-
-.drivers{
-  background:#f3f4f6;
-  color:#374151;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  text-align:center;
 }
 
 .nav-btn{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  width:42px;
-  height:42px;
+  background:#fff;
   border:none;
+  width:40px;
+  height:40px;
   border-radius:50%;
-  background:#ffffff;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
   cursor:pointer;
-  z-index:10;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.left{
-  left:8px;
-}
+.left{left:5px;}
+.right{right:5px;}
 
-.right{
-  right:8px;
-}
-
-/* ================= SOCIAL ================= */
-
+/* SOCIAL */
 .social-fixed{
   position:fixed;
-  bottom:18px;
+  bottom:15px;
   left:50%;
   transform:translateX(-50%);
   display:flex;
-  gap:12px;
-  background:rgba(255,255,255,0.95);
-  padding:10px 14px;
-  border-radius:22px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  z-index:9999;
+  gap:10px;
+  background:#fff;
+  padding:10px;
+  border-radius:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .social-fixed a{
-  width:42px;
-  height:42px;
-  border-radius:14px;
+  width:40px;
+  height:40px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  text-decoration:none;
-  transition:.3s;
+  align-items:center;
+  border-radius:12px;
 }
 
-.social-fixed a:hover{
-  transform:translateY(-4px);
-}
-
-.instagram{
-  background:#fff0f6;
-  color:#e1306c;
-}
-
-.tiktok{
-  background:#f3f4f6;
-  color:#111111;
-}
-
-.facebook{
-  background:#eef4ff;
-  color:#1877f2;
-}
-
-.whatsapp{
-  background:#ecfff3;
-  color:#25d366;
-}
-
-/* ================= FOOTER ================= */
-
+/* FOOTER */
 .footer{
   text-align:center;
-  padding:20px;
-  border-top:1px solid #eeeeee;
-  margin-top:30px;
+  padding:15px;
+  margin-top:20px;
+  border-top:1px solid #eee;
 }
 
-.footer p{
-  color:#6b7280;
-  font-size:13px;
-}
-
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
 
-.hero{
-  flex-direction:column;
-  text-align:center;
-}
-
-.hero-text h1{
-  font-size:34px;
-}
-
-.hero-image img{
-  max-width:300px;
-}
-
+  .hero-text h1{
+    font-size:30px;
+  }
 }
 </style>
+</head>
+
+<body>
 
 <!-- HERO -->
 <section class="hero">
 
   <div class="hero-text">
-
     <span class="badge">Nashwan CS</span>
-
     <h1>حلول تقنية ذكية ودعم احترافي</h1>
-
-    <p>
-      نقدم خدمات صيانة الحاسبات والكاميرات الشبكية،
-      تثبيت البرامج، الدعم عن بعد،
-      وإنشاء المتاجر الإلكترونية.
-    </p>
-
+    <p>نقدم خدمات صيانة الحاسبات والكاميرات الشبكية والدعم عن بعد.</p>
   </div>
 
   <div class="hero-image">
 
-    <img src="<a href="https://ibb.co/BVTbY5k3"><img src="https://i.ibb.co/99y6dkPg/Whats-App-Image-2026-05-23-at-1-24-10-PM.jpg" alt="Whats App Image 2026 05 23 at 1 24 10 PM" border="0"></a>">
+    <!-- ✅ الصورة المصححة -->
+    <img src="https://i.ibb.co/99y6dkPg/Whats-App-Image-2026-05-23-at-1-24-10-PM.jpg" alt="hero">
 
     <div class="floating card1">دعم فني</div>
-
-    <div class="floating card2">Microsoft Office</div>
-
+    <div class="floating card2">Office</div>
     <div class="floating card3">Photoshop</div>
-
     <div class="floating card4">كاميرات IP</div>
 
   </div>
@@ -393,117 +219,48 @@ html,body{
 
 <!-- SERVICES -->
 <section class="services">
-
-  <div class="service-card">
-    <div class="icon-box blue">
-      <i class="fa-solid fa-laptop-code"></i>
-    </div>
-    <h3>الدعم التقني</h3>
-    <p>حل مشاكل الحاسوب والبرامج عن بعد.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box purple">
-      <i class="fa-solid fa-camera"></i>
-    </div>
-    <h3>كاميرات IP</h3>
-    <p>تركيب وبرمجة الكاميرات الشبكية.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box green">
-      <i class="fa-solid fa-shield-halved"></i>
-    </div>
-    <h3>الحماية والأمان</h3>
-    <p>فحص الفيروسات وتأمين الأجهزة.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box orange">
-      <i class="fa-solid fa-wifi"></i>
-    </div>
-    <h3>الشبكات</h3>
-    <p>تحسين أداء الإنترنت والشبكات.</p>
-  </div>
-
+  <div class="service-card">الدعم التقني</div>
+  <div class="service-card">كاميرات IP</div>
+  <div class="service-card">الحماية</div>
+  <div class="service-card">الشبكات</div>
 </section>
 
-<!-- SOFTWARE -->
+<!-- SLIDER -->
 <div class="slider-wrapper">
 
-<button class="nav-btn left" onclick="moveSlider(-1)">
-<i class="fa-solid fa-angle-left"></i>
-</button>
+<button class="nav-btn left" onclick="moveSlider(-1)">‹</button>
 
 <div class="software-slider" id="softwareSlider">
-
-<div class="soft-card">
-<i class="fa-brands fa-windows windows"></i>
-<span>Windows</span>
+  <div class="soft-card">Windows</div>
+  <div class="soft-card">Office</div>
+  <div class="soft-card">Photoshop</div>
+  <div class="soft-card">Premiere</div>
 </div>
 
-<div class="soft-card">
-<i class="fa-solid fa-file-word office"></i>
-<span>Office</span>
-</div>
-
-<div class="soft-card">
-<i class="fa-solid fa-photo-film photoshop"></i>
-<span>Photoshop</span>
-</div>
-
-<div class="soft-card">
-<i class="fa-solid fa-video premiere"></i>
-<span>Premiere</span>
-</div>
-
-<div class="soft-card">
-<i class="fa-solid fa-shield-virus antivirus"></i>
-<span>Antivirus</span>
-</div>
-
-<div class="soft-card">
-<i class="fa-solid fa-hard-drive drivers"></i>
-<span>Drivers</span>
-</div>
-
-</div>
-
-<button class="nav-btn right" onclick="moveSlider(1)">
-<i class="fa-solid fa-angle-right"></i>
-</button>
+<button class="nav-btn right" onclick="moveSlider(1)">›</button>
 
 </div>
 
 <!-- SOCIAL -->
 <div class="social-fixed">
 
-<a href="#" class="instagram">
-<i class="fa-brands fa-instagram"></i>
-</a>
-
-<a href="#" class="tiktok">
-<i class="fa-brands fa-tiktok"></i>
-</a>
-
-<a href="#" class="facebook">
-<i class="fa-brands fa-facebook-f"></i>
-</a>
-
-<a href="https://wa.me/9647734449499" class="whatsapp">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
+<a href="#" style="background:#e1306c;color:#fff;"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" style="background:#000;color:#fff;"><i class="fa-brands fa-tiktok"></i></a>
+<a href="#" style="background:#1877f2;color:#fff;"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://wa.me/9647734449499" style="background:#25d366;color:#fff;"><i class="fa-brands fa-whatsapp"></i></a>
 
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
-<p>© 2026 Nashwan CS — جميع الحقوق محفوظة</p>
+<p>© 2026 Nashwan CS</p>
 </footer>
 
 <script>
-function moveSlider(direction){
-const slider=document.getElementById("softwareSlider");
-slider.scrollLeft += direction * 220;
+function moveSlider(dir){
+  document.getElementById("softwareSlider").scrollLeft += dir * 200;
 }
 </script>
+
+</body>
+</html>
