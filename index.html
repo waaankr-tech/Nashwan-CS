@@ -234,12 +234,30 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.82),
-        rgba(0,0,0,0.18),
-        rgba(0,0,0,0.05)
-      );
+    }
+
+    .web-card img {
+      object-position: 38% center;
+    }
+
+    .office-card img {
+      object-position: 72% 28%;
+    }
+
+    .support-card img {
+      object-position: 78% 45%;
+    }
+
+    .web-card::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.84), rgba(37,99,235,0.22), rgba(255,255,255,0.02));
+    }
+
+    .office-card::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.84), rgba(34,197,94,0.22), rgba(255,255,255,0.02));
+    }
+
+    .support-card::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.84), rgba(14,165,233,0.24), rgba(255,255,255,0.02));
     }
 
     .modern-card-top {
@@ -430,58 +448,58 @@
     <div class="services-head">
       <div>
         <span>خدماتنا</span>
-        <h2>حلول تقنية بشكل أحدث وأسهل</h2>
+        <h2>حلول تقنية مصممة بشكل عصري</h2>
       </div>
 
       <p>
-        خدمات مرتبة للأفراد والشركات، من الدعم الفني إلى البرمجة وتصميم المواقع.
+        خدمات عملية للأفراد والشركات، بتصميم واضح يناسب المواقع والمتاجر والدعم الفني.
       </p>
     </div>
 
     <div class="modern-services-row">
 
-      <div class="modern-card">
-        <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="تصميم مواقع">
+      <div class="modern-card web-card">
+        <img src="C:/Users/user/OneDrive/Desktop/WhatsApp Image 2026-05-23 a.jpeg" alt="إنشاء مواقع ومتاجر">
 
         <div class="modern-card-top">
-          <span class="modern-pill">تصميم المواقع</span>
-          <span class="modern-icon"><i class="fa-solid fa-arrow-left"></i></span>
+          <span class="modern-pill">مواقع ومتاجر</span>
+          <span class="modern-icon"><i class="fa-solid fa-store"></i></span>
         </div>
 
         <div class="modern-card-content">
-          <h3>مواقع ومتاجر إلكترونية بتجربة عصرية</h3>
-          <p>تصميم سريع ومتجاوب يناسب الهاتف والكمبيوتر ويعطي حضور احترافي لعملك.</p>
+          <h3>إنشاء مواقع ومتاجر إلكترونية حديثة</h3>
+          <p>تصميم واجهات جذابة وسريعة تناسب الهاتف والكمبيوتر وتعرض خدماتك بشكل احترافي.</p>
+          <a href="#" class="modern-action">اطلب الخدمة <i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+      </div>
+
+      <div class="modern-card office-card">
+        <img src="C:/Users/user/OneDrive/Desktop/WhatsApp Image 2026-05-23 a.jpeg" alt="برامج أوفيس">
+
+        <div class="modern-card-top">
+          <span class="modern-pill">Office</span>
+          <span class="modern-icon"><i class="fa-solid fa-file-word"></i></span>
+        </div>
+
+        <div class="modern-card-content">
+          <h3>تنصيب وتفعيل برامج الأعمال</h3>
+          <p>حلول Word وExcel وPowerPoint وتجهيز الجهاز للعمل والدراسة بأفضل إعداد.</p>
           <a href="#" class="modern-action">اعرف أكثر <i class="fa-solid fa-chevron-left"></i></a>
         </div>
       </div>
 
-      <div class="modern-card">
-        <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="برمجة أنظمة">
+      <div class="modern-card support-card">
+        <img src="C:/Users/user/OneDrive/Desktop/WhatsApp Image 2026-05-23 a.jpeg" alt="دعم فني وشبكات">
 
         <div class="modern-card-top">
-          <span class="modern-pill">البرمجة</span>
-          <span class="modern-icon"><i class="fa-solid fa-code"></i></span>
-        </div>
-
-        <div class="modern-card-content">
-          <h3>أنظمة وبرامج مخصصة للشركات</h3>
-          <p>حلول عملية لإدارة العمل، تنظيم البيانات، وتسهيل المهام اليومية.</p>
-          <a href="#" class="modern-action">اعرف أكثر <i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-      </div>
-
-      <div class="modern-card">
-        <img src="https://i.ibb.co/8DRPpkth/Whats-App-Image-2026-05-23-a.jpg" alt="دعم فني">
-
-        <div class="modern-card-top">
-          <span class="modern-pill">الدعم الفني</span>
+          <span class="modern-pill">دعم وشبكات</span>
           <span class="modern-icon"><i class="fa-solid fa-headset"></i></span>
         </div>
 
         <div class="modern-card-content">
-          <h3>صيانة ودعم عن بعد بسرعة واحترافية</h3>
-          <p>حل مشاكل الحاسبات، البرامج، الشبكات، والكاميرات بطريقة واضحة ومباشرة.</p>
-          <a href="#" class="modern-action">اعرف أكثر <i class="fa-solid fa-chevron-left"></i></a>
+          <h3>دعم فني وشبكات عن بعد</h3>
+          <p>صيانة الحاسبات، حل مشاكل الإنترنت، إعداد الراوتر، ومتابعة الأعطال بسرعة.</p>
+          <a href="#" class="modern-action">تواصل الآن <i class="fa-solid fa-chevron-left"></i></a>
         </div>
       </div>
 
