@@ -448,7 +448,162 @@
         left: 10px;
       }
     }
+ 
+  .digital-services {
+  padding: 90px 24px;
+  background: #f7f9fc;
+}
+
+.digital-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.digital-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+
+.digital-head span {
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.digital-head h2 {
+  margin-top: 8px;
+  color: #111;
+  font-size: 42px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.digital-head p {
+  max-width: 430px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.digital-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.digital-card {
+  position: relative;
+  min-height: 260px;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 28px;
+  padding: 24px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.digital-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.09);
+}
+
+.digital-card::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  left: -70px;
+  bottom: -70px;
+  border-radius: 50%;
+  background: #eef4ff;
+}
+
+.digital-icon {
+  position: relative;
+  z-index: 2;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.digital-card h3 {
+  position: relative;
+  z-index: 2;
+  color: #111;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.digital-card p {
+  position: relative;
+  z-index: 2;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.digital-card a {
+  position: relative;
+  z-index: 2;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-web { background: #2563eb; }
+.icon-store { background: #16a34a; }
+.icon-meta { background: #0866ff; }
+.icon-business { background: #111827; }
+.icon-tiktok { background: #000; }
+.icon-shopify { background: #22c55e; }
+
+@media (max-width: 950px) {
+  .digital-head {
+    display: block;
+  }
+
+  .digital-head h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .digital-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .digital-services {
+    padding: 60px 18px;
+  }
+
+  .digital-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .digital-card {
+    min-height: auto;
+  }
+}
+  
   </style>
+  
 </head>
 
 <body>
@@ -530,6 +685,105 @@
         Photoshop
       </div>
     </div>
+ 
+  <section class="digital-services" id="services">
+  <div class="digital-container">
+
+    <div class="digital-head">
+      <div>
+        <span>الخدمات الرقمية</span>
+        <h2>نبني لك حضور رقمي متكامل</h2>
+      </div>
+
+      <p>
+        من تصميم الموقع والمتجر إلى ربط الإعلانات وتتبع المبيعات، نجهز لك كل شيء بشكل مرتب واحترافي.
+      </p>
+    </div>
+
+    <div class="digital-grid">
+
+      <div class="digital-card">
+        <div class="digital-icon icon-web">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+
+        <h3>إنشاء موقع إلكتروني</h3>
+        <p>
+          تصميم موقع سريع ومتجاوب يعرض خدماتك بشكل واضح ويعمل على الهاتف والكمبيوتر.
+        </p>
+
+        <a href="#contact">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+      <div class="digital-card">
+        <div class="digital-icon icon-store">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <h3>إنشاء متجر إلكتروني</h3>
+        <p>
+          تجهيز متجر لعرض المنتجات، تنظيم الأقسام، وربطه بوسائل التواصل والدفع حسب الحاجة.
+        </p>
+
+        <a href="#contact">ابدأ متجرك <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+      <div class="digital-card">
+        <div class="digital-icon icon-meta">
+          <i class="fa-brands fa-meta"></i>
+        </div>
+
+        <h3>تفعيل Meta Pixel</h3>
+        <p>
+          ربط البيكسل بالموقع أو المتجر لمتابعة الزيارات، الطلبات، وتحسين نتائج الإعلانات.
+        </p>
+
+        <a href="#contact">تفعيل البيكسل <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+      <div class="digital-card">
+        <div class="digital-icon icon-business">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+
+        <h3>Meta Business</h3>
+        <p>
+          إعداد Business Manager، ربط الصفحات، الحسابات الإعلانية، وإنستغرام بشكل صحيح.
+        </p>
+
+        <a href="#contact">إعداد الحساب <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+      <div class="digital-card">
+        <div class="digital-icon icon-tiktok">
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+
+        <h3>TikTok Ads</h3>
+        <p>
+          تجهيز حساب TikTok Ads، إعداد الحملات الإعلانية، وربط أدوات تتبع النتائج.
+        </p>
+
+        <a href="#contact">جهز إعلانك <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+      <div class="digital-card">
+        <div class="digital-icon icon-shopify">
+          <i class="fa-brands fa-shopify"></i>
+        </div>
+
+        <h3>Shopify</h3>
+        <p>
+          إنشاء متجر Shopify، إضافة المنتجات، ترتيب القالب، وربط أدوات التسويق والتحليل.
+        </p>
+
+        <a href="#contact">إنشاء Shopify <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
   </section>
 
   <script>
