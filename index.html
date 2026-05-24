@@ -390,12 +390,13 @@
         display: flex;
       }
 
-      .nav-links a {
-        width: 100%;
-        padding: 14px 0;
-        border-bottom: 1px solid #eee;
-      }
-
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
       .nav-links a:last-child {
         border-bottom: 0;
       }
@@ -1000,48 +1001,123 @@
  
   </div>
 
-    <section class="software-section" id="programs">
+</section>
+
+<section class="software-section" id="programs">
   <div class="software-box">
 
-<div class="pc-visual-v2">
-  <img src="https://i.ibb.co/TMxmMqLR/Whats-App-Image-2026-05-24-at-1-36-55-PM.jpg" alt="خدمات البرامج">
+    <div class="pc-visual-v2">
+      <img src="https://i.ibb.co/TMxmMqLR/Whats-App-Image-2026-05-24-at-1-36-55-PM.jpg" alt="خدمات البرامج">
 
-  <div class="pc-chip chip-1">
-    <i class="fa-brands fa-windows"></i>
-    <strong>Windows</strong>
-    <span>تفعيل النظام</span>
+      <div class="pc-chip chip-1">
+        <i class="fa-brands fa-windows"></i>
+        <strong>Windows</strong>
+        <span>تفعيل النظام</span>
+      </div>
+
+      <div class="pc-chip chip-2">
+        <i class="fa-solid fa-file-word"></i>
+        <strong>Office</strong>
+        <span>تفعيل أوفيس</span>
+      </div>
+
+      <div class="pc-chip chip-3">
+        <i class="fa-solid fa-microchip"></i>
+        <strong>Drivers</strong>
+        <span>تعاريف الجهاز</span>
+      </div>
+
+      <div class="pc-chip chip-4">
+        <i class="fa-solid fa-shield-halved"></i>
+        <strong>Security</strong>
+        <span>حماية وتنظيف</span>
+      </div>
+    </div>
+
+    <div class="software-content">
+      <span>البرامج والتفعيلات</span>
+      <h2>نجهز جهازك للعمل والدراسة</h2>
+
+      <p>
+        تفعيل ويندوز وأوفيس، تنصيب AutoCAD، تعريفات الجهاز، البرامج الأساسية، وصيانة النظام بشكل مرتب وسريع.
+      </p>
+
+      <div class="software-buttons">
+        <a href="#contact" class="software-btn"><i class="fa-brands fa-windows"></i> تفعيل Windows</a>
+        <a href="#contact" class="software-btn"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
+        <a href="#contact" class="software-btn"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
+        <a href="#contact" class="software-btn"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
+      </div>
+    </div>
+
   </div>
 
-  <div class="pc-chip chip-2">
-    <i class="fa-solid fa-file-word"></i>
-    <strong>Office</strong>
-    <span>تفعيل أوفيس</span>
-  </div>
-
-  <div class="pc-chip chip-3">
-    <i class="fa-solid fa-microchip"></i>
-    <strong>Drivers</strong>
-    <span>تعاريف الجهاز</span>
-  </div>
-
-  <div class="pc-chip chip-4">
-    <i class="fa-solid fa-shield-halved"></i>
-    <strong>Security</strong>
-    <span>حماية وتنظيف</span>
-  </div>
-
-  <div class="pc-chip chip-5">
-    <i class="fa-solid fa-cube"></i>
-    <strong>AutoCAD</strong>
-    <span>تنصيب وتفعيل</span>
-  </div>
-
-  <div class="pc-chip chip-6">
-    <i class="fa-solid fa-download"></i>
-    <strong>Apps</strong>
-    <span>برامج أساسية</span>
-  </div>
 </section>
+  .pc-visual-v2 {
+  position: relative;
+  width: min(100%, 560px);
+  height: 620px;
+  margin: auto;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.pc-visual-v2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.pc-chip {
+  position: absolute;
+  z-index: 5;
+  width: 120px;
+  padding: 10px;
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(15,23,42,0.1);
+  backdrop-filter: blur(12px);
+  animation: pcFloat 4s ease-in-out infinite;
+}
+
+.pc-chip i {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #eef4ff;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+
+.pc-chip strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pc-chip span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.chip-1 { top: 26px; right: 210px; }
+.chip-2 { top: 130px; left: 22px; animation-delay: .3s; }
+.chip-3 { top: 150px; right: 22px; animation-delay: .6s; }
+.chip-4 { bottom: 80px; left: 34px; animation-delay: .9s; }
+
+@keyframes pcFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
   <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
