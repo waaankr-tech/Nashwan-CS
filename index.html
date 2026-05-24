@@ -622,7 +622,67 @@
     z-index: 3;
   }}
 
+ .social-float {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-float a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.14);
+  border: 1px solid rgba(226,232,240,0.9);
+  transition: 0.25s ease;
+}
+
+.social-float a:hover {
+  transform: translateY(-3px);
+}
+
+.social-float .whatsapp {
+  color: #25d366;
+}
+
+.social-float .instagram {
+  color: #e1306c;
+}
+
+.social-float .facebook {
+  color: #1877f2;
+}
+
+.social-float .telegram {
+  color: #229ed9;
+}
+
+@media (max-width: 720px) {
+  .social-float {
+    left: 12px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .social-float a {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}
   </style>
+  
 </head>
 
 <body>
@@ -817,64 +877,6 @@
       document.getElementById("navLinks").classList.toggle("active");
     }
   </script>
-.social-float {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.social-float a {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #fff;
-  color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 12px 30px rgba(15,23,42,0.14);
-  border: 1px solid rgba(226,232,240,0.9);
-  transition: 0.25s ease;
-}
-
-.social-float a:hover {
-  transform: translateY(-3px);
-}
-
-.social-float .whatsapp {
-  color: #25d366;
-}
-
-.social-float .instagram {
-  color: #e1306c;
-}
-
-.social-float .facebook {
-  color: #1877f2;
-}
-
-.social-float .telegram {
-  color: #229ed9;
-}
-
-@media (max-width: 720px) {
-  .social-float {
-    left: 12px;
-    bottom: 14px;
-    gap: 8px;
-  }
-
-  .social-float a {
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
-  }
 }
 </body>
 </html>
