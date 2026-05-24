@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رابطك الذكي | Nashwan CS</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Cairo', sans-serif;
+      background: #f7f9fc;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .bio-card {
+      width: 100%;
+      max-width: 430px;
+      background: #fff;
+      border: 1px solid #e8edf5;
+      border-radius: 32px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(15,23,42,0.08);
+    }
+
+    .avatar {
+      width: 94px;
+      height: 94px;
+      margin: 0 auto 16px;
+      border-radius: 28px;
+      background: #eef4ff;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .bio-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bio-link {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-decoration: none;
+      color: #111;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 0 16px;
+      font-size: 15px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .bio-link:hover {
+      transform: translateY(-3px);
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(15,23,42,0.08);
+    }
+
+    .bio-link span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bio-link i {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef4ff;
+      color: #2563eb;
+      font-size: 16px;
+    }
+
+    .whatsapp i {
+      color: #25d366;
+    }
+
+    .telegram i {
+      color: #229ed9;
+    }
+
+    .instagram i {
+      color: #e1306c;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: #9ca3af;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="bio-card">
+    <div class="avatar">
+      <i class="fa-solid fa-laptop-code"></i>
+    </div>
+
+    <h1>Nashwan CS</h1>
+
+    <p>
+      خدمات تقنية، دعم عن بعد، تفعيل برامج، مواقع ومتاجر، وحلول رقمية للأفراد والشركات.
+    </p>
+
+    <div class="bio-links">
+      <a href="https://wa.me/964XXXXXXXXXX" class="bio-link whatsapp" target="_blank">
+        <span><i class="fa-brands fa-whatsapp"></i> واتساب</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+
+      <a href="https://t.me/USERNAME" class="bio-link telegram" target="_blank">
+        <span><i class="fa-brands fa-telegram"></i> تليگرام</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+
+      <a href="https://instagram.com/USERNAME" class="bio-link instagram" target="_blank">
+        <span><i class="fa-brands fa-instagram"></i> إنستغرام</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+
+      <a href="index.html#services" class="bio-link">
+        <span><i class="fa-solid fa-layer-group"></i> خدماتنا</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+
+      <a href="index.html" class="bio-link">
+        <span><i class="fa-solid fa-globe"></i> الموقع الرئيسي</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Nashwan CS © 2026
+    </div>
+  </main>
+
+</body>
+</html>
