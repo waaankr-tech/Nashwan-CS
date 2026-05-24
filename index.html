@@ -535,7 +535,21 @@
       .nav-links.active {
         display: flex;
       }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.nav-smart {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.nav-smart:hover {
+  background: #dbeafe;
+  color: #2563eb;
+}
       .nav-links a {
         width: 100%;
         padding: 14px 0;
@@ -699,8 +713,10 @@
         <a href="#contact">تواصل معنا</a>
       </nav>
 
-      <a href="#contact" class="nav-action">احجز خدمة</a>
-
+<div class="nav-actions">
+  <a href="bio.html" class="nav-action nav-smart">رابطك الذكي</a>
+  <a href="#contact" class="nav-action">احجز خدمة</a>
+</div>
       <button class="menu-btn" onclick="toggleMenu()" aria-label="فتح القائمة">
         <i class="fa-solid fa-bars"></i>
       </button>
