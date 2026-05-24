@@ -730,6 +730,120 @@
     color: #2563eb !important;
   }
 }
+    .dev-section {
+  padding: 90px 24px;
+  background: #f7f9fc;
+}
+
+.dev-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.dev-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+
+.dev-head span {
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dev-head h2 {
+  margin-top: 8px;
+  color: #111;
+  font-size: 42px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.dev-head p {
+  max-width: 430px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.dev-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.dev-card {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 28px;
+  padding: 24px;
+  min-height: 245px;
+  transition: 0.3s ease;
+}
+
+.dev-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(15,23,42,0.09);
+}
+
+.dev-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.dev-card h3 {
+  color: #111;
+  font-size: 21px;
+  line-height: 1.45;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.dev-card p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.dev-blue { background: #2563eb; }
+.dev-green { background: #16a34a; }
+.dev-dark { background: #111827; }
+.dev-purple { background: #7c3aed; }
+
+@media (max-width: 950px) {
+  .dev-head {
+    display: block;
+  }
+
+  .dev-head h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .dev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .dev-section {
+    padding: 60px 18px;
+  }
+
+  .dev-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
   
 </head>
@@ -903,7 +1017,73 @@
           <a href="#contact" class="software-btn"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
           <a href="#contact" class="software-btn"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
           <a href="#contact" class="software-btn"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
+      
+      
         </div>
+
+      <section class="dev-section" id="development">
+  <div class="dev-container">
+
+    <div class="dev-head">
+      <div>
+        <span>قسم البرمجيات</span>
+        <h2>حلول برمجية حسب احتياج عملك</h2>
+      </div>
+
+      <p>
+        نطوّر مواقع، أنظمة، لوحات تحكم، وحلول تساعدك ترتب العمل وتختصر الوقت.
+      </p>
+    </div>
+
+    <div class="dev-grid">
+
+      <div class="dev-card">
+        <div class="dev-icon dev-blue">
+          <i class="fa-solid fa-code"></i>
+        </div>
+
+        <h3>تطوير مواقع مخصصة</h3>
+        <p>
+          مواقع سريعة ومتجاوبة بتصميم خاص يناسب نشاطك وخدماتك.
+        </p>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-icon dev-green">
+          <i class="fa-solid fa-window-restore"></i>
+        </div>
+
+        <h3>لوحات تحكم</h3>
+        <p>
+          لوحة سهلة لإدارة المحتوى، الطلبات، العملاء، أو المنتجات.
+        </p>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-icon dev-dark">
+          <i class="fa-solid fa-database"></i>
+        </div>
+
+        <h3>قواعد بيانات</h3>
+        <p>
+          تنظيم البيانات وربطها بطريقة واضحة وآمنة حسب احتياج النظام.
+        </p>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-icon dev-purple">
+          <i class="fa-solid fa-gears"></i>
+        </div>
+
+        <h3>أتمتة المهام</h3>
+        <p>
+          تحويل الأعمال المتكررة إلى خطوات تلقائية توفر وقت وجهد.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>  
       </div>
     </div>
   </section>
