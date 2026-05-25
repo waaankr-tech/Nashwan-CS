@@ -276,6 +276,22 @@
       background: #fff;
     }
 
+    .computer-section .computer-head {
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    .computer-section .computer-head h2 {
+      max-width: 820px;
+      font-size: 52px;
+    }
+
+    .computer-section .computer-head p {
+      max-width: 720px;
+      margin-top: 14px;
+      font-size: 18px;
+    }
+
     .dev-section {
       background: #fff;
     }
@@ -333,10 +349,29 @@
     }
 
     .computer-showcase {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .computer-apple-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding: 4px 0 22px;
+      direction: ltr;
+      cursor: grab;
+    }
+
+    .computer-apple-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .computer-apple-track.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
     }
 
     .computer-group {
@@ -538,6 +573,98 @@
       align-items: center;
       gap: 7px;
       white-space: nowrap;
+    }
+
+    .computer-apple-card {
+      flex: 0 0 min(430px, 82vw);
+      min-height: 430px;
+      padding: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 22px 54px rgba(15,23,42,0.1);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 190px 1fr auto;
+      gap: 0;
+      align-items: stretch;
+      scroll-snap-align: start;
+      direction: rtl;
+    }
+
+    .computer-apple-card::before {
+      content: "";
+      display: block;
+      grid-row: 1;
+      background:
+        radial-gradient(circle at 72% 30%, rgba(255,255,255,0.42), transparent 18%),
+        linear-gradient(135deg, #0f172a, #2563eb);
+    }
+
+    .computer-apple-card > i {
+      grid-row: 1;
+      grid-column: 1;
+      align-self: center;
+      justify-self: center;
+      width: 76px;
+      height: 76px;
+      border-radius: 24px;
+      font-size: 32px;
+      background: rgba(255,255,255,0.16) !important;
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .computer-apple-card > div {
+      padding: 24px 24px 10px;
+    }
+
+    .computer-apple-card h4 {
+      font-size: 25px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .computer-apple-card p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .computer-apple-card > span {
+      padding: 0 24px 24px;
+      font-size: 15px;
+    }
+
+    .computer-section-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      direction: ltr;
+      margin-top: 4px;
+    }
+
+    .computer-section-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #0f172a;
+      background: #fff;
+      color: #0f172a;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      transition: 0.25s ease;
+    }
+
+    .computer-section-btn:hover {
+      transform: translateY(-2px);
+      color: #2563eb;
+      border-color: #2563eb;
     }
 
     /* Developer note: أزرار الاتجاه والنقاط التي تظهر تحت السلايدر للتحكم بين الخيارات. */
@@ -1415,7 +1542,15 @@
       }
 
       .computer-showcase {
-        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .computer-section .computer-head h2 {
+        font-size: 34px;
+      }
+
+      .computer-section .computer-head p {
+        font-size: 16px;
       }
 
       .digital-grid,
@@ -1507,6 +1642,29 @@
 
       .computer-section {
         padding: 64px 18px;
+      }
+
+      .computer-section .computer-head h2 {
+        font-size: 30px;
+      }
+
+      .computer-apple-track {
+        gap: 16px;
+      }
+
+      .computer-apple-card {
+        flex-basis: 86vw;
+        min-height: 410px;
+        grid-template-rows: 170px 1fr auto;
+      }
+
+      .computer-apple-card h4 {
+        font-size: 22px;
+      }
+
+      .computer-section-btn {
+        width: 44px;
+        height: 44px;
       }
 
       .computer-group-media,
@@ -2173,6 +2331,88 @@
 
   <script>
     const whatsappNumber = "9647734449499";
+
+    const computerShowcase = document.querySelector(".computer-showcase");
+    if (computerShowcase) {
+      // Developer note: هذا يحول قسم الحاسوب كله إلى سلايدر واحد كبير مثل طريقة Apple، بدل تقسيمه إلى هاردوير/سوفتوير منفصل.
+      const sectionCards = [...computerShowcase.querySelectorAll(".computer-card")];
+      const track = document.createElement("div");
+      track.className = "computer-apple-track";
+
+      sectionCards.forEach((card) => {
+        card.classList.add("computer-apple-card");
+        track.appendChild(card);
+      });
+
+      const controls = document.createElement("div");
+      controls.className = "computer-section-controls";
+      controls.innerHTML = `
+        <button class="computer-section-btn" type="button" aria-label="السابق"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="computer-section-btn" type="button" aria-label="التالي"><i class="fa-solid fa-chevron-left"></i></button>
+      `;
+
+      computerShowcase.innerHTML = "";
+      computerShowcase.append(track, controls);
+
+      const [prevSectionButton, nextSectionButton] = controls.querySelectorAll(".computer-section-btn");
+      let activeSectionIndex = 0;
+      let sectionStartX = 0;
+      let sectionStartScroll = 0;
+      let sectionMoved = false;
+
+      const updateComputerSection = () => {
+        const trackBox = track.getBoundingClientRect();
+        const trackCenter = trackBox.left + trackBox.width / 2;
+        activeSectionIndex = sectionCards.reduce((closestIndex, card, index) => {
+          const cardBox = card.getBoundingClientRect();
+          const cardCenter = cardBox.left + cardBox.width / 2;
+          const closestBox = sectionCards[closestIndex].getBoundingClientRect();
+          const closestCenter = closestBox.left + closestBox.width / 2;
+          return Math.abs(cardCenter - trackCenter) < Math.abs(closestCenter - trackCenter) ? index : closestIndex;
+        }, 0);
+      };
+
+      const goToSectionCard = (index) => {
+        activeSectionIndex = Math.max(0, Math.min(sectionCards.length - 1, index));
+        sectionCards[activeSectionIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+        window.setTimeout(updateComputerSection, 280);
+      };
+
+      prevSectionButton.addEventListener("click", () => goToSectionCard(activeSectionIndex - 1));
+      nextSectionButton.addEventListener("click", () => goToSectionCard(activeSectionIndex + 1));
+      track.addEventListener("scroll", () => window.requestAnimationFrame(updateComputerSection), { passive: true });
+
+      track.addEventListener("pointerdown", (event) => {
+        sectionStartX = event.clientX;
+        sectionStartScroll = track.scrollLeft;
+        sectionMoved = false;
+        track.classList.add("dragging");
+        track.setPointerCapture(event.pointerId);
+      });
+
+      track.addEventListener("pointermove", (event) => {
+        if (!track.classList.contains("dragging")) return;
+        const delta = event.clientX - sectionStartX;
+        if (Math.abs(delta) > 6) sectionMoved = true;
+        track.scrollLeft = sectionStartScroll - delta;
+      });
+
+      const endSectionDrag = () => {
+        track.classList.remove("dragging");
+        window.setTimeout(updateComputerSection, 120);
+      };
+
+      track.addEventListener("pointerup", endSectionDrag);
+      track.addEventListener("pointercancel", endSectionDrag);
+      track.addEventListener("click", (event) => {
+        if (sectionMoved) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+
+      updateComputerSection();
+    }
 
     document.querySelectorAll(".computer-card-grid").forEach((grid) => {
       // Developer note: هذا الكود يشتغل على كل مجموعة ملحقات ويحولها إلى سلايدر مستقل.
