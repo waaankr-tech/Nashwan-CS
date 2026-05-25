@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل الحماية والأمان | Nashwan CS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav {
+      max-width: 1180px;
+      height: 68px;
+      margin: auto;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand,
+    .back-link {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .brand {
+      font-size: 21px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f766e;
+      background: #ecfdf5;
+      border: 1px solid #ccfbf1;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: auto;
+      padding: 46px 22px 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      border-radius: 30px;
+      padding: 34px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 22px 52px rgba(15,23,42,0.06);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f766e;
+      background: #ecfdf5;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.25;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      color: #475569;
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: #0f766e;
+      box-shadow: 0 16px 32px rgba(15,118,110,0.2);
+    }
+
+    .btn-light {
+      color: #0f172a;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .security-visual {
+      position: relative;
+      min-height: 430px;
+      border-radius: 30px;
+      color: #fff;
+      padding: 28px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(45,212,191,0.38), transparent 26%),
+        radial-gradient(circle at 80% 76%, rgba(37,99,235,0.28), transparent 32%),
+        linear-gradient(135deg, #0f172a, #111827 62%, #042f2e);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .security-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.45;
+    }
+
+    .visual-icon,
+    .visual-stack {
+      position: relative;
+      z-index: 1;
+    }
+
+    .visual-icon {
+      width: 104px;
+      height: 104px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #5eead4;
+      font-size: 48px;
+    }
+
+    .visual-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .visual-stack div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-radius: 18px;
+      padding: 13px 15px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #dbeafe;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .panel h2 {
+      font-size: 25px;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .included {
+      display: grid;
+      gap: 12px;
+    }
+
+    .included li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .included i {
+      color: #16a34a;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .mini-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .mini-card p,
+    .mini-card li {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .mini-card ul {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+    }
+
+    .mini-card li {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+    }
+
+    .mini-card li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0f766e;
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+
+    .service-list {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .service-chip {
+      text-decoration: none;
+      color: #0f172a;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .service-chip:hover,
+    .service-chip.active {
+      color: #0f766e;
+      border-color: #99f6e4;
+      background: #ecfdf5;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        height: auto;
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .brand,
+      .back-link {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .page {
+        padding: 28px 16px 50px;
+      }
+
+      .hero-copy,
+      .security-visual,
+      .panel,
+      .mini-card {
+        border-radius: 20px;
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .lead {
+        font-size: 15px;
+      }
+
+      .security-visual {
+        min-height: 340px;
+      }
+
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <a href="index.html#security" class="brand">Nashwan CS</a>
+      <a href="index.html#security" class="back-link"><i class="fa-solid fa-arrow-right"></i> رجوع لقسم الحماية</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i><span id="serviceLabel">الحماية والأمان</span></div>
+        <h1 id="serviceTitle">تفاصيل خدمة الحماية</h1>
+        <p class="lead" id="serviceLead">اختر خدمة من قسم الحماية لعرض التفاصيل.</p>
+        <div class="actions">
+          <a href="#" class="btn btn-primary" id="whatsappBtn" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            اطلب الخدمة عبر واتساب
+          </a>
+          <a href="index.html#contact" class="btn btn-light">
+            <i class="fa-solid fa-headset"></i>
+            طرق التواصل
+          </a>
+        </div>
+      </div>
+
+      <div class="security-visual">
+        <div class="visual-icon"><i id="serviceIcon" class="fa-solid fa-shield-halved"></i></div>
+        <div class="visual-stack" id="visualStack"></div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel">
+        <h2>شنو تشمل الخدمة؟</h2>
+        <ul class="included" id="includedList"></ul>
+      </div>
+
+      <aside class="side">
+        <div class="mini-card">
+          <h3>مناسب لمن؟</h3>
+          <p id="bestFor">الأفراد وأصحاب المشاريع الصغيرة حسب نوع الخدمة.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>ملاحظات مهمة</h3>
+          <ul id="notesList"></ul>
+        </div>
+      </aside>
+    </section>
+
+    <nav class="service-list" id="serviceList" aria-label="خدمات الحماية"></nav>
+  </main>
+
+  <script>
+    const whatsappNumber = "9647734449499";
+    const services = {
+      device: {
+        label: "حماية الأجهزة",
+        title: "حماية الجهاز من الفايروسات والبرامج المشبوهة",
+        icon: "fa-solid fa-laptop-medical",
+        lead: "فحص عملي للجهاز وتنظيف البرامج الضارة أو المزعجة، ثم ضبط إعدادات الحماية الأساسية حتى يكون Windows أكثر استقراراً وأماناً.",
+        visual: ["فحص النظام", "إزالة البرامج المشبوهة", "ضبط Defender"],
+        included: ["فحص حالة Windows والتحديثات الأساسية.", "مراجعة Windows Security وMicrosoft Defender وضبط الحماية المهمة.", "إزالة برامج بدء التشغيل المزعجة والملفات المؤقتة التي تؤثر على الأداء.", "تنبيهك على السلوكيات الخطرة مثل تحميل أدوات مجهولة أو كراكات ضارة."],
+        bestFor: "مناسب للطلاب، أجهزة العمل، المكاتب الصغيرة، وأي جهاز صار بطيء أو تظهر عليه نوافذ وإعلانات غريبة.",
+        notes: ["لا يتم حذف ملفاتك الشخصية بدون موافقتك.", "إذا الجهاز مصاب بشدة، قد نحتاج نسخ احتياطي قبل التنظيف."],
+        message: "مرحبا اريد خدمة حماية الجهاز من الفايروسات"
+      },
+      accounts: {
+        label: "حماية الحسابات",
+        title: "حماية الحسابات والسوشيال من السرقة",
+        icon: "fa-solid fa-user-shield",
+        lead: "ترتيب حماية Gmail وFacebook وInstagram وحسابات العمل، مع تفعيل المصادقة الثنائية أو passkeys حسب المتاح.",
+        visual: ["MFA", "Passkeys", "كلمات مرور"],
+        included: ["مراجعة طرق الاسترداد مثل الإيميل والرقم الاحتياطي.", "تفعيل المصادقة الثنائية باستخدام تطبيق موثوق عند الإمكان.", "تنظيم كلمات المرور وتنبيهك على الممارسات الخطرة.", "مراجعة الأجهزة والجلسات المفتوحة وإغلاق المجهول منها."],
+        bestFor: "مناسب لأي شخص يعتمد على حساباته للعمل، الإعلانات، البيع، أو التواصل مع الزبائن.",
+        notes: ["لا تشارك رمز التحقق مع أي شخص.", "الأفضل استخدام تطبيق مصادقة بدل الرسائل عند توفره."],
+        message: "مرحبا اريد حماية حساباتي والسوشيال"
+      },
+      whatsapp: {
+        label: "واتساب وتيليگرام",
+        title: "حماية واتساب وتيليگرام من السرقة",
+        icon: "fa-brands fa-whatsapp",
+        lead: "ضبط الخصوصية والتحقق بخطوتين ومراجعة الأجهزة المرتبطة حتى تقل احتمالية سرقة الحساب أو استغلاله.",
+        visual: ["2-Step", "خصوصية", "أجهزة مرتبطة"],
+        included: ["تفعيل التحقق بخطوتين PIN داخل واتساب وتيليگرام.", "مراجعة الأجهزة المرتبطة وإزالة الأجهزة غير المعروفة.", "ضبط الخصوصية للصورة، آخر ظهور، والمجموعات حسب رغبتك.", "شرح طرق الاحتيال الشائعة حتى تتجنب إرسال الأكواد."],
+        bestFor: "مناسب للأفراد وأصحاب الأعمال الذين يستلمون طلبات وزبائن عبر واتساب أو تيليگرام.",
+        notes: ["لا يمكن لأي خدمة رسمية طلب كود واتساب منك.", "احتفظ بإيميل استرداد محدث للحسابات المهمة."],
+        message: "مرحبا اريد حماية واتساب وتيليگرام"
+      },
+      website: {
+        label: "حماية المواقع",
+        title: "حماية المواقع والمتاجر من السبام والهجمات الآلية",
+        icon: "fa-solid fa-cloud-shield",
+        lead: "إعداد طبقات حماية للموقع أو المتجر مثل SSL وCloudflare وقواعد تقليل البوتات وحماية نماذج التواصل وصفحات الدخول.",
+        visual: ["SSL", "WAF", "Bot Control"],
+        included: ["تفعيل SSL وإجبار التصفح عبر HTTPS عند الإمكان.", "ربط Cloudflare وضبط DNS بشكل صحيح.", "إضافة قواعد حماية أساسية ضد الطلبات المزعجة والبوتات.", "مراجعة نماذج التواصل وصفحات الدخول لتقليل السبام."],
+        bestFor: "مناسب للمواقع التعريفية، المتاجر، صفحات الهبوط، ومواقع الخدمات التي تستقبل زوار وطلبات.",
+        notes: ["الحماية تختلف حسب نوع الاستضافة والمنصة.", "بعض الإعدادات تحتاج وصول DNS أو لوحة الاستضافة."],
+        message: "مرحبا اريد حماية موقع او متجر"
+      },
+      meta: {
+        label: "Meta Business",
+        title: "تأمين Meta Business وحسابات الإعلانات",
+        icon: "fa-brands fa-meta",
+        lead: "مراجعة الصلاحيات والأدمنز والحسابات الإعلانية وربط المصادقة الثنائية لتقليل خطر سرقة صفحات أو حملات الإعلانات.",
+        visual: ["Admins", "Ads", "2FA"],
+        included: ["مراجعة الأشخاص والمدراء داخل Business Manager.", "إزالة صلاحيات غير ضرورية أو حسابات غير معروفة.", "تفعيل المصادقة الثنائية للأشخاص المهمين.", "مراجعة الحسابات الإعلانية والصفحات المرتبطة."],
+        bestFor: "مناسب للمعلنين، أصحاب الصفحات، المتاجر، ومن يدير أكثر من حساب أو صفحة.",
+        notes: ["تحتاج دخول صاحب الحساب أو المسؤول الرئيسي.", "لا نعطي صلاحيات لأشخاص غير موثوقين."],
+        message: "مرحبا اريد تأمين Meta Business"
+      },
+      backup: {
+        label: "Backup",
+        title: "النسخ الاحتياطي واسترجاع الملفات",
+        icon: "fa-solid fa-database",
+        lead: "تنظيم نسخة احتياطية للملفات المهمة وتقليل خسارة البيانات عند تعطل الجهاز أو الإصابة بفايروس أو الحاجة للفورمات.",
+        visual: ["Drive", "External", "Recovery"],
+        included: ["تحديد الملفات المهمة: صور، مستندات، مشاريع، حسابات.", "إعداد نسخ احتياطي على OneDrive أو Google Drive أو هارد خارجي حسب المتاح.", "تنظيم مجلدات واضحة حتى يسهل الاسترجاع.", "وضع خطة بسيطة للاسترجاع بعد المشكلة."],
+        bestFor: "مناسب للطلاب، المصممين، المكاتب، وأي شخص عنده ملفات مهمة لا يريد يخسرها.",
+        notes: ["النسخ الاحتياطي أهم طبقة ضد الفدية وفقدان الملفات.", "يفضل وجود نسخة خارج الجهاز."],
+        message: "مرحبا اريد خدمة نسخ احتياطي واسترجاع ملفات"
+      },
+      network: {
+        label: "الشبكة والراوتر",
+        title: "حماية الراوتر وشبكة Wi-Fi",
+        icon: "fa-solid fa-wifi",
+        lead: "مراجعة إعدادات الراوتر والشبكة، تقوية كلمة المرور، تنظيم الأجهزة المتصلة، وضبط شبكة ضيوف عند الحاجة.",
+        visual: ["Wi-Fi", "Router", "Guests"],
+        included: ["تغيير اسم وكلمة مرور Wi-Fi بطريقة أقوى.", "مراجعة الأجهزة المتصلة والتنبيه على الأجهزة الغريبة.", "إعداد شبكة ضيوف إذا الراوتر يدعم ذلك.", "إغلاق أو تقليل الإعدادات الضعيفة حسب نوع الراوتر."],
+        bestFor: "مناسب للبيوت، المكاتب، المحلات، والأماكن التي تشارك الإنترنت مع أكثر من جهاز.",
+        notes: ["نحتاج موديل الراوتر أو دخول لوحة الإعدادات.", "لا تستخدم كلمة مرور سهلة أو مشتركة بين حساباتك."],
+        message: "مرحبا اريد حماية الراوتر والشبكة"
+      },
+      recovery: {
+        label: "استرجاع بعد الاختراق",
+        title: "استرجاع وتأمين بعد الاختراق",
+        icon: "fa-solid fa-life-ring",
+        lead: "خطوات احتواء المشكلة، مراجعة الوصول، تغيير كلمات المرور، واستعادة الحسابات الممكنة ثم تحصينها حتى لا تتكرر.",
+        visual: ["احتواء", "استرجاع", "تحصين"],
+        included: ["تحديد الحسابات أو الأجهزة المتضررة.", "إغلاق الجلسات والأجهزة الغريبة عند الإمكان.", "تغيير كلمات المرور وتفعيل المصادقة الثنائية.", "تجهيز خطة متابعة بعد الاسترجاع."],
+        bestFor: "مناسب لمن انسرق حسابه، ظهرت منشورات غريبة، أو شاك أن أحد داخل على حساباته.",
+        notes: ["الاسترجاع يعتمد على سياسات المنصة وإثبات الملكية.", "الأولوية تكون لإيقاف الضرر ثم تأمين الحسابات."],
+        message: "مرحبا اريد استرجاع وتأمين بعد اختراق"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const key = services[params.get("service")] ? params.get("service") : "device";
+    const current = services[key];
+
+    document.getElementById("serviceLabel").textContent = current.label;
+    document.getElementById("serviceTitle").textContent = current.title;
+    document.getElementById("serviceLead").textContent = current.lead;
+    document.getElementById("serviceIcon").className = current.icon;
+    document.getElementById("visualStack").innerHTML = current.visual.map(item => `<div><span>${item}</span><i class="fa-solid fa-check"></i></div>`).join("");
+    document.getElementById("includedList").innerHTML = current.included.map(item => `<li><i class="fa-solid fa-circle-check"></i><span>${item}</span></li>`).join("");
+    document.getElementById("bestFor").textContent = current.bestFor;
+    document.getElementById("notesList").innerHTML = current.notes.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("whatsappBtn").href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(current.message)}`;
+
+    document.getElementById("serviceList").innerHTML = Object.entries(services).map(([serviceKey, service]) => {
+      const active = serviceKey === key ? " active" : "";
+      return `<a class="service-chip${active}" href="security.html?service=${serviceKey}">${service.label}</a>`;
+    }).join("");
+  </script>
+</body>
+</html>
