@@ -387,7 +387,8 @@
       margin-bottom: 18px;
     }
 
-    .digital-card a {
+    .digital-card a,
+    .dev-card a {
       color: #2563eb;
       text-decoration: none;
       font-size: 15px;
@@ -548,7 +549,7 @@
       background-image:
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 20px 24px;
+      background-size: 34px 34px;
       opacity: 0.35;
     }
 
@@ -618,6 +619,33 @@
     .footer-payments {
       display: grid;
       gap: 10px;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .footer-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .footer-contact-link:hover {
+      background: rgba(96,165,250,0.18);
+      transform: translateY(-2px);
     }
 
     .payment-card {
@@ -874,23 +902,23 @@
   </style>
 </head>
 
-<body>
+<body id="top">
   <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">Nashwan CS</a>
+      <a href="#top" class="logo">Nashwan CS</a>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#">الرئيسية</a>
+        <a href="#top">الرئيسية</a>
         <a href="#services">الخدمات</a>
         <a href="#programs">البرامج</a>
         <a href="#contact">تواصل معنا</a>
-        <a href="bio.html" class="mobile-nav-btn mobile-smart">رابطك الذكي</a>
-        <a href="#contact" class="mobile-nav-btn">احجز خدمة</a>
+        <a href="https://t.me/Nashwan_kr" class="mobile-nav-btn mobile-smart" target="_blank">رابطك الذكي</a>
+        <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20احجز%20خدمة" class="mobile-nav-btn" target="_blank">احجز خدمة</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="bio.html" class="nav-action nav-smart">رابطك الذكي</a>
-        <a href="#contact" class="nav-action">احجز خدمة</a>
+        <a href="https://t.me/Nashwan_kr" class="nav-action nav-smart" target="_blank">رابطك الذكي</a>
+        <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20احجز%20خدمة" class="nav-action" target="_blank">احجز خدمة</a>
       </div>
 
       <button class="menu-btn" onclick="toggleMenu()" aria-label="فتح القائمة">
@@ -918,7 +946,7 @@
           <i class="fa-solid fa-arrow-left"></i>
         </a>
 
-        <a href="#contact" class="btn btn-light">
+        <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20استفسر%20عن%20خدماتكم" class="btn btn-light" target="_blank">
           تواصل واتساب
           <i class="fa-brands fa-whatsapp"></i>
         </a>
@@ -959,42 +987,42 @@
           <div class="digital-icon icon-web"><i class="fa-solid fa-globe"></i></div>
           <h3>إنشاء موقع إلكتروني</h3>
           <p>تصميم موقع سريع ومتجاوب يعرض خدماتك بشكل واضح ويعمل على الهاتف والكمبيوتر.</p>
-          <a href="#contact">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20طلب%20خدمة%20انشاء%20موقع%20الكتروني" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-store"><i class="fa-solid fa-cart-shopping"></i></div>
           <h3>إنشاء متجر إلكتروني</h3>
           <p>تجهيز متجر لعرض المنتجات، تنظيم الأقسام، وربطه بوسائل التواصل والدفع حسب الحاجة.</p>
-          <a href="#contact">ابدأ متجرك <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20انشاء%20متجر%20الكتروني" target="_blank">ابدأ متجرك <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-meta"><i class="fa-brands fa-meta"></i></div>
           <h3>تفعيل Meta Pixel</h3>
           <p>ربط البيكسل بالموقع أو المتجر لمتابعة الزيارات، الطلبات، وتحسين نتائج الإعلانات.</p>
-          <a href="#contact">تفعيل البيكسل <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Meta%20Pixel" target="_blank">تفعيل البيكسل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-business"><i class="fa-solid fa-briefcase"></i></div>
           <h3>Meta Business</h3>
           <p>إعداد Business Manager، ربط الصفحات، الحسابات الإعلانية، وإنستغرام بشكل صحيح.</p>
-          <a href="#contact">إعداد الحساب <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20اعداد%20Meta%20Business" target="_blank">إعداد الحساب <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-tiktok"><i class="fa-brands fa-tiktok"></i></div>
           <h3>TikTok Ads</h3>
           <p>تجهيز حساب TikTok Ads، إعداد الحملات الإعلانية، وربط أدوات تتبع النتائج.</p>
-          <a href="#contact">جهز إعلانك <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تجهيز%20اعلان%20TikTok%20Ads" target="_blank">جهز إعلانك <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-shopify"><i class="fa-brands fa-shopify"></i></div>
           <h3>Shopify</h3>
           <p>إنشاء متجر Shopify، إضافة المنتجات، ترتيب القالب، وربط أدوات التسويق والتحليل.</p>
-          <a href="#contact">إنشاء Shopify <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20انشاء%20متجر%20Shopify" target="_blank">إنشاء Shopify <i class="fa-solid fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
@@ -1016,24 +1044,28 @@
           <div class="dev-icon dev-blue"><i class="fa-solid fa-code"></i></div>
           <h3>تطوير مواقع مخصصة</h3>
           <p>مواقع سريعة ومتجاوبة بتصميم خاص يناسب نشاطك وخدماتك.</p>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تطوير%20موقع%20مخصص" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-green"><i class="fa-solid fa-window-restore"></i></div>
           <h3>لوحات تحكم</h3>
           <p>لوحة سهلة لإدارة المحتوى، الطلبات، العملاء، أو المنتجات.</p>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20لوحة%20تحكم%20لمشروعي" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-dark"><i class="fa-solid fa-database"></i></div>
           <h3>قواعد بيانات</h3>
           <p>تنظيم البيانات وربطها بطريقة واضحة وآمنة حسب احتياج النظام.</p>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20خدمة%20قواعد%20بيانات" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-purple"><i class="fa-solid fa-gears"></i></div>
           <h3>أتمتة المهام</h3>
           <p>تحويل الأعمال المتكررة إلى خطوات تلقائية توفر وقت وجهد.</p>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20اتمتة%20مهام%20لعملي" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
@@ -1076,10 +1108,10 @@
         <p>تفعيل ويندوز وأوفيس، تنصيب AutoCAD، تعريفات الجهاز، البرامج الأساسية، وصيانة النظام بشكل مرتب وسريع.</p>
 
         <div class="software-buttons">
-          <a href="#contact" class="software-btn"><i class="fa-brands fa-windows"></i> تفعيل Windows</a>
-          <a href="#contact" class="software-btn"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
-          <a href="#contact" class="software-btn"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
-          <a href="#contact" class="software-btn"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Windows" class="software-btn" target="_blank"><i class="fa-brands fa-windows"></i> تفعيل Windows</a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Office" class="software-btn" target="_blank"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20AutoCAD" class="software-btn" target="_blank"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تعاريف%20Windows" class="software-btn" target="_blank"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
         </div>
       </div>
     </div>
@@ -1090,6 +1122,16 @@
       <div class="footer-brand">
         <h3>Nashwan CS</h3>
         <p>خدمات تقنية، برمجيات، مواقع ومتاجر، دعم فني، وتفعيل برامج للأفراد والشركات.</p>
+        <div class="footer-actions">
+          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20استفسر%20عن%20خدمات%20Nashwan%20CS" class="footer-contact-link" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            واتساب
+          </a>
+          <a href="https://t.me/Nashwan_kr" class="footer-contact-link" target="_blank">
+            <i class="fa-brands fa-telegram"></i>
+            تيليگرام
+          </a>
+        </div>
       </div>
 
       <div class="footer-info">
@@ -1103,6 +1145,11 @@
         <div>
           <i class="fa-solid fa-credit-card"></i>
           <span>الدفع متاح عبر ماستر كارد</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-clock"></i>
+          <span>استجابة سريعة وخدمة عن بعد حسب نوع الطلب</span>
         </div>
       </div>
 
@@ -1126,11 +1173,11 @@
       <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <a href="#" class="instagram" aria-label="Instagram">
+    <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20رابط%20حساب%20الانستغرام" class="instagram" aria-label="Instagram" target="_blank">
       <i class="fa-brands fa-instagram"></i>
     </a>
 
-    <a href="#" class="facebook" aria-label="Facebook">
+    <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20رابط%20صفحة%20الفيسبوك" class="facebook" aria-label="Facebook" target="_blank">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
 
