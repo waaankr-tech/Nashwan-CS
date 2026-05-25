@@ -265,22 +265,29 @@
     .float-3 { bottom: 120px; right: 20px; animation-delay: .8s; }
     .float-4 { bottom: 210px; left: -10px; animation-delay: 1.1s; }
 
+    .computer-section,
     .digital-services,
     .dev-section {
       padding: 90px 24px;
       background: #f7f9fc;
     }
 
+    .computer-section {
+      background: #fff;
+    }
+
     .dev-section {
       background: #fff;
     }
 
+    .computer-container,
     .digital-container,
     .dev-container {
       max-width: 1200px;
       margin: auto;
     }
 
+    .computer-head,
     .digital-head,
     .dev-head {
       display: flex;
@@ -290,6 +297,7 @@
       margin-bottom: 34px;
     }
 
+    .computer-head span,
     .digital-head span,
     .dev-head span,
     .software-content span {
@@ -298,6 +306,7 @@
       font-weight: 700;
     }
 
+    .computer-head h2,
     .digital-head h2,
     .dev-head h2,
     .software-content h2 {
@@ -308,6 +317,7 @@
       font-weight: 900;
     }
 
+    .computer-head p,
     .digital-head p,
     .dev-head p,
     .software-content p {
@@ -316,9 +326,146 @@
       line-height: 1.8;
     }
 
+    .computer-head p,
     .digital-head p,
     .dev-head p {
       max-width: 430px;
+    }
+
+    .computer-showcase {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .computer-feature {
+      min-height: 100%;
+      border-radius: 30px;
+      padding: 24px;
+      background: #f8fafc;
+      border: 1px solid #e8edf5;
+      display: grid;
+      gap: 18px;
+      align-content: space-between;
+    }
+
+    .computer-feature img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .computer-feature h3 {
+      color: #0f172a;
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .computer-feature p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .computer-tabs {
+      display: grid;
+      gap: 18px;
+    }
+
+    .computer-group {
+      background: #fff;
+      border: 1px solid #e8edf5;
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .computer-group-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 16px;
+    }
+
+    .computer-group-title i {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      background: #2563eb;
+      font-size: 18px;
+    }
+
+    .computer-group-title h3 {
+      color: #0f172a;
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .computer-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .computer-card {
+      min-height: 152px;
+      padding: 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.25s ease;
+    }
+
+    .computer-card:hover {
+      transform: translateY(-4px);
+      background: #fff;
+      box-shadow: 0 18px 38px rgba(15,23,42,0.08);
+    }
+
+    .computer-card i {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .computer-card h4 {
+      color: #0f172a;
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .computer-card p {
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .computer-card span {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
     }
 
     .digital-grid {
@@ -1120,17 +1267,24 @@
         justify-content: center;
       }
 
+      .computer-head,
       .digital-head,
       .dev-head {
         display: block;
       }
 
+      .computer-showcase {
+        grid-template-columns: 1fr;
+      }
+
       .digital-grid,
       .dev-grid,
+      .computer-card-grid,
       .security-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .computer-head h2,
       .digital-head h2,
       .dev-head h2,
       .software-content h2,
@@ -1205,10 +1359,15 @@
 
       .digital-grid,
       .dev-grid,
+      .computer-card-grid,
       .software-buttons,
       .security-grid,
       .security-metrics {
         grid-template-columns: 1fr;
+      }
+
+      .computer-section {
+        padding: 64px 18px;
       }
 
       .security-section {
@@ -1330,6 +1489,7 @@
 
       <nav class="nav-links" id="navLinks">
         <a href="#top">الرئيسية</a>
+        <a href="#computer">الحاسوب</a>
         <a href="#services">الخدمات</a>
         <a href="#programs">البرامج</a>
         <a href="#security">الأمان</a>
@@ -1390,6 +1550,103 @@
       <div class="float-item float-2"><i class="fa-solid fa-file-word"></i> Office</div>
       <div class="float-item float-3"><i class="fa-solid fa-wifi"></i> كاميرات IP</div>
       <div class="float-item float-4"><i class="fa-solid fa-pen-nib"></i> Photoshop</div>
+    </div>
+  </section>
+
+  <section class="computer-section" id="computer">
+    <div class="computer-container">
+      <div class="computer-head">
+        <div>
+          <span>خدمات الحاسوب</span>
+          <h2>هاردوير وسوفتوير لجهاز جاهز للعمل</h2>
+        </div>
+
+        <p>فحص وصيانة وترقية وتنصيب، من مشاكل القطع والحرارة إلى Windows والتعاريف والبرامج الأساسية.</p>
+      </div>
+
+      <div class="computer-showcase">
+        <div class="computer-feature">
+          <img src="computer-hardware.svg" alt="خدمات هاردوير الحاسوب">
+          <div>
+            <h3>نبدأ من المشكلة ونوصل للحل المناسب</h3>
+            <p>نوضح لك هل الخلل من النظام، التعاريف، الحرارة، الهارد، الرام، أو إعدادات الجهاز قبل أي خطوة.</p>
+          </div>
+        </div>
+
+        <div class="computer-tabs">
+          <div class="computer-group">
+            <div class="computer-group-title">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <h3>الهاردوير</h3>
+            </div>
+
+            <div class="computer-card-grid">
+              <a href="computer.html?service=diagnosis" class="computer-card">
+                <div>
+                  <i class="fa-solid fa-stethoscope"></i>
+                  <h4>فحص أعطال الجهاز</h4>
+                  <p>تشخيص البطء، الحرارة، الشاشة، البطارية، أو مشاكل التشغيل.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+
+              <a href="computer.html?service=upgrade" class="computer-card">
+                <div>
+                  <i class="fa-solid fa-memory"></i>
+                  <h4>ترقية SSD و RAM</h4>
+                  <p>اختيار وتركيب ترقية مناسبة لتحسين سرعة الجهاز.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+
+              <a href="computer.html?service=cooling" class="computer-card">
+                <div>
+                  <i class="fa-solid fa-temperature-half"></i>
+                  <h4>تنظيف وصيانة حرارة</h4>
+                  <p>تنظيف غبار، فحص مروحة، وتبديل معجون حسب الحاجة.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="computer-group">
+            <div class="computer-group-title">
+              <i class="fa-solid fa-laptop-code"></i>
+              <h3>السوفتوير</h3>
+            </div>
+
+            <div class="computer-card-grid">
+              <a href="computer.html?service=format" class="computer-card">
+                <div>
+                  <i class="fa-brands fa-windows"></i>
+                  <h4>فورمات وتنصيب Windows</h4>
+                  <p>تنصيب نظيف، تقسيم مناسب، وضبط أساسيات النظام.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+
+              <a href="computer.html?service=drivers" class="computer-card">
+                <div>
+                  <i class="fa-solid fa-microchip"></i>
+                  <h4>تعاريف وبرامج أساسية</h4>
+                  <p>تعريف الصوت والشاشة والشبكة وتنصيب البرامج الضرورية.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+
+              <a href="computer.html?service=setup" class="computer-card">
+                <div>
+                  <i class="fa-solid fa-briefcase"></i>
+                  <h4>تجهيز جهاز للعمل أو الدراسة</h4>
+                  <p>Windows، Office، برامج، حماية، وترتيب كامل حسب استخدامك.</p>
+                </div>
+                <span>عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
