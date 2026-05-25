@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="Computer hardware service">
+  <rect width="520" height="360" rx="34" fill="#f8fafc"/>
+  <rect x="72" y="64" width="258" height="168" rx="20" fill="#0f172a"/>
+  <rect x="91" y="84" width="220" height="116" rx="12" fill="#1e293b"/>
+  <path d="M126 122h150M126 152h96" stroke="#5eead4" stroke-width="10" stroke-linecap="round"/>
+  <rect x="170" y="232" width="62" height="30" rx="8" fill="#334155"/>
+  <rect x="135" y="260" width="132" height="16" rx="8" fill="#0f172a"/>
+  <rect x="352" y="92" width="96" height="186" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+  <circle cx="400" cy="140" r="25" fill="#0f766e"/>
+  <path d="M400 122v36M382 140h36" stroke="#ccfbf1" stroke-width="9" stroke-linecap="round"/>
+  <rect x="377" y="194" width="46" height="12" rx="6" fill="#94a3b8"/>
+  <rect x="377" y="222" width="46" height="12" rx="6" fill="#94a3b8"/>
+  <circle cx="108" cy="272" r="31" fill="#e0f2fe"/>
+  <path d="M97 272h22M108 261v22" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="314" cy="282" r="24" fill="#dcfce7"/>
+  <path d="M304 282h20M314 272v20" stroke="#16a34a" stroke-width="7" stroke-linecap="round"/>
+</svg>
