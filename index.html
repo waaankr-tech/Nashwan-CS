@@ -398,6 +398,183 @@
       gap: 8px;
     }
 
+    .service-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(2,6,23,0.68);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .service-modal.active {
+      display: flex;
+    }
+
+    .service-panel {
+      position: relative;
+      width: min(960px, 100%);
+      max-height: min(720px, 92vh);
+      overflow: auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(2,6,23,0.25);
+    }
+
+    .service-close {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #0f172a;
+      cursor: pointer;
+      font-size: 17px;
+      z-index: 2;
+    }
+
+    .service-detail {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+    }
+
+    .service-visual {
+      min-height: 420px;
+      padding: 34px;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .service-graphic {
+      min-height: 250px;
+      border-radius: 22px;
+      background: #0f172a;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-graphic::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+    }
+
+    .service-graphic i {
+      position: relative;
+      z-index: 1;
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: rgba(96,165,250,0.18);
+      color: #60a5fa;
+      font-size: 46px;
+    }
+
+    .service-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .service-mini-grid span {
+      min-height: 70px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .service-copy {
+      padding: 46px 34px 34px;
+    }
+
+    .service-copy small {
+      display: inline-flex;
+      color: #2563eb;
+      background: #eff6ff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .service-copy h3 {
+      color: #0f172a;
+      font-size: 30px;
+      line-height: 1.35;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .service-copy p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .service-points {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .service-points li {
+      list-style: none;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .service-points i {
+      color: #16a34a;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .service-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-decoration: none;
+      color: #fff;
+      background: #25d366;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 16px 32px rgba(37,211,102,0.24);
+    }
+
     .icon-web,
     .dev-blue { background: #2563eb; }
     .icon-store,
@@ -881,6 +1058,23 @@
         text-align: right;
       }
 
+      .service-detail {
+        grid-template-columns: 1fr;
+      }
+
+      .service-visual {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .service-copy {
+        padding: 28px 24px 24px;
+      }
+
+      .service-copy h3 {
+        font-size: 24px;
+      }
+
       .payment-card {
         width: 108px;
         max-width: 108px;
@@ -987,42 +1181,42 @@
           <div class="digital-icon icon-web"><i class="fa-solid fa-globe"></i></div>
           <h3>إنشاء موقع إلكتروني</h3>
           <p>تصميم موقع سريع ومتجاوب يعرض خدماتك بشكل واضح ويعمل على الهاتف والكمبيوتر.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20طلب%20خدمة%20انشاء%20موقع%20الكتروني" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="website">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-store"><i class="fa-solid fa-cart-shopping"></i></div>
           <h3>إنشاء متجر إلكتروني</h3>
           <p>تجهيز متجر لعرض المنتجات، تنظيم الأقسام، وربطه بوسائل التواصل والدفع حسب الحاجة.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20انشاء%20متجر%20الكتروني" target="_blank">ابدأ متجرك <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="store">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-meta"><i class="fa-brands fa-meta"></i></div>
           <h3>تفعيل Meta Pixel</h3>
           <p>ربط البيكسل بالموقع أو المتجر لمتابعة الزيارات، الطلبات، وتحسين نتائج الإعلانات.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Meta%20Pixel" target="_blank">تفعيل البيكسل <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="pixel">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-business"><i class="fa-solid fa-briefcase"></i></div>
           <h3>Meta Business</h3>
           <p>إعداد Business Manager، ربط الصفحات، الحسابات الإعلانية، وإنستغرام بشكل صحيح.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20اعداد%20Meta%20Business" target="_blank">إعداد الحساب <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="business">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-tiktok"><i class="fa-brands fa-tiktok"></i></div>
           <h3>TikTok Ads</h3>
           <p>تجهيز حساب TikTok Ads، إعداد الحملات الإعلانية، وربط أدوات تتبع النتائج.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تجهيز%20اعلان%20TikTok%20Ads" target="_blank">جهز إعلانك <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="tiktok">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="digital-card">
           <div class="digital-icon icon-shopify"><i class="fa-brands fa-shopify"></i></div>
           <h3>Shopify</h3>
           <p>إنشاء متجر Shopify، إضافة المنتجات، ترتيب القالب، وربط أدوات التسويق والتحليل.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20انشاء%20متجر%20Shopify" target="_blank">إنشاء Shopify <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="shopify">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
@@ -1044,28 +1238,28 @@
           <div class="dev-icon dev-blue"><i class="fa-solid fa-code"></i></div>
           <h3>تطوير مواقع مخصصة</h3>
           <p>مواقع سريعة ومتجاوبة بتصميم خاص يناسب نشاطك وخدماتك.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تطوير%20موقع%20مخصص" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="customSite">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-green"><i class="fa-solid fa-window-restore"></i></div>
           <h3>لوحات تحكم</h3>
           <p>لوحة سهلة لإدارة المحتوى، الطلبات، العملاء، أو المنتجات.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20لوحة%20تحكم%20لمشروعي" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="dashboard">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-dark"><i class="fa-solid fa-database"></i></div>
           <h3>قواعد بيانات</h3>
           <p>تنظيم البيانات وربطها بطريقة واضحة وآمنة حسب احتياج النظام.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20خدمة%20قواعد%20بيانات" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="database">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
         <div class="dev-card">
           <div class="dev-icon dev-purple"><i class="fa-solid fa-gears"></i></div>
           <h3>أتمتة المهام</h3>
           <p>تحويل الأعمال المتكررة إلى خطوات تلقائية توفر وقت وجهد.</p>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20اتمتة%20مهام%20لعملي" target="_blank">اطلب الخدمة <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="#" data-service="automation">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
@@ -1108,10 +1302,10 @@
         <p>تفعيل ويندوز وأوفيس، تنصيب AutoCAD، تعريفات الجهاز، البرامج الأساسية، وصيانة النظام بشكل مرتب وسريع.</p>
 
         <div class="software-buttons">
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Windows" class="software-btn" target="_blank"><i class="fa-brands fa-windows"></i> تفعيل Windows</a>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20Office" class="software-btn" target="_blank"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تفعيل%20AutoCAD" class="software-btn" target="_blank"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
-          <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20تعاريف%20Windows" class="software-btn" target="_blank"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
+          <a href="#" class="software-btn" data-service="windows"><i class="fa-brands fa-windows"></i> تفعيل Windows</a>
+          <a href="#" class="software-btn" data-service="office"><i class="fa-solid fa-file-word"></i> تفعيل Office</a>
+          <a href="#" class="software-btn" data-service="autocad"><i class="fa-solid fa-cube"></i> تفعيل AutoCAD</a>
+          <a href="#" class="software-btn" data-service="drivers"><i class="fa-solid fa-microchip"></i> تعاريف Windows</a>
         </div>
       </div>
     </div>
@@ -1168,6 +1362,35 @@
     </div>
   </footer>
 
+  <div class="service-modal" id="serviceModal" aria-hidden="true">
+    <div class="service-panel">
+      <button class="service-close" type="button" onclick="closeServiceModal()" aria-label="إغلاق">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="service-detail">
+        <div class="service-visual">
+          <div class="service-graphic">
+            <i id="modalIcon" class="fa-solid fa-globe"></i>
+          </div>
+
+          <div class="service-mini-grid" id="modalMiniGrid"></div>
+        </div>
+
+        <div class="service-copy">
+          <small id="modalLabel">تفاصيل الخدمة</small>
+          <h3 id="modalTitle">عنوان الخدمة</h3>
+          <p id="modalText">تفاصيل الخدمة تظهر هنا.</p>
+          <ul class="service-points" id="modalPoints"></ul>
+          <a href="#" class="service-whatsapp" id="modalWhatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            اطلب الخدمة عبر واتساب
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="social-float">
     <a href="https://wa.me/9647734449499" class="whatsapp" aria-label="WhatsApp" target="_blank">
       <i class="fa-brands fa-whatsapp"></i>
@@ -1187,6 +1410,172 @@
   </div>
 
   <script>
+    const whatsappNumber = "9647734449499";
+    const serviceData = {
+      website: {
+        label: "موقع إلكتروني",
+        title: "إنشاء موقع إلكتروني احترافي",
+        icon: "fa-solid fa-globe",
+        text: "موقع سريع ومتجاوب يعرض خدماتك بصورة واضحة، مناسب للشركات، المكاتب، المتاجر الصغيرة، والصفحات التعريفية.",
+        mini: ["تصميم متجاوب", "واجهة مرتبة", "ربط واتساب"],
+        points: ["صفحة رئيسية وخدمات وتواصل", "تصميم مناسب للموبايل والكمبيوتر", "تهيئة أساسية للسرعة وتجربة المستخدم"],
+        message: "مرحبا اريد تفاصيل انشاء موقع الكتروني"
+      },
+      store: {
+        label: "متجر إلكتروني",
+        title: "إنشاء متجر إلكتروني لعرض وبيع المنتجات",
+        icon: "fa-solid fa-cart-shopping",
+        text: "نجهز متجر مرتب للمنتجات، الأقسام، الطلبات، وطرق التواصل حتى يبدأ مشروعك بشكل أوضح وأسهل للزبائن.",
+        mini: ["منتجات", "أقسام", "طلبات"],
+        points: ["ترتيب المنتجات والأقسام", "زر طلب أو تواصل لكل منتج", "إعداد شكل المتجر حسب نوع نشاطك"],
+        message: "مرحبا اريد تفاصيل انشاء متجر الكتروني"
+      },
+      pixel: {
+        label: "Meta Pixel",
+        title: "تفعيل وتتبع Meta Pixel",
+        icon: "fa-brands fa-meta",
+        text: "ربط البيكسل يساعدك تعرف الزوار والطلبات وتحسن نتائج الإعلانات على فيسبوك وإنستغرام.",
+        mini: ["زيارات", "طلبات", "تحسين"],
+        points: ["ربط البيكسل بالموقع أو المتجر", "اختبار الأحداث الأساسية", "تجهيز التتبع للحملات الإعلانية"],
+        message: "مرحبا اريد تفاصيل تفعيل Meta Pixel"
+      },
+      business: {
+        label: "Meta Business",
+        title: "إعداد Meta Business بشكل صحيح",
+        icon: "fa-solid fa-briefcase",
+        text: "تنظيم الصفحات والحسابات الإعلانية وربط إنستغرام بطريقة تساعدك تدير الإعلانات بأمان ووضوح.",
+        mini: ["صفحات", "إعلانات", "صلاحيات"],
+        points: ["إعداد Business Manager", "ربط الصفحة وإنستغرام", "تنظيم الصلاحيات والحساب الإعلاني"],
+        message: "مرحبا اريد تفاصيل اعداد Meta Business"
+      },
+      tiktok: {
+        label: "TikTok Ads",
+        title: "تجهيز حساب TikTok Ads",
+        icon: "fa-brands fa-tiktok",
+        text: "نجهز حساب الإعلانات ونرتب الأساسيات حتى تكون حملتك جاهزة للانطلاق وتتبع النتائج.",
+        mini: ["حساب", "حملة", "تتبع"],
+        points: ["إعداد حساب TikTok Ads", "ترتيب بيانات الإعلان", "ربط أدوات التتبع حسب الحاجة"],
+        message: "مرحبا اريد تفاصيل تجهيز TikTok Ads"
+      },
+      shopify: {
+        label: "Shopify",
+        title: "إنشاء وتجهيز متجر Shopify",
+        icon: "fa-brands fa-shopify",
+        text: "تجهيز متجر Shopify من القالب إلى المنتجات والصفحات الأساسية وربط أدوات التسويق.",
+        mini: ["قالب", "منتجات", "تسويق"],
+        points: ["ترتيب القالب والواجهة", "إضافة المنتجات الأساسية", "ربط أدوات التواصل والتحليل"],
+        message: "مرحبا اريد تفاصيل انشاء متجر Shopify"
+      },
+      customSite: {
+        label: "برمجة مواقع",
+        title: "تطوير موقع مخصص حسب احتياجك",
+        icon: "fa-solid fa-code",
+        text: "نبني موقع مخصص لعملك إذا تحتاج فكرة خاصة أو صفحات وخدمات غير جاهزة بالقوالب العادية.",
+        mini: ["تصميم خاص", "كود مرتب", "تطوير"],
+        points: ["تحليل فكرة الموقع قبل التنفيذ", "واجهة تناسب نوع العمل", "قابلية تطوير لاحقاً حسب الحاجة"],
+        message: "مرحبا اريد تفاصيل تطوير موقع مخصص"
+      },
+      dashboard: {
+        label: "لوحة تحكم",
+        title: "برمجة لوحة تحكم لإدارة العمل",
+        icon: "fa-solid fa-window-restore",
+        text: "لوحة لإدارة المحتوى أو الطلبات أو العملاء أو المنتجات، حسب طبيعة مشروعك.",
+        mini: ["إدارة", "تقارير", "صلاحيات"],
+        points: ["واجهة سهلة للإدارة", "تنظيم البيانات والطلبات", "إمكانية إضافة صلاحيات للمستخدمين"],
+        message: "مرحبا اريد تفاصيل لوحة تحكم لمشروعي"
+      },
+      database: {
+        label: "قواعد بيانات",
+        title: "تنظيم وربط قواعد البيانات",
+        icon: "fa-solid fa-database",
+        text: "تصميم قاعدة بيانات واضحة وآمنة تساعد النظام يخزن ويعرض المعلومات بطريقة مرتبة.",
+        mini: ["جداول", "ربط", "حماية"],
+        points: ["تنظيم الجداول والعلاقات", "ربط البيانات بواجهة أو لوحة تحكم", "مراعاة الترتيب وسهولة التوسع"],
+        message: "مرحبا اريد تفاصيل خدمة قواعد بيانات"
+      },
+      automation: {
+        label: "أتمتة",
+        title: "أتمتة المهام المتكررة",
+        icon: "fa-solid fa-gears",
+        text: "نحوّل الخطوات المتكررة إلى إجراءات تلقائية تقلل الوقت والأخطاء في العمل اليومي.",
+        mini: ["اختصار وقت", "تنبيهات", "ربط"],
+        points: ["تحليل الخطوات المتكررة", "ربط أدوات أو نماذج حسب الحاجة", "تجهيز مسار عمل أسهل وأسرع"],
+        message: "مرحبا اريد تفاصيل اتمتة مهام لعملي"
+      },
+      windows: {
+        label: "Windows",
+        title: "تفعيل وتجهيز Windows",
+        icon: "fa-brands fa-windows",
+        text: "تفعيل النظام وتجهيز الإعدادات الأساسية حتى يكون الجهاز مناسب للعمل والدراسة.",
+        mini: ["تفعيل", "إعدادات", "تنظيف"],
+        points: ["فحص حالة النظام", "تفعيل Windows حسب نوع النسخة", "ترتيب الإعدادات الأساسية"],
+        message: "مرحبا اريد تفاصيل تفعيل Windows"
+      },
+      office: {
+        label: "Office",
+        title: "تفعيل وتجهيز Microsoft Office",
+        icon: "fa-solid fa-file-word",
+        text: "تجهيز Word وExcel وPowerPoint للاستخدام اليومي مع ضبط الأساسيات.",
+        mini: ["Word", "Excel", "PowerPoint"],
+        points: ["تنصيب أو تفعيل Office", "فحص عمل البرامج", "حل مشاكل التشغيل الشائعة"],
+        message: "مرحبا اريد تفاصيل تفعيل Office"
+      },
+      autocad: {
+        label: "AutoCAD",
+        title: "تنصيب وتجهيز AutoCAD",
+        icon: "fa-solid fa-cube",
+        text: "مساعدة في تجهيز AutoCAD للمهندسين والطلاب حسب مواصفات الجهاز والنسخة المناسبة.",
+        mini: ["تنصيب", "تهيئة", "اختبار"],
+        points: ["فحص متطلبات الجهاز", "تنصيب البرنامج وتجهيزه", "اختبار التشغيل بعد الانتهاء"],
+        message: "مرحبا اريد تفاصيل تفعيل AutoCAD"
+      },
+      drivers: {
+        label: "Drivers",
+        title: "تعاريف Windows والقطع",
+        icon: "fa-solid fa-microchip",
+        text: "تثبيت التعاريف الناقصة للصوت والشاشة والشبكة وباقي القطع حتى يرجع الجهاز يعمل بشكل طبيعي.",
+        mini: ["صوت", "شبكة", "شاشة"],
+        points: ["فحص التعاريف الناقصة", "تثبيت التعاريف المناسبة", "اختبار الصوت والإنترنت والشاشة"],
+        message: "مرحبا اريد تفاصيل تعاريف Windows"
+      }
+    };
+
+    function openServiceModal(serviceKey) {
+      const data = serviceData[serviceKey];
+      if (!data) return;
+
+      document.getElementById("modalLabel").textContent = data.label;
+      document.getElementById("modalTitle").textContent = data.title;
+      document.getElementById("modalText").textContent = data.text;
+      document.getElementById("modalIcon").className = data.icon;
+      document.getElementById("modalMiniGrid").innerHTML = data.mini.map(item => `<span>${item}</span>`).join("");
+      document.getElementById("modalPoints").innerHTML = data.points.map(point => `<li><i class="fa-solid fa-check"></i>${point}</li>`).join("");
+      document.getElementById("modalWhatsapp").href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(data.message)}`;
+
+      document.getElementById("serviceModal").classList.add("active");
+      document.getElementById("serviceModal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeServiceModal() {
+      document.getElementById("serviceModal").classList.remove("active");
+      document.getElementById("serviceModal").setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll("[data-service]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        openServiceModal(button.dataset.service);
+      });
+    });
+
+    document.getElementById("serviceModal").addEventListener("click", (event) => {
+      if (event.target.id === "serviceModal") closeServiceModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeServiceModal();
+    });
+
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
