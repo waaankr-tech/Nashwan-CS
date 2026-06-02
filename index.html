@@ -4026,14 +4026,48 @@
       font-weight: 600;
     }
 
+    .npos-scroll-hint {
+      margin: -8px 0 16px;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+
     .npos-product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      display: flex;
       gap: 18px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 6px 4px 22px;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 4px;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+    }
+
+    .npos-product-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .npos-product-grid::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 999px;
+    }
+
+    .npos-product-grid::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+
+    .npos-product-grid::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
     }
 
     .npos-product-card {
+      flex: 0 0 min(360px, 82vw);
       overflow: hidden;
+      scroll-snap-align: start;
       border: 1px solid #E5E7EB;
       border-radius: 22px;
       background: #FFFFFF;
@@ -4123,12 +4157,12 @@
     }
 
     @media (max-width: 1050px) {
-      .npos-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .npos-product-card { flex-basis: min(390px, 78vw); }
     }
 
     @media (max-width: 640px) {
       .npos-product-section { padding: 64px 18px; }
-      .npos-product-grid { grid-template-columns: 1fr; }
+      .npos-product-card { flex-basis: 86vw; }
       .npos-download-btn,
       .npos-catalog-btn { width: 100%; }
     }
@@ -4189,7 +4223,8 @@
         <p>نظام كاشير ومبيعات حديث للأسواق والمحلات، يدعم البيع السريع، المنتجات، الفواتير، المخزون، التقارير، وشاشة الزبون.</p>
       </div>
 
-      <div class="npos-product-grid">
+      <p class="npos-scroll-hint">اسحب الكروت يميناً ويساراً لمشاهدة صور البرنامج</p>
+      <div class="npos-product-grid" aria-label="صور ومميزات Nashwan POS">
         <article class="npos-product-card">
           <div class="npos-product-media">
             <img src="pos-cashier.png" alt="واجهة الكاشير في Nashwan POS" loading="lazy">
@@ -4844,6 +4879,7 @@
 
 </body>
 </html>
+
 
 
 
