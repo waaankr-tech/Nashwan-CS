@@ -3,7 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nashwan POS</title>
+  <title>Nashwan CS | Nashwan POS</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:image" content="https://nashwancs.com/site-icon-512.png" />
+  <meta name="description" content="Nashwan CS - نشوان للحلول البرمجية. برمجة مواقع وتطبيقات وأنظمة إدارة، مع Nashwan POS نظام كاشير ومبيعات حديث للمحلات والأسواق." />
+  <meta name="keywords" content="نشوان, Nashwan, Nashwan CS, Nashwan POS, نشوان POS, برنامج كاشير, نظام مبيعات, برمجة مواقع, تطبيقات, حلول برمجية, العراق, البصرة" />
+  <meta name="author" content="Nashwan CS" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Nashwan CS | نشوان للحلول البرمجية" />
+  <meta property="og:description" content="حلول برمجية حديثة: مواقع، تطبيقات، أنظمة إدارة، وNashwan POS لإدارة البيع والمخزون والفواتير." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nashwancs.com/" />
+  <meta property="og:site_name" content="Nashwan CS" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nashwan CS",
+    "alternateName": ["نشوان", "نشوان للحلول البرمجية", "Nashwan POS"],
+    "url": "https://nashwancs.com/",
+    "description": "Nashwan CS - نشوان للحلول البرمجية: برمجة مواقع وتطبيقات وأنظمة إدارة، ومنتج Nashwan POS للمبيعات والكاشير.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+9647734449499",
+      "contactType": "customer support",
+      "areaServed": "IQ",
+      "availableLanguage": ["Arabic", "English"]
+    }
+  }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -4166,13 +4197,1678 @@
       .npos-download-btn,
       .npos-catalog-btn { width: 100%; }
     }
+  
+    /* Nashwan CS final premium polish */
+    :root {
+      --ncs-green: #059669;
+      --ncs-green-dark: #047857;
+      --ncs-ink: #0f172a;
+      --ncs-muted: #64748b;
+      --ncs-line: #e5e7eb;
+      --ncs-soft: #f8fafc;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--ncs-ink);
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, .9);
+      border-bottom: 1px solid rgba(226, 232, 240, .9);
+      box-shadow: 0 10px 35px rgba(15, 23, 42, .05);
+    }
+
+    .logo {
+      color: var(--ncs-green-dark);
+      font-weight: 900;
+      letter-spacing: .01em;
+    }
+
+    .nav-links a:hover {
+      color: var(--ncs-green-dark);
+    }
+
+    .nav-action {
+      background: var(--ncs-green-dark);
+      box-shadow: 0 12px 28px rgba(4, 120, 87, .18);
+    }
+
+    .nav-action:hover {
+      background: var(--ncs-green);
+    }
+
+    .nav-smart {
+      background: #ecfdf5;
+      color: var(--ncs-green-dark);
+      box-shadow: none;
+    }
+
+    .nav-smart:hover {
+      background: #d1fae5;
+      color: var(--ncs-green-dark);
+    }
+
+    .hero {
+      max-width: 1240px;
+      min-height: calc(100vh - 68px);
+      gap: 64px;
+      padding: 74px 24px 88px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 520px;
+      z-index: -1;
+      background: radial-gradient(circle at 70% 12%, rgba(16, 185, 129, .13), transparent 34%), linear-gradient(180deg, #f8fffc 0%, #ffffff 84%);
+      pointer-events: none;
+    }
+
+    .badge {
+      background: #ecfdf5;
+      color: var(--ncs-green-dark);
+      border: 1px solid #bbf7d0;
+      font-weight: 900;
+    }
+
+    .hero-text h1 {
+      color: var(--ncs-ink);
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .hero-text p {
+      color: #475569;
+      font-size: 19px;
+      line-height: 1.95;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--ncs-green-dark);
+      box-shadow: 0 18px 42px rgba(4, 120, 87, .22);
+    }
+
+    .btn-primary:hover {
+      background: var(--ncs-green);
+    }
+
+    .btn-light {
+      border-color: var(--ncs-line);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .07);
+    }
+
+    .mini-features span {
+      background: #ffffff;
+      border-color: var(--ncs-line);
+      color: #334155;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .04);
+      font-weight: 800;
+    }
+
+    .mini-features i,
+    .float-item i {
+      color: var(--ncs-green-dark);
+    }
+
+    .image-shell {
+      border-radius: 34px;
+      box-shadow: 0 30px 90px rgba(15, 23, 42, .14);
+      border: 1px solid rgba(226, 232, 240, .9);
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .float-item {
+      border: 1px solid rgba(226, 232, 240, .95);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, .10);
+      font-weight: 900;
+    }
+
+    .npos-product-section {
+      padding: 110px 24px 104px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+      border-top: 1px solid #eef2f7;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .npos-product-container {
+      max-width: 1240px;
+    }
+
+    .npos-product-head {
+      max-width: 850px;
+      margin-bottom: 42px;
+    }
+
+    .npos-product-kicker {
+      color: var(--ncs-green-dark);
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+    }
+
+    .npos-product-head h2 {
+      color: var(--ncs-ink);
+      letter-spacing: 0;
+    }
+
+    .npos-product-head p {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .npos-scroll-hint {
+      color: var(--ncs-muted);
+      margin-bottom: 20px;
+    }
+
+    .npos-product-grid {
+      gap: 22px;
+      padding: 10px 4px 28px;
+    }
+
+    .npos-product-card {
+      flex-basis: min(392px, 84vw);
+      border-radius: 24px;
+      border-color: var(--ncs-line);
+      box-shadow: 0 20px 55px rgba(15, 23, 42, .08);
+    }
+
+    .npos-product-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 30px 75px rgba(15, 23, 42, .12);
+    }
+
+    .npos-product-media {
+      aspect-ratio: 16 / 10.5;
+      background: #ffffff;
+    }
+
+    .npos-product-body {
+      padding: 20px 20px 22px;
+    }
+
+    .npos-product-body h3 {
+      color: var(--ncs-ink);
+    }
+
+    .npos-product-body p {
+      color: var(--ncs-muted);
+      font-weight: 700;
+    }
+
+    .npos-download-btn {
+      background: var(--ncs-green-dark);
+      box-shadow: 0 18px 42px rgba(4, 120, 87, .24);
+    }
+
+    .npos-download-btn:hover {
+      background: var(--ncs-green);
+    }
+
+    .npos-catalog-btn {
+      border-color: var(--ncs-line);
+      color: var(--ncs-ink);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 54px;
+      }
+      .hero-text {
+        text-align: center;
+      }
+      .hero-text h1,
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons,
+      .mini-features {
+        justify-content: center;
+      }
+    }
+  
+    /* Nashwan CS hero spacing correction */
+    .hero {
+      min-height: auto;
+      padding-top: 72px;
+      padding-bottom: 82px;
+    }
+
+    .hero-image {
+      min-height: 520px;
+    }
+
+    .image-shell {
+      height: 520px;
+    }
+
+    .image-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-image,
+      .image-shell {
+        min-height: 360px;
+        height: 360px;
+      }
+    }
+  
+    /* Nashwan CS mobile hero correction */
+    @media (max-width: 640px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .nav-container {
+        padding: 0 18px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero {
+        width: 100%;
+        padding: 42px 18px 58px;
+        gap: 34px;
+        overflow: hidden;
+      }
+
+      .hero-text h1 {
+        max-width: 100%;
+        font-size: 34px;
+        line-height: 1.28;
+      }
+
+      .hero-text p {
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .hero-buttons {
+        width: 100%;
+      }
+
+      .hero-buttons .btn {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .mini-features {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .mini-features span {
+        justify-content: center;
+      }
+
+      .hero-image {
+        width: 100%;
+        min-height: 330px;
+        height: 330px;
+      }
+
+      .image-shell {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        min-height: 330px;
+        height: 330px;
+        border-radius: 24px;
+      }
+
+      .float-item {
+        max-width: calc(100vw - 42px);
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+    }
+  
+    /* Nashwan CS mobile overflow lock */
+    @media (max-width: 640px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .navbar,
+      .nav-container,
+      .hero,
+      .hero-text,
+      .hero-image,
+      .npos-product-section {
+        max-width: 100vw;
+      }
+
+      .nav-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .logo {
+        max-width: 170px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .hero-text {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .hero-text h1,
+      .hero-text p {
+        overflow-wrap: anywhere;
+      }
+
+      .hero-text h1 {
+        font-size: 30px;
+      }
+
+      .float-item {
+        display: none;
+      }
+    }
+  
+    /* Nashwan CS mobile rtl layout fix */
+    @media (max-width: 640px) {
+      .nav-container {
+        direction: ltr;
+      }
+
+      .logo {
+        direction: ltr;
+      }
+
+      .hero,
+      .hero-image,
+      .image-shell {
+        direction: ltr;
+      }
+
+      .hero-text,
+      .badge,
+      .hero-buttons,
+      .mini-features {
+        direction: rtl;
+      }
+    }
+  
+    /* Nashwan CS compact mobile title */
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        width: 100%;
+        max-width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 26px;
+        line-height: 1.42;
+      }
+
+      .hero-text p {
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+      }
+
+      .badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  
+    /* Nashwan CS mobile button width */
+    @media (max-width: 640px) {
+      .hero-buttons .btn,
+      .mini-features span {
+        width: min(100%, 340px);
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+  
+    /* Nashwan POS world class product cards */
+    .npos-product-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfa 54%, #ffffff 100%) !important;
+    }
+
+    .npos-product-head {
+      position: relative;
+    }
+
+    .npos-product-head::after {
+      content: "";
+      display: block;
+      width: 96px;
+      height: 4px;
+      margin: 22px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #10b981, #38bdf8, #6366f1);
+    }
+
+    .npos-product-grid {
+      align-items: stretch;
+      gap: 26px;
+      padding: 12px 8px 34px;
+    }
+
+    .npos-product-card {
+      position: relative;
+      flex: 0 0 min(410px, 84vw);
+      min-height: 560px;
+      padding: 24px 24px 30px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(226, 232, 240, .92);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, .09);
+      display: flex;
+      flex-direction: column;
+      isolation: isolate;
+    }
+
+    .npos-product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 170px;
+      border-radius: 26px 26px 0 0;
+      background: linear-gradient(180deg, rgba(16, 185, 129, .08), rgba(255, 255, 255, 0));
+      z-index: -1;
+    }
+
+    .npos-product-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 9px;
+      border-radius: 0 0 26px 26px;
+      background: linear-gradient(90deg, #10b981, #34d399);
+    }
+
+    .npos-product-card:nth-child(2)::before {
+      background: linear-gradient(180deg, rgba(56, 189, 248, .10), rgba(255, 255, 255, 0));
+    }
+
+    .npos-product-card:nth-child(2)::after {
+      background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+    }
+
+    .npos-product-card:nth-child(3)::before {
+      background: linear-gradient(180deg, rgba(99, 102, 241, .10), rgba(255, 255, 255, 0));
+    }
+
+    .npos-product-card:nth-child(3)::after {
+      background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+    }
+
+    .npos-product-card:nth-child(4)::before {
+      background: linear-gradient(180deg, rgba(20, 184, 166, .10), rgba(255, 255, 255, 0));
+    }
+
+    .npos-product-card:nth-child(4)::after {
+      background: linear-gradient(90deg, #14b8a6, #06b6d4);
+    }
+
+    .npos-product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 34px 86px rgba(15, 23, 42, .14);
+    }
+
+    .npos-product-media {
+      height: 236px;
+      aspect-ratio: auto;
+      border: 0;
+      border-radius: 20px;
+      background: #f8fafc;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(226, 232, 240, .9), 0 18px 38px rgba(15, 23, 42, .07);
+    }
+
+    .npos-product-media img {
+      object-fit: cover;
+      object-position: top center;
+      transform: scale(1.01);
+    }
+
+    .npos-product-body {
+      padding: 28px 4px 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .npos-product-body h3 {
+      margin-bottom: 12px;
+      color: #111827;
+      font-size: 30px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .npos-product-body p {
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+
+    .npos-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .npos-card-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .npos-product-card:nth-child(1) .npos-card-tags span { color: #047857; background: #ecfdf5; border-color: #bbf7d0; }
+    .npos-product-card:nth-child(2) .npos-card-tags span { color: #0369a1; background: #f0f9ff; border-color: #bae6fd; }
+    .npos-product-card:nth-child(3) .npos-card-tags span { color: #4338ca; background: #eef2ff; border-color: #c7d2fe; }
+    .npos-product-card:nth-child(4) .npos-card-tags span { color: #0f766e; background: #f0fdfa; border-color: #99f6e4; }
+
+    .npos-product-actions {
+      margin-top: 38px;
+    }
+
+    @media (max-width: 640px) {
+      .npos-product-grid {
+        gap: 18px;
+        padding-inline: 2px;
+      }
+
+      .npos-product-card {
+        flex-basis: 88vw;
+        min-height: 500px;
+        padding: 18px 18px 26px;
+        border-radius: 22px;
+      }
+
+      .npos-product-card::after {
+        border-radius: 0 0 22px 22px;
+      }
+
+      .npos-product-media {
+        height: 190px;
+        border-radius: 17px;
+      }
+
+      .npos-product-body h3 {
+        font-size: 24px;
+      }
+
+      .npos-product-body p {
+        font-size: 14px;
+      }
+    }
+  
+    /* Nashwan CS final site identity and payment */
+    .logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      line-height: 1.1;
+    }
+
+    .logo span {
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .logo small {
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+
+    .build-section {
+      padding: 104px 24px;
+      background: #ffffff;
+    }
+
+    .build-container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .build-head {
+      max-width: 780px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .build-head span {
+      display: inline-flex;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .build-head h2 {
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1.18;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .build-head p {
+      margin: 16px auto 0;
+      color: #475569;
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .build-card {
+      min-height: 330px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 20px 54px rgba(15, 23, 42, .08);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .build-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 7px;
+      background: linear-gradient(90deg, #10b981, #38bdf8);
+    }
+
+    .build-card:nth-child(2)::after { background: linear-gradient(90deg, #0ea5e9, #6366f1); }
+    .build-card:nth-child(3)::after { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
+    .build-card:nth-child(4)::after { background: linear-gradient(90deg, #14b8a6, #22c55e); }
+
+    .build-card:hover {
+      transform: translateY(-7px);
+      border-color: #cbd5e1;
+      box-shadow: 0 34px 86px rgba(15, 23, 42, .13);
+    }
+
+    .build-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .build-card-top small {
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .build-card-top b {
+      color: #cbd5e1;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .build-card h3 {
+      color: #0f172a;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 900;
+      margin: 0 0 12px;
+    }
+
+    .build-card p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.85;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .build-card a {
+      margin-top: auto;
+      color: #047857;
+      font-weight: 900;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-site {
+      display: inline-flex;
+      margin: 4px 0 12px;
+      color: #34d399;
+      font-size: 15px;
+      letter-spacing: .04em;
+      direction: ltr;
+    }
+
+    .payment-card-premium {
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      border: 1px solid rgba(255, 255, 255, .14);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .18);
+    }
+
+    .payment-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .10);
+      color: #f97316;
+      font-size: 30px;
+    }
+
+    .payment-card-premium strong {
+      display: block;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .payment-card-premium small {
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .payment-note {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, .60);
+      font-size: 12px;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1000px) {
+      .build-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .logo span { font-size: 16px; }
+      .logo small { font-size: 9px; }
+      .build-section { padding: 72px 18px; }
+      .build-grid { grid-template-columns: 1fr; }
+      .build-card { min-height: 280px; }
+    }
+  
+    /* Nashwan CS cinematic intro */
+    .ncs-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: radial-gradient(circle at 50% 24%, rgba(16, 185, 129, .16), transparent 34%), #ffffff;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+
+    .ncs-intro.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .ncs-intro-glow {
+      position: absolute;
+      width: min(70vw, 680px);
+      height: min(70vw, 680px);
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, rgba(16,185,129,.18), rgba(56,189,248,.14), rgba(99,102,241,.12), rgba(16,185,129,.18));
+      filter: blur(34px);
+      opacity: .85;
+      animation: ncsGlowSpin 5s linear infinite;
+    }
+
+    .ncs-intro-panel {
+      position: relative;
+      width: min(720px, 94vw);
+      min-height: 430px;
+      padding: 48px;
+      border-radius: 34px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(226,232,240,.9);
+      box-shadow: 0 34px 110px rgba(15,23,42,.14);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .ncs-intro-brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 32px;
+      direction: ltr;
+    }
+
+    .ncs-intro-brand strong {
+      color: #047857;
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: .01em;
+    }
+
+    .ncs-intro-brand span {
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .ncs-orbit {
+      position: relative;
+      width: 330px;
+      height: 92px;
+      margin-bottom: 28px;
+    }
+
+    .ncs-orbit span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(15,23,42,.08);
+      animation: ncsFloatIn 1.4s ease both;
+    }
+
+    .ncs-orbit span:nth-child(1) { transform: translate(-172px, -50%); color: #047857; animation-delay: .05s; }
+    .ncs-orbit span:nth-child(2) { transform: translate(-92px, -116%); color: #0369a1; animation-delay: .15s; }
+    .ncs-orbit span:nth-child(3) { transform: translate(-50%, -50%); background: #0f172a; color: #ffffff; animation-delay: .25s; }
+    .ncs-orbit span:nth-child(4) { transform: translate(18px, -116%); color: #7c3aed; animation-delay: .35s; }
+    .ncs-orbit span:nth-child(5) { transform: translate(98px, -50%); color: #059669; animation-delay: .45s; }
+
+    .ncs-intro-panel h2 {
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.22;
+      font-weight: 950;
+      letter-spacing: 0;
+      animation: ncsRise .8s ease .55s both;
+    }
+
+    .ncs-intro-panel p {
+      max-width: 560px;
+      margin: 18px auto 0;
+      color: #475569;
+      font-size: 18px;
+      line-height: 1.85;
+      font-weight: 800;
+      animation: ncsRise .8s ease .75s both;
+    }
+
+    @keyframes ncsGlowSpin { to { transform: rotate(360deg); } }
+    @keyframes ncsRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ncsFloatIn { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: blur(0); } }
+
+    @media (max-width: 640px) {
+      .ncs-intro-panel {
+        min-height: 390px;
+        padding: 34px 22px;
+        border-radius: 28px;
+      }
+      .ncs-intro-brand strong { font-size: 28px; }
+      .ncs-orbit { width: 292px; transform: scale(.88); }
+      .ncs-intro-panel p { font-size: 15px; }
+    }
+  
+    .ncs-intro-skip {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #047857;
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+  
+    /* Apple inspired hero refresh */
+    .hero {
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: 78px;
+    }
+
+    .hero-text h1 {
+      max-width: 680px;
+      font-size: clamp(42px, 5.6vw, 72px);
+      line-height: 1.12;
+    }
+
+    .hero-text p {
+      max-width: 640px;
+      color: #334155;
+    }
+
+    .apple-btn,
+    .nav-action,
+    .npos-download-btn,
+    .npos-catalog-btn,
+    .footer-contact-link {
+      border-radius: 999px !important;
+      min-height: 46px;
+      padding-inline: 22px;
+      letter-spacing: 0;
+    }
+
+    .apple-btn {
+      box-shadow: 0 16px 36px rgba(15, 23, 42, .08);
+    }
+
+    .btn-primary.apple-btn {
+      background: #007a5a;
+    }
+
+    .btn-primary.apple-btn:hover {
+      background: #059669;
+    }
+
+    .btn-light.apple-btn {
+      color: #0f172a;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid rgba(226, 232, 240, .95);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-solution-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 680px;
+      margin-top: 30px;
+    }
+
+    .hero-solution-cards a {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 104px;
+      padding: 16px;
+      border-radius: 22px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(226, 232, 240, .92);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, .06);
+      backdrop-filter: blur(16px);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .hero-solution-cards a:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, .34);
+      box-shadow: 0 24px 62px rgba(15, 23, 42, .10);
+    }
+
+    .hero-solution-cards strong {
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .hero-solution-cards span {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.65;
+      font-weight: 800;
+    }
+
+    .product-window {
+      background: #ffffff;
+      padding-top: 42px;
+      border-radius: 30px;
+      box-shadow: 0 34px 100px rgba(15, 23, 42, .16);
+      border: 1px solid rgba(226, 232, 240, .95);
+    }
+
+    .product-window-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 18px;
+      background: rgba(248, 250, 252, .92);
+      border-bottom: 1px solid rgba(226, 232, 240, .95);
+      direction: ltr;
+      z-index: 2;
+    }
+
+    .product-window-bar span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #ef4444;
+    }
+
+    .product-window-bar span:nth-child(2) { background: #f59e0b; }
+    .product-window-bar span:nth-child(3) { background: #22c55e; }
+
+    .product-window-bar b {
+      margin-left: 8px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .product-window img {
+      height: calc(100% - 42px) !important;
+      margin-top: 0;
+    }
+
+    .float-item {
+      transform: scale(.92);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+      .hero-solution-cards {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        max-width: 350px;
+        font-size: 28px;
+        line-height: 1.35;
+      }
+      .hero-solution-cards a {
+        min-height: 82px;
+        text-align: center;
+      }
+      .product-window {
+        padding-top: 36px;
+      }
+      .product-window-bar {
+        height: 36px;
+      }
+    }
+  
+    /* Nashwan CS refined color system */
+    :root {
+      --ncs-green: #0f8f78;
+      --ncs-green-dark: #075e54;
+      --ncs-green-soft: #e8f7f3;
+      --ncs-green-line: #b8e7dc;
+      --ncs-accent: #0ea5a3;
+      --ncs-ink: #0b1220;
+      --ncs-muted: #5f6f85;
+    }
+
+    .logo,
+    .badge,
+    .nav-smart,
+    .npos-product-kicker,
+    .build-head span,
+    .build-card-top small,
+    .ncs-intro-brand strong,
+    .footer-site,
+    .build-card a {
+      color: var(--ncs-green-dark) !important;
+    }
+
+    .logo small,
+    .ncs-intro-brand span {
+      color: #718096 !important;
+    }
+
+    .badge,
+    .nav-smart,
+    .npos-product-kicker,
+    .build-head span,
+    .build-card-top small {
+      background: var(--ncs-green-soft) !important;
+      border-color: var(--ncs-green-line) !important;
+    }
+
+    .nav-action,
+    .btn-primary,
+    .btn-primary.apple-btn,
+    .npos-download-btn,
+    .footer-contact-link:first-child {
+      background: linear-gradient(135deg, #075e54, #0f8f78) !important;
+      color: #ffffff !important;
+      box-shadow: 0 18px 42px rgba(7, 94, 84, .20) !important;
+    }
+
+    .nav-action:hover,
+    .btn-primary:hover,
+    .btn-primary.apple-btn:hover,
+    .npos-download-btn:hover,
+    .footer-contact-link:first-child:hover {
+      background: linear-gradient(135deg, #064e46, #0d9488) !important;
+    }
+
+    .btn-light.apple-btn,
+    .npos-catalog-btn {
+      color: #0b1220 !important;
+      background: rgba(255, 255, 255, .9) !important;
+      border-color: #dbe5ea !important;
+    }
+
+    .hero-text h1,
+    .npos-product-head h2,
+    .build-head h2,
+    .build-card h3,
+    .npos-product-body h3 {
+      color: var(--ncs-ink) !important;
+    }
+
+    .hero-text p,
+    .npos-product-head p,
+    .build-head p,
+    .build-card p,
+    .npos-product-body p {
+      color: var(--ncs-muted) !important;
+    }
+
+    .hero::before {
+      background: radial-gradient(circle at 68% 12%, rgba(14, 165, 163, .12), transparent 34%), linear-gradient(180deg, #f4fbfa 0%, #ffffff 84%) !important;
+    }
+
+    .hero-solution-cards a:hover {
+      border-color: rgba(15, 143, 120, .32) !important;
+    }
+
+    .mini-features i,
+    .float-item i {
+      color: var(--ncs-green-dark) !important;
+    }
+
+    .npos-product-head::after,
+    .build-card::after,
+    .npos-product-card::after {
+      filter: saturate(.88) brightness(.94);
+    }
+
+    .npos-product-card:nth-child(1)::after {
+      background: linear-gradient(90deg, #075e54, #0f8f78) !important;
+    }
+
+    .npos-product-card:nth-child(2)::after {
+      background: linear-gradient(90deg, #0f766e, #0ea5a3) !important;
+    }
+
+    .npos-product-card:nth-child(3)::after {
+      background: linear-gradient(90deg, #1e3a8a, #6366f1) !important;
+    }
+
+    .npos-product-card:nth-child(4)::after {
+      background: linear-gradient(90deg, #0f8f78, #38bdf8) !important;
+    }
+
+    .site-footer {
+      background: radial-gradient(circle at 82% 0%, rgba(14, 165, 163, .16), transparent 34%), linear-gradient(180deg, #09111f 0%, #050914 100%) !important;
+    }
+
+    .payment-mark {
+      color: #f59e0b !important;
+      background: rgba(255, 255, 255, .12) !important;
+    }
+
+    .payment-card-premium {
+      background: linear-gradient(135deg, rgba(15, 143, 120, .18), rgba(255,255,255,.06)) !important;
+      border-color: rgba(184, 231, 220, .22) !important;
+    }
+
+    .social-float a {
+      border: 1px solid rgba(226, 232, 240, .95);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, .10);
+    }
+
+    .social-float .whatsapp {
+      color: #075e54 !important;
+    }
+
+    @media (max-width: 640px) {
+      .nav-action,
+      .btn-primary,
+      .btn-primary.apple-btn,
+      .npos-download-btn {
+        box-shadow: 0 12px 30px rgba(7, 94, 84, .18) !important;
+      }
+    }
+  
+    /* Nashwan CS centered logo domain */
+    .logo {
+      align-items: center !important;
+      text-align: center !important;
+      min-width: 126px;
+    }
+
+    .logo span,
+    .logo small {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo small {
+      margin-top: 2px;
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 640px) {
+      .logo {
+        min-width: 112px;
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+
+      .logo span,
+      .logo small {
+        text-align: left;
+      }
+    }
+  
+    /* Nashwan CS footer final alignment */
+    .site-footer {
+      padding: 78px 24px 28px !important;
+      overflow: hidden;
+    }
+
+    .footer-modern {
+      display: grid !important;
+      grid-template-columns: minmax(320px, 1.3fr) minmax(260px, .85fr) minmax(260px, .85fr) !important;
+      gap: 22px !important;
+      align-items: stretch !important;
+      max-width: 1180px !important;
+    }
+
+    .footer-brand,
+    .footer-modern-card {
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .11);
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .20);
+      backdrop-filter: blur(16px);
+    }
+
+    .footer-brand h3 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: 950;
+      letter-spacing: .01em;
+    }
+
+    .footer-brand p {
+      max-width: 520px;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .footer-site {
+      margin: 6px 0 8px !important;
+      color: #9de8dc !important;
+      font-size: 14px !important;
+      font-weight: 900;
+    }
+
+    .footer-title {
+      display: block;
+      margin-bottom: 16px;
+      color: #ffffff !important;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .footer-info div {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: rgba(255, 255, 255, .74);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .footer-info i {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #9de8dc !important;
+      background: rgba(157, 232, 220, .10);
+    }
+
+    .footer-actions {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-contact-link {
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    .footer-payments {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .payment-card-premium {
+      width: 100%;
+      min-height: 96px;
+      display: flex;
+      padding: 18px !important;
+      border-radius: 22px !important;
+    }
+
+    .payment-note {
+      margin-top: 14px !important;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .footer-bottom {
+      max-width: 1180px !important;
+      margin: 26px auto 0 !important;
+      padding-top: 22px !important;
+      text-align: center;
+      color: rgba(255, 255, 255, .58) !important;
+      border-top: 1px solid rgba(255, 255, 255, .10) !important;
+    }
+
+    @media (max-width: 980px) {
+      .footer-modern {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-footer {
+        padding: 56px 18px 24px !important;
+      }
+      .footer-brand,
+      .footer-modern-card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+      .footer-actions,
+      .footer-contact-link {
+        width: 100%;
+      }
+      .footer-contact-link {
+        justify-content: center;
+      }
+    }
+  
+    /* Nashwan CS light footer final */
+    .site-footer {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%) !important;
+      border-top: 1px solid #e8eef2 !important;
+      color: #0b1220 !important;
+    }
+
+    .site-footer::before {
+      opacity: .45 !important;
+      background: radial-gradient(circle at 80% 10%, rgba(14, 165, 163, .14), transparent 36%) !important;
+    }
+
+    .footer-brand,
+    .footer-modern-card {
+      background: rgba(255, 255, 255, .88) !important;
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, .075) !important;
+      color: #0b1220 !important;
+    }
+
+    .footer-brand h3,
+    .footer-title,
+    .payment-card-premium strong {
+      color: #0b1220 !important;
+    }
+
+    .footer-brand p,
+    .footer-info div,
+    .payment-card-premium small,
+    .payment-note {
+      color: #5f6f85 !important;
+    }
+
+    .footer-site {
+      color: #075e54 !important;
+    }
+
+    .footer-info i {
+      color: #075e54 !important;
+      background: #e8f7f3 !important;
+    }
+
+    .footer-contact-link:first-child {
+      background: linear-gradient(135deg, #075e54, #0f8f78) !important;
+      color: #ffffff !important;
+    }
+
+    .footer-contact-link:not(:first-child) {
+      background: #ffffff !important;
+      color: #0b1220 !important;
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .06) !important;
+    }
+
+    .payment-card-premium {
+      background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, .07) !important;
+    }
+
+    .payment-mark {
+      color: #f59e0b !important;
+      background: #fff7ed !important;
+      border: 1px solid #fed7aa !important;
+    }
+
+    .payment-note {
+      background: #ffffff !important;
+      border: 1px solid #e5e7eb !important;
+    }
+
+    .footer-bottom {
+      color: #64748b !important;
+      border-top: 1px solid #e5e7eb !important;
+    }
+  
+    /* Nashwan CS custom mastercard mark */
+    .payment-mastercard {
+      position: relative;
+      width: 62px !important;
+      height: 44px !important;
+      min-width: 62px;
+      border-radius: 14px !important;
+      display: block !important;
+      background: linear-gradient(135deg, #111827, #334155) !important;
+      border: 1px solid rgba(15, 23, 42, .08) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 12px 26px rgba(15,23,42,.14) !important;
+      overflow: hidden;
+    }
+
+    .payment-mastercard::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.18), transparent 46%);
+      pointer-events: none;
+    }
+
+    .payment-mastercard::after {
+      content: "pay";
+      position: absolute;
+      left: 9px;
+      bottom: 6px;
+      color: rgba(255,255,255,.72);
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      direction: ltr;
+    }
+
+    .payment-mastercard span {
+      position: absolute;
+      top: 12px;
+      width: 19px;
+      height: 19px;
+      border-radius: 999px;
+      opacity: .96;
+    }
+
+    .payment-mastercard span:first-child {
+      right: 25px;
+      background: #eb001b;
+    }
+
+    .payment-mastercard span:last-child {
+      right: 14px;
+      background: #f79e1b;
+      mix-blend-mode: screen;
+    }
   </style>
 </head>
 
 <body id="top">
+  <div class="ncs-intro" id="ncsIntro" aria-hidden="true">
+    <div class="ncs-intro-glow"></div>
+    <div class="ncs-intro-panel">
+      <div class="ncs-intro-brand">
+        <strong>Nashwan CS</strong>
+        <span>nashwancs.com</span>
+      </div>
+      <div class="ncs-orbit" aria-hidden="true">
+        <span>موقع</span>
+        <span>تطبيق</span>
+        <span>نظام</span>
+        <span>متجر</span>
+        <span>POS</span>
+      </div>
+      <h2>نحوّل أفكارك إلى أنظمة تعمل</h2>
+      <p>برمجة، مواقع، تطبيقات، ومنتجات جاهزة للمشاريع الحديثة.</p>
+    </div>
+  </div>
+<button class="ncs-intro-skip" type="button" onclick="document.getElementById('ncsIntro').classList.add('is-hidden')">تخطي</button>
   <header class="navbar">
     <div class="nav-container">
-      <a href="#top" class="logo">Nashwan CS</a>
+      <a href="#top" class="logo"><span>Nashwan CS</span><small>nashwancs.com</small></a>
       <nav class="nav-links" id="navLinks">
         <a href="#top">الرئيسية</a>
         <a href="#nashwan-pos">Nashwan POS</a>
@@ -4193,24 +5889,20 @@
   <section class="hero">
     <div class="hero-text">
       <span class="badge"><i class="fa-solid fa-bolt"></i> Nashwan CS</span>
-      <h1>حلول تقنية ذكية ودعم احترافي</h1>
-      <p>نقدم خدمات صيانة الحاسبات، تنصيب البرامج، الكاميرات الشبكية، المواقع والمتاجر، والدعم عن بعد بأسلوب سريع ومرتب.</p>
+      <h1>نبني الأنظمة التي تجعل مشروعك يعمل بذكاء</h1>
+      <p>من برامج الكاشير والمخزون إلى المواقع والتطبيقات، Nashwan CS تجمع البرمجة، التصميم، والدعم في حلول واضحة قابلة للنمو.</p>
       <div class="hero-buttons">
-        <a href="#services" class="btn btn-primary">شاهد الخدمات <i class="fa-solid fa-arrow-left"></i></a>
-        <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20استفسر%20عن%20خدماتكم" class="btn btn-light" target="_blank">تواصل واتساب <i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#nashwan-pos" class="btn btn-primary apple-btn">جرّب Nashwan POS <i class="fa-solid fa-arrow-left"></i></a>
+        <a href="#services" class="btn btn-light apple-btn">ابدأ مشروعك <i class="fa-solid fa-sparkles"></i></a>
       </div>
-      <div class="mini-features">
-        <span><i class="fa-solid fa-check"></i> دعم سريع</span>
-        <span><i class="fa-solid fa-check"></i> أسعار مناسبة</span>
-        <span><i class="fa-solid fa-check"></i> خدمة عن بعد</span>
-      </div>
+      <div class="hero-solution-cards"><a href="#nashwan-pos"><strong>برنامج جاهز</strong><span>Nashwan POS للبيع والمخزون</span></a><a href="#services"><strong>موقع أو متجر</strong><span>واجهة رقمية لمشروعك</span></a><a href="#services"><strong>تطبيق أو نظام</strong><span>حل مخصص حسب الفكرة</span></a></div>
     </div>
     <div class="hero-image">
-      <div class="image-shell"><img src="https://i.ibb.co/TMCXqdGG/Whats-App-Image-2026-05-23-at-1-24-10-PM.jpg" alt="Nashwan CS"></div>
-      <div class="float-item float-1"><i class="fa-solid fa-headset"></i> دعم فني</div>
-      <div class="float-item float-2"><i class="fa-solid fa-file-word"></i> Office</div>
-      <div class="float-item float-3"><i class="fa-solid fa-wifi"></i> كاميرات IP</div>
-      <div class="float-item float-4"><i class="fa-solid fa-pen-nib"></i> Photoshop</div>
+      <div class="image-shell product-window"><div class="product-window-bar"><span></span><span></span><span></span><b>Nashwan POS • Live Preview</b></div><img src="images/pos-cashier.png" alt="واجهة Nashwan POS"></div>
+      <div class="float-item float-1"><i class="fa-solid fa-cash-register"></i> بيع سريع</div>
+      <div class="float-item float-2"><i class="fa-solid fa-chart-line"></i> تقارير</div>
+      <div class="float-item float-3"><i class="fa-solid fa-boxes-stacked"></i> مخزون</div>
+      <div class="float-item float-4"><i class="fa-solid fa-database"></i> نسخ احتياطي</div>
     </div>
   </section>
 
@@ -4218,7 +5910,7 @@
     <section class="npos-product-section" id="nashwan-pos">
     <div class="npos-product-container">
       <div class="npos-product-head">
-        <span class="npos-product-kicker">Premium SaaS Product</span>
+        <span class="npos-product-kicker">منتج Nashwan CS الرسمي</span>
         <h2>Nashwan POS</h2>
         <p>نظام كاشير ومبيعات حديث للأسواق والمحلات، يدعم البيع السريع، المنتجات، الفواتير، المخزون، التقارير، وشاشة الزبون.</p>
       </div>
@@ -4227,41 +5919,37 @@
       <div class="npos-product-grid" aria-label="صور ومميزات Nashwan POS">
         <article class="npos-product-card">
           <div class="npos-product-media">
-            <img src="pos-cashier.png" alt="واجهة الكاشير في Nashwan POS" loading="lazy">
+            <img src="images/pos-cashier.png" alt="واجهة الكاشير في Nashwan POS" loading="lazy">
           </div>
           <div class="npos-product-body">
-            <h3>واجهة الكاشير</h3>
-            <p>بيع سريع وواضح مع اختيار طريقة الدفع، عرض آخر عملية بيع، ودعم شاشة الزبون.</p>
+            <h3>واجهة الكاشير</h3><p>بيع سريع وواضح مع اختيار طريقة الدفع، عرض آخر عملية بيع، ودعم شاشة الزبون.</p><div class="npos-card-tags"><span>بيع سريع</span><span>آخر عملية بيع</span></div>
           </div>
         </article>
 
         <article class="npos-product-card">
           <div class="npos-product-media">
-            <img src="pos-products.png" alt="إدارة المنتجات في Nashwan POS" loading="lazy">
+            <img src="images/pos-products.png" alt="إدارة المنتجات في Nashwan POS" loading="lazy">
           </div>
           <div class="npos-product-body">
-            <h3>المنتجات</h3>
-            <p>إدارة المنتجات والأسعار والباركود والمخزون من واجهة مرتبة وسهلة.</p>
+            <h3>المنتجات والمخزون</h3><p>إدارة المنتجات والأسعار والباركود والمخزون من واجهة مرتبة وسهلة.</p><div class="npos-card-tags"><span>باركود</span><span>مخزون</span></div>
           </div>
         </article>
 
         <article class="npos-product-card">
           <div class="npos-product-media">
-            <img src="pos-reports.png" alt="تقارير Nashwan POS" loading="lazy">
+            <img src="images/pos-reports.png" alt="تقارير Nashwan POS" loading="lazy">
           </div>
           <div class="npos-product-body">
-            <h3>التقارير</h3>
-            <p>متابعة المبيعات، أداء المتجر، الديون، وأهم الأرقام اليومية بشكل واضح.</p>
+            <h3>التقارير اليومية</h3><p>متابعة المبيعات، أداء المتجر، الديون، وأهم الأرقام اليومية بشكل واضح.</p><div class="npos-card-tags"><span>مبيعات</span><span>ديون</span></div>
           </div>
         </article>
 
         <article class="npos-product-card">
           <div class="npos-product-media">
-            <img src="pos-invoices.png" alt="الفواتير وشاشة الزبون في Nashwan POS" loading="lazy">
+            <img src="images/pos-invoices.png" alt="الفواتير وشاشة الزبون في Nashwan POS" loading="lazy">
           </div>
           <div class="npos-product-body">
-            <h3>الفواتير وشاشة الزبون</h3>
-            <p>حفظ الفواتير ومراجعتها، مع شاشة زبون تعرض الإجمالي وحالة البيع.</p>
+            <h3>الفواتير وشاشة الزبون</h3><p>حفظ الفواتير ومراجعتها، مع شاشة زبون تعرض الإجمالي وحالة البيع.</p><div class="npos-card-tags"><span>فواتير</span><span>شاشة زبون</span></div>
           </div>
         </article>
       </div>
@@ -4272,15 +5960,16 @@
       </div>
     </div>
   </section>
-<section class="digital-services" id="services"><div class="digital-container"><div class="digital-head"><div><span>الخدمات الرقمية</span><h2>مواقع ومتاجر وحلول تسويق</h2></div><p>خدمات مرتبة تساعدك تظهر على الإنترنت وتدير طلباتك بشكل أوضح.</p></div><div class="digital-grid"><div class="digital-card"><div class="digital-icon icon-web"><i class="fa-solid fa-globe"></i></div><h3>موقع إلكتروني</h3><p>صفحة تعريفية أو موقع خدمات سريع ومتجاوب.</p><a href="#" data-service="website">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div><div class="digital-card"><div class="digital-icon icon-store"><i class="fa-solid fa-cart-shopping"></i></div><h3>متجر إلكتروني</h3><p>عرض منتجات وطلبات وتواصل.</p><a href="#" data-service="store">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div><div class="digital-card"><div class="digital-icon icon-meta"><i class="fa-brands fa-meta"></i></div><h3>Meta Pixel</h3><p>ربط وتتبع لتحسين الإعلانات.</p><a href="#" data-service="pixel">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div></div></div></section>
+<section class="build-section" id="services"><div class="build-container"><div class="build-head"><span>من فكرة إلى منتج</span><h2>نصمم ونبني تطبيقك أو موقعك من الصفر</h2><p>نحوّل فكرتك إلى موقع، متجر، تطبيق، أو نظام إدارة متكامل يخدم مشروعك ويكبر وياك.</p></div><div class="build-grid"><article class="build-card"><div class="build-card-top"><small>Website</small><b>01</b></div><h3>موقع إلكتروني احترافي</h3><p>صفحة تعريفية أو موقع خدمات سريع، واضح، ومتجاوب مع كل الأجهزة.</p><a href="#" data-service="website">ابدأ موقعك <i class="fa-solid fa-arrow-left"></i></a></article><article class="build-card"><div class="build-card-top"><small>Store</small><b>02</b></div><h3>متجر إلكتروني</h3><p>عرض منتجات، طلبات، تواصل، وتجربة شراء مرتبة تناسب مشروعك.</p><a href="#" data-service="store">أنشئ متجرك <i class="fa-solid fa-arrow-left"></i></a></article><article class="build-card"><div class="build-card-top"><small>App</small><b>03</b></div><h3>تطبيقات موبايل</h3><p>تطبيق خفيف وحديث للزبائن، الحجوزات، الطلبات، أو الخدمات اليومية.</p><a href="#" data-service="customSite">ناقش التطبيق <i class="fa-solid fa-arrow-left"></i></a></article><article class="build-card"><div class="build-card-top"><small>System</small><b>04</b></div><h3>أنظمة إدارة مخصصة</h3><p>لوحات تحكم وقواعد بيانات تنظم العملاء، المبيعات، الطلبات، والتقارير.</p><a href="#" data-service="dashboard">ابنِ نظامك <i class="fa-solid fa-arrow-left"></i></a></article></div></div></section>
 
   <section class="dev-section" id="development"><div class="dev-container"><div class="dev-head"><div><span>التطوير</span><h2>برمجة مواقع ولوحات تحكم</h2></div><p>حلول مخصصة حسب طبيعة المشروع.</p></div><div class="dev-grid"><div class="dev-card"><div class="dev-icon dev-blue"><i class="fa-solid fa-code"></i></div><h3>برمجة مواقع</h3><p>موقع مخصص حسب احتياجك.</p><a href="#" data-service="customSite">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div><div class="dev-card"><div class="dev-icon dev-green"><i class="fa-solid fa-window-restore"></i></div><h3>لوحة تحكم</h3><p>إدارة محتوى أو طلبات أو عملاء.</p><a href="#" data-service="dashboard">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div><div class="dev-card"><div class="dev-icon dev-dark"><i class="fa-solid fa-database"></i></div><h3>قواعد بيانات</h3><p>تنظيم وربط البيانات.</p><a href="#" data-service="database">عرض التفاصيل <i class="fa-solid fa-arrow-left"></i></a></div></div></div></section>
 
   <section class="security-section" id="security"><div class="security-container"><div class="security-head"><div><span>الأمان</span><h2>حماية الأجهزة والحسابات</h2></div><p>فحص وحماية واسترجاع ومراجعة أمان للحسابات والمواقع.</p></div><div class="security-grid"><a href="security.html?service=device" class="security-card"><i class="fa-solid fa-laptop-medical sec-teal"></i><div><h3>حماية الجهاز</h3><p>فحص وحذف برامج ضارة.</p><span>تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i></span></div></a><a href="security.html?service=accounts" class="security-card"><i class="fa-solid fa-user-shield sec-blue"></i><div><h3>حماية الحسابات</h3><p>مراجعة كلمات المرور والصلاحيات.</p><span>تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i></span></div></a><a href="security.html?service=backup" class="security-card"><i class="fa-solid fa-database sec-amber"></i><div><h3>نسخ احتياطي</h3><p>ترتيب النسخ وحفظ الملفات المهمة.</p><span>تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i></span></div></a></div></div></section>
-  <footer class="site-footer" id="contact">
-    <div class="footer-container">
+    <footer class="site-footer" id="contact">
+    <div class="footer-container footer-modern">
       <div class="footer-brand">
         <h3>Nashwan CS</h3>
+        <strong class="footer-site">nashwancs.com</strong>
         <p>خدمات تقنية، برمجيات، مواقع ومتاجر، دعم فني، وتفعيل برامج للأفراد والشركات.</p>
         <div class="footer-actions">
           <a href="https://wa.me/9647734449499?text=مرحبا%20اريد%20استفسر%20عن%20خدمات%20Nashwan%20CS" class="footer-contact-link" target="_blank">
@@ -4294,32 +5983,32 @@
         </div>
       </div>
 
-      <div class="footer-info">
+      <div class="footer-info footer-modern-card">
         <span class="footer-title">معلومات الخدمة</span>
-
         <div>
           <i class="fa-solid fa-location-dot"></i>
           <span>العراق - البصرة</span>
         </div>
-
         <div>
           <i class="fa-solid fa-credit-card"></i>
           <span>الدفع متاح عبر ماستر كارد</span>
         </div>
-
         <div>
           <i class="fa-solid fa-clock"></i>
           <span>استجابة سريعة وخدمة عن بعد حسب نوع الطلب</span>
         </div>
       </div>
 
-      <div class="footer-payments">
+      <div class="footer-payments footer-modern-card">
         <span class="footer-title">طرق الدفع</span>
-
-        <div class="payment-card">
-          <i class="fa-brands fa-cc-mastercard"></i>
-          <small>Mastercard</small>
+        <div class="payment-card payment-card-premium">
+          <div class="payment-mark payment-mastercard" aria-hidden="true"><span></span><span></span></div>
+          <div>
+            <strong>Mastercard</strong>
+            <small>دفع إلكتروني للطلبات والخدمات</small>
+          </div>
         </div>
+        <div class="payment-note">يمكن تنسيق الدفع حسب نوع الخدمة والاتفاق.</div>
       </div>
     </div>
 
@@ -4877,8 +6566,57 @@
     })();
   </script>
 
+  <script>
+    (function initNcsIntro() {
+      function hideIntro() {
+        var intro = document.getElementById("ncsIntro");
+        if (!intro) return;
+        intro.classList.add("is-hidden");
+        window.setTimeout(function () {
+          if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+        }, 800);
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          window.setTimeout(hideIntro, 3200);
+        });
+      } else {
+        window.setTimeout(hideIntro, 3200);
+      }
+      window.addEventListener("load", function () {
+        window.setTimeout(hideIntro, 3600);
+      });
+      window.setTimeout(function ncsIntroForceRemove() {
+      var intro = document.getElementById("ncsIntro");
+      if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+    }, 5000);
+    })();
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
