@@ -1,689 +1,567 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>T+ Taxi | رحلتك أقرب</title>
-  <meta name="description" content="T+ Taxi خدمة تنقل عراقية تربط الراكب بالكابتن عبر تجربة واضحة، خرائط مباشرة، وتسعير ظاهر قبل الطلب.">
-  <link rel="canonical" href="https://www.nashwancs.com/tplus/">
-  <meta name="theme-color" content="#087a46">
-  <meta property="og:title" content="T+ Taxi | رحلتك أقرب">
-  <meta property="og:description" content="اطلب رحلتك أو انضم ككابتن مع T+ Taxi.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ar_IQ">
-  <meta property="og:image" content="https://www.nashwancs.com/tplus/assets/tplus-share.png">
-  <meta property="og:image:width" content="1733">
-  <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="T+ Taxi في البصرة">
-  <link rel="icon" type="image/png" href="assets/tplus-official-v2.png">
-  <link rel="preload" as="image" href="assets/hero-basra.webp" type="image/webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"TaxiService","name":"T+ Taxi","url":"https://www.nashwancs.com/tplus/","image":"https://www.nashwancs.com/tplus/assets/tplus-official-v2.png","telephone":"+9647734449499","areaServed":{"@type":"City","name":"البصرة"},"provider":{"@type":"Organization","name":"Nashwan CS","url":"https://www.nashwancs.com"}}
-  </script>
-  <style>
-    :root {
-      --green-950:#053d27;
-      --green-900:#075a36;
-      --green-800:#087a46;
-      --green-600:#10a563;
-      --green-100:#dff7ea;
-      --yellow:#f7c948;
-      --ink:#10221a;
-      --muted:#607269;
-      --line:#dbe7e0;
-      --surface:#f5f8f6;
-      --white:#fff;
-      --radius:8px;
-      --max:1180px;
-    }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body {
-      margin:0;
-      font-family:"Cairo",sans-serif;
-      color:var(--ink);
-      background:var(--white);
-      letter-spacing:0;
-      overflow-x:hidden;
-    }
-    a { color:inherit; }
-    img { display:block; max-width:100%; }
-    button,a { -webkit-tap-highlight-color:transparent; }
-    .launch-screen { position:fixed; inset:0; z-index:100; display:grid; place-items:center; color:#fff; background:linear-gradient(rgba(4,47,31,.52),rgba(4,47,31,.8)),url("assets/hero-basra.webp") center 60% / cover no-repeat; transition:opacity .55s ease,visibility .55s ease; }
-    .launch-screen::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(4,47,31,.72),transparent 52%); }
-    .launch-screen.is-done { opacity:0; visibility:hidden; pointer-events:none; }
-    .launch-content { position:relative; z-index:1; display:grid; justify-items:center; text-align:center; }
-    .launch-content img { width:92px; height:92px; object-fit:cover; border-radius:8px; box-shadow:0 18px 46px rgba(0,0,0,.24); animation:launchMark .8s ease both; }
-    .launch-content strong { margin-top:22px; font-size:clamp(28px,5vw,48px); font-weight:900; }
-    .launch-content span { margin-top:6px; color:#d9f8e8; font-size:15px; font-weight:700; }
-    .launch-line { width:72px; height:3px; margin-top:20px; overflow:hidden; background:rgba(255,255,255,.24); }
-    .launch-line::after { content:""; display:block; width:100%; height:100%; background:var(--yellow); transform:translateX(100%); animation:launchLine 1.6s .2s ease forwards; }
-    @keyframes launchMark { from{opacity:0;transform:translateY(14px) scale(.92)} to{opacity:1;transform:none} }
-    @keyframes launchLine { to{transform:translateX(0)} }
-    @media (prefers-reduced-motion:reduce) { .launch-content img,.launch-line::after { animation:none; } }
-    .shell { width:min(var(--max),calc(100% - 40px)); margin-inline:auto; }
-    .site-nav {
-      position:fixed;
-      inset:0 0 auto;
-      z-index:20;
-      height:72px;
-      color:#fff;
-      background:rgba(5,61,39,.88);
-      border-bottom:1px solid rgba(255,255,255,.16);
-      backdrop-filter:blur(14px);
-    }
-    .nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { display:flex; align-items:center; gap:11px; text-decoration:none; min-width:max-content; }
-    .brand img { width:42px; height:42px; object-fit:cover; border-radius:8px; }
-    .brand b { font-size:21px; font-weight:900; }
-    .brand b span { color:var(--yellow); }
-    .nav-links { display:flex; align-items:center; gap:28px; }
-    .nav-links a { text-decoration:none; font-size:14px; font-weight:700; color:rgba(255,255,255,.82); }
-    .nav-links a:hover { color:#fff; }
-    .nav-actions { display:flex; gap:8px; }
-    .icon-btn {
-      width:42px; height:42px; display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.22); border-radius:8px;
-      color:#fff; background:rgba(255,255,255,.08); text-decoration:none;
-    }
-    .icon-btn svg { width:20px; height:20px; }
-    .menu-btn { display:none; cursor:pointer; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T+ | أطلق خيالك وانطلق في البصرة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            emerald: '#00E676',
+                            emeraldDark: '#10B981',
+                            teal: '#059669',
+                            darkBg: '#0A0D14',
+                            darkCard: '#121824',
+                            darkBorder: '#1E2638',
+                            slate: '#0F172A'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'float-slow': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', filter: 'drop-shadow(0 0 15px rgba(0, 230, 118, 0.4))' },
+                            '50%': { opacity: '0.9', filter: 'drop-shadow(0 0 35px rgba(16, 185, 129, 0.8))' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    .hero {
-      position:relative;
-      min-height:min(860px,calc(100svh - 28px));
-      padding-top:72px;
-      color:#fff;
-      background:var(--green-950);
-      isolation:isolate;
-      overflow:hidden;
-    }
-    .hero::before {
-      content:"";
-      position:absolute;
-      inset:72px 0 0;
-      z-index:-2;
-      background:
-        linear-gradient(90deg,rgba(5,61,39,.48) 0%,rgba(5,61,39,.58) 48%,rgba(5,61,39,.84) 100%),
-        url("assets/hero-basra.webp") center 48% / cover no-repeat;
-      opacity:.96;
-    }
-    .hero::after {
-      content:"";
-      position:absolute; inset:72px 0 0; z-index:-1;
-      background:linear-gradient(0deg,rgba(5,61,39,.52),transparent 48%);
-    }
-    .hero-inner {
-      min-height:calc(min(860px,100svh - 28px) - 72px);
-      display:flex; align-items:center; justify-content:flex-start;
-      padding-block:64px 92px;
-    }
-    .hero-copy { width:min(610px,58%); margin-inline-end:auto; }
-    .eyebrow { display:flex; align-items:center; gap:9px; margin-bottom:18px; color:#bff4d7; font-weight:700; font-size:15px; }
-    .eyebrow::before { content:""; width:28px; height:3px; background:var(--yellow); }
-    .eyebrow svg { width:18px; height:18px; color:var(--yellow); }
-    h1 { margin:0 0 20px; font-size:clamp(48px,6vw,84px); line-height:1.05; font-weight:900; }
-    .hero-lead { max-width:570px; margin:0 0 30px; font-size:clamp(17px,2vw,22px); line-height:1.9; color:rgba(255,255,255,.82); }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .btn {
-      min-height:50px; display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 20px; border:1px solid transparent; border-radius:8px;
-      text-decoration:none; font:700 15px "Cairo",sans-serif; cursor:pointer;
-    }
-    .btn svg { width:19px; height:19px; }
-    .btn-primary { color:var(--green-950); background:var(--yellow); }
-    .btn-secondary { color:#fff; border-color:rgba(255,255,255,.34); background:rgba(255,255,255,.08); }
-    .hero-status { margin-top:28px; display:flex; gap:22px; flex-wrap:wrap; color:rgba(255,255,255,.7); font-size:13px; font-weight:600; }
-    .hero-status span { display:flex; align-items:center; gap:7px; }
-    .hero-status i { width:8px; height:8px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 5px rgba(74,222,128,.13); }
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #0A0D14;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
 
-    .proof { margin-top:-28px; position:relative; z-index:4; }
-    .proof-inner {
-      min-height:92px; display:grid; grid-template-columns:repeat(4,1fr);
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-      box-shadow:0 14px 40px rgba(10,52,33,.10);
-    }
-    .proof-item { padding:20px 24px; border-inline-start:1px solid var(--line); }
-    .proof-item:first-child { border-inline-start:0; }
-    .proof-item strong { display:block; font-size:15px; margin-bottom:3px; }
-    .proof-item span { color:var(--muted); font-size:12px; }
+        .glass-panel {
+            background: rgba(18, 24, 36, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 230, 118, 0.12);
+        }
 
-    .section { padding:92px 0; }
-    .section-soft { background:var(--surface); }
-    .section-head { max-width:700px; margin-bottom:38px; }
-    .section-kicker { color:var(--green-800); font-weight:800; font-size:14px; }
-    h2 { margin:8px 0 12px; font-size:clamp(29px,4vw,46px); line-height:1.25; }
-    .section-head p { margin:0; color:var(--muted); line-height:1.9; font-size:16px; }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(30, 38, 56, 0.6) 0%, rgba(18, 24, 36, 0.85) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 230, 118, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    .journey-head {
-      position:relative;
-      max-width:none;
-      margin-bottom:34px;
-      padding-bottom:30px;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      align-items:end;
-      gap:48px;
-      border-bottom:1px solid var(--line);
-    }
-    .journey-head::after {
-      content:"";
-      position:absolute;
-      right:0;
-      bottom:-2px;
-      width:min(260px,28%);
-      height:3px;
-      background:linear-gradient(90deg,var(--yellow),var(--green-800));
-    }
-    .journey-copy { max-width:760px; }
-    .journey-index {
-      min-width:210px;
-      display:flex;
-      align-items:center;
-      gap:16px;
-      padding-inline-start:28px;
-      border-inline-start:1px solid var(--line);
-    }
-    .journey-index b { color:var(--green-800); font-size:54px; line-height:.85; font-weight:900; }
-    .journey-index span { color:var(--muted); font-size:13px; line-height:1.7; font-weight:700; }
-    .journey-board { position:relative; aspect-ratio:1402/322; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#082f2c; box-shadow:0 20px 54px rgba(7,58,42,.12); }
-    .journey-board::after { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(0deg,rgba(3,29,28,.8),rgba(3,29,28,.06)); pointer-events:none; }
-    .journey-board > img { display:block; position:absolute; width:100%; height:auto; left:0; bottom:0; }
-    .journey-pin { position:absolute; z-index:2; width:min(29%,300px); min-height:128px; padding:18px 18px 17px; color:var(--ink); background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.78); border-radius:8px; box-shadow:0 16px 34px rgba(3,35,27,.2); backdrop-filter:blur(10px); }
-    .journey-pin::after { content:""; position:absolute; bottom:-12px; right:28px; width:22px; height:22px; background:inherit; border-right:1px solid rgba(255,255,255,.78); border-bottom:1px solid rgba(255,255,255,.78); transform:rotate(45deg); }
-    .journey-pin:nth-of-type(1) { left:4%; bottom:12%; }
-    .journey-pin:nth-of-type(2) { left:35.5%; bottom:17%; }
-    .journey-pin:nth-of-type(3) { right:4%; bottom:12%; }
-    .pin-title { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
-    .pin-num { width:34px; height:34px; flex:0 0 34px; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--green-800); font-weight:900; box-shadow:0 0 0 6px rgba(8,122,70,.1); }
-    .journey-pin h3 { margin:0; font-size:18px; }
-    .journey-pin p { margin:0; color:var(--muted); line-height:1.65; font-size:13px; }
+        .glass-card:hover {
+            border-color: rgba(0, 230, 118, 0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 230, 118, 0.25);
+        }
 
-    .map-showcase { margin-top:26px; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 20px 54px rgba(7,58,42,.1); }
-    .map-showcase-head { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:15px 20px; border-bottom:1px solid var(--line); }
-    .map-showcase-title { display:flex; align-items:center; gap:12px; }
-    .map-showcase-title > i { width:42px; height:42px; display:grid; place-items:center; color:var(--green-800); background:#e8f7ef; border-radius:50%; }
-    .map-showcase-title svg { width:21px; height:21px; }
-    .map-showcase-title strong { display:block; font-size:16px; }
-    .map-showcase-title span { color:var(--muted); font-size:12px; }
-    .map-controls { display:flex; gap:6px; }
-    .map-stop {
-      min-height:38px; display:inline-flex; align-items:center; gap:7px; padding:0 12px;
-      border:1px solid var(--line); border-radius:7px; color:var(--muted); background:#fff;
-      font:700 12px Cairo,sans-serif; cursor:pointer;
-    }
-    .map-stop svg { width:16px; height:16px; }
-    .map-stop.active { color:#fff; border-color:var(--green-800); background:var(--green-800); }
-    .map-stage { position:relative; min-height:430px; background:#e7f3ec; }
-    #tplusMap { position:absolute; inset:0; z-index:1; }
-    .map-stage::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(135deg,rgba(8,122,70,.08),transparent 42%,rgba(247,196,54,.07)); mix-blend-mode:multiply; }
-    .map-trip-status {
-      position:absolute; z-index:500; right:18px; bottom:18px; min-width:250px;
-      display:grid; grid-template-columns:auto 1fr; align-items:center; gap:12px;
-      padding:14px 16px; color:#fff; background:rgba(5,61,39,.92); border:1px solid rgba(255,255,255,.18); border-radius:8px; box-shadow:0 16px 34px rgba(3,35,27,.22); backdrop-filter:blur(12px);
-    }
-    .map-trip-status i { width:10px; height:10px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 6px rgba(74,222,128,.14); }
-    .map-trip-status strong { display:block; font-size:13px; }
-    .map-trip-status span { color:rgba(255,255,255,.7); font-size:11px; }
-    .tplus-map-marker { width:38px; height:38px; display:grid; place-items:center; border:3px solid #fff; border-radius:50%; color:#fff; background:var(--green-800); box-shadow:0 6px 18px rgba(5,61,39,.28); font:900 12px Cairo,sans-serif; }
-    .tplus-map-marker.end { color:#17331f; background:var(--yellow); }
-    .tplus-captain-marker { position:relative; width:42px; height:42px; display:grid; place-items:center; border:3px solid #fff; border-radius:50%; color:#fff; background:#0b5e41; box-shadow:0 8px 24px rgba(5,61,39,.34); font:900 11px Cairo,sans-serif; }
-    .tplus-captain-marker::before { content:""; position:absolute; inset:-9px; border:2px solid rgba(8,122,70,.3); border-radius:50%; animation:mapPulse 1.8s ease-out infinite; }
-    @keyframes mapPulse { 0% { transform:scale(.72); opacity:1; } 100% { transform:scale(1.22); opacity:0; } }
-    .leaflet-control-zoom a { color:var(--green-950) !important; }
-    .leaflet-control-attribution { font-family:Cairo,sans-serif; font-size:9px !important; }
+        .text-glow-emerald {
+            text-shadow: 0 0 20px rgba(0, 230, 118, 0.6);
+        }
 
-    .chat-demo-section { padding:88px 0; overflow:hidden; background:#fff; }
-    .chat-demo-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(480px,1.2fr); align-items:center; gap:72px; }
-    .chat-demo-copy { max-width:520px; }
-    .chat-demo-copy h2 { margin-bottom:16px; }
-    .chat-demo-copy > p { margin:0; color:var(--muted); font-size:16px; line-height:1.95; }
-    .chat-points { margin-top:30px; display:grid; gap:14px; }
-    .chat-point { display:flex; align-items:center; gap:12px; color:var(--ink); font-size:14px; font-weight:700; }
-    .chat-point i { width:34px; height:34px; display:grid; place-items:center; flex:0 0 34px; color:var(--green-800); border:1px solid #cfe8da; border-radius:50%; background:#f3fbf7; }
-    .chat-point svg { width:17px; height:17px; }
-    .chat-window { overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#f6faf8; box-shadow:0 24px 64px rgba(7,58,42,.14); }
-    .chat-window-head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 18px; color:#fff; background:var(--green-950); }
-    .chat-person { display:flex; align-items:center; gap:11px; }
-    .chat-avatar { width:42px; height:42px; display:grid; place-items:center; flex:0 0 42px; border:2px solid rgba(255,255,255,.65); border-radius:50%; color:var(--green-950); background:var(--yellow); font-weight:900; }
-    .chat-person strong { display:block; font-size:14px; }
-    .chat-person span { display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.68); font-size:11px; }
-    .chat-person span::before { content:""; width:7px; height:7px; border-radius:50%; background:#4ade80; }
-    .chat-demo-label { padding:5px 9px; border:1px solid rgba(255,255,255,.2); border-radius:6px; color:rgba(255,255,255,.72); font-size:10px; font-weight:800; }
-    .chat-messages { min-height:310px; max-height:370px; overflow:auto; display:flex; flex-direction:column; gap:10px; padding:20px; background:linear-gradient(rgba(247,252,249,.93),rgba(247,252,249,.93)),linear-gradient(135deg,#d8eee1 25%,transparent 25%) 0 0/24px 24px; }
-    .chat-bubble { max-width:78%; padding:10px 13px 7px; border-radius:8px; box-shadow:0 4px 14px rgba(13,58,42,.07); animation:chatIn .25s ease-out both; }
-    .chat-bubble.captain { align-self:flex-start; color:var(--ink); border:1px solid var(--line); background:#fff; }
-    .chat-bubble.rider { align-self:flex-end; color:#fff; background:var(--green-800); }
-    .chat-bubble p { margin:0; font-size:13px; line-height:1.7; }
-    .chat-bubble time { display:block; margin-top:3px; color:var(--muted); font-size:9px; direction:ltr; text-align:left; }
-    .chat-bubble.rider time { color:rgba(255,255,255,.65); }
-    .chat-typing { min-height:23px; padding:0 20px; color:var(--green-800); font-size:10px; font-weight:700; background:#f6faf8; }
-    .chat-quick-replies { display:flex; gap:7px; padding:10px 14px; overflow:auto; border-top:1px solid var(--line); background:#fff; scrollbar-width:none; }
-    .chat-quick-replies::-webkit-scrollbar { display:none; }
-    .chat-reply { flex:0 0 auto; min-height:34px; padding:0 12px; border:1px solid #cfe8da; border-radius:17px; color:var(--green-800); background:#f3fbf7; font:700 11px Cairo,sans-serif; cursor:pointer; }
-    .chat-compose { display:grid; grid-template-columns:1fr 44px; gap:8px; padding:12px 14px 14px; background:#fff; }
-    .chat-compose input { min-width:0; height:44px; padding:0 14px; border:1px solid var(--line); border-radius:7px; color:var(--ink); background:#f8faf9; font:500 13px Cairo,sans-serif; outline:none; }
-    .chat-compose input:focus { border-color:var(--green-800); box-shadow:0 0 0 3px rgba(8,122,70,.1); }
-    .chat-send { width:44px; height:44px; display:grid; place-items:center; border:0; border-radius:7px; color:#17331f; background:var(--yellow); cursor:pointer; }
-    .chat-send svg { width:19px; height:19px; }
-    @keyframes chatIn { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:none; } }
-
-    .audience-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-    .audience-card { position:relative; min-height:390px; padding:30px; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); color:#fff; background:#173a2c center / cover no-repeat; isolation:isolate; display:flex; flex-direction:column; justify-content:flex-end; }
-    .audience-card:first-child { background-image:url("assets/hero-basra.webp"); background-position:center 67%; }
-    .audience-card:nth-child(2) { background-image:url("assets/city-fleet.webp"); background-position:center 70%; }
-    .audience-card::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,rgba(5,35,24,.94) 0%,rgba(5,35,24,.72) 35%,rgba(5,35,24,.04) 72%); }
-    .audience-card h3 { margin:0 0 8px; font-size:26px; }
-    .audience-card p { max-width:500px; margin:0 0 18px; color:rgba(255,255,255,.78); line-height:1.85; }
-    .audience-card img.vehicle { display:none; }
-    .text-link { display:inline-flex; align-items:center; gap:8px; color:#fff; text-decoration:none; font-weight:800; }
-
-    .safety-band { padding:72px 0; color:#fff; background:var(--green-950); }
-    .safety-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center; }
-    .safety-grid h2 { margin-top:0; }
-    .safety-grid > div > p { color:rgba(255,255,255,.72); line-height:1.9; }
-    .safety-points { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
-    .safety-point { min-height:88px; padding:16px; border:1px solid rgba(255,255,255,.15); border-radius:var(--radius); background:rgba(255,255,255,.05); }
-    .safety-point strong { display:block; margin-bottom:4px; }
-    .safety-point span { color:rgba(255,255,255,.64); font-size:13px; }
-
-    .cta { padding:76px 0; background:#fff; }
-    .cta-inner { display:flex; align-items:center; justify-content:space-between; gap:30px; padding:38px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
-    .cta h2 { margin:0 0 8px; font-size:32px; }
-    .cta p { margin:0; color:var(--muted); }
-    .soon { color:var(--muted); border-color:var(--line); background:#fff; cursor:default; }
-    .store-badges { display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; direction:ltr; }
-    .store-badge { min-width:184px; min-height:62px; display:grid; grid-template-columns:38px 1fr; align-items:center; gap:10px; padding:9px 14px; color:#fff; background:#101713; border:1px solid #25352c; border-radius:8px; box-shadow:0 10px 24px rgba(16,34,26,.1); }
-    .store-badge svg { width:30px; height:30px; }
-    .store-badge span { display:block; direction:rtl; text-align:right; line-height:1.15; }
-    .store-badge small { display:block; margin-bottom:4px; color:rgba(255,255,255,.62); font-size:10px; font-weight:700; }
-    .store-badge strong { display:block; font-size:16px; letter-spacing:0; }
-    .store-badge em { color:var(--yellow); font-style:normal; font-size:10px; font-weight:800; }
-    .store-strip { padding:46px 0 22px; background:#fff; }
-    .store-strip-inner { display:flex; align-items:center; justify-content:space-between; gap:28px; }
-    .store-strip h2 { margin:0 0 5px; font-size:25px; }
-    .store-strip p { margin:0; color:var(--muted); font-size:14px; }
-
-    .faq-section { padding:86px 0; background:#fff; }
-    .faq-grid { display:grid; grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr); gap:72px; align-items:start; }
-    .faq-intro h2 { margin-bottom:14px; }
-    .faq-intro > p { margin:0; color:var(--muted); line-height:1.9; }
-    .support-direct { margin-top:32px; padding-top:24px; border-top:1px solid var(--line); }
-    .support-direct > span { display:block; margin-bottom:7px; color:var(--muted); font-size:12px; font-weight:700; }
-    .support-number { display:inline-flex; align-items:center; gap:10px; color:var(--green-950); text-decoration:none; font-size:24px; font-weight:900; direction:ltr; }
-    .support-number svg { width:22px; height:22px; color:var(--green-800); }
-    .support-actions { display:flex; gap:9px; margin-top:17px; }
-    .support-actions a { min-height:40px; display:inline-flex; align-items:center; gap:8px; padding:0 13px; border:1px solid var(--line); border-radius:7px; color:var(--ink); text-decoration:none; font-size:12px; font-weight:800; }
-    .support-actions a:first-child { color:#fff; border-color:var(--green-800); background:var(--green-800); }
-    .support-actions svg { width:17px; height:17px; }
-    .faq-list { border-top:1px solid var(--line); }
-    .faq-list details { border-bottom:1px solid var(--line); }
-    .faq-list summary { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:18px; cursor:pointer; list-style:none; color:var(--ink); font-size:15px; font-weight:800; }
-    .faq-list summary::-webkit-details-marker { display:none; }
-    .faq-list summary::after { content:"+"; width:30px; height:30px; display:grid; place-items:center; flex:0 0 30px; border:1px solid var(--line); border-radius:50%; color:var(--green-800); font-size:20px; font-weight:500; transition:transform .2s ease; }
-    .faq-list details[open] summary::after { transform:rotate(45deg); }
-    .faq-list details p { max-width:690px; margin:-4px 0 22px; color:var(--muted); font-size:14px; line-height:1.9; }
-
-    footer { padding:32px 0; border-top:1px solid var(--line); }
-    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; color:var(--muted); font-size:13px; }
-    .footer-links { display:flex; gap:18px; }
-    .footer-links a { text-decoration:none; }
-
-    @media (max-width:900px) {
-      .nav-links { display:none; }
-      .menu-btn { display:grid; }
-      .nav-links.open { position:absolute; display:grid; top:72px; inset-inline:20px; padding:18px; gap:12px; background:var(--green-950); border:1px solid rgba(255,255,255,.16); border-radius:8px; }
-      .hero::before { background:linear-gradient(0deg,var(--green-950) 5%,rgba(5,61,39,.72) 58%,rgba(5,61,39,.08)),url("assets/hero-basra.webp") center 34% / cover no-repeat; }
-      .hero-inner { align-items:flex-end; padding-bottom:68px; }
-      .hero-copy { width:100%; padding-top:280px; }
-      .proof-inner { grid-template-columns:repeat(2,1fr); }
-      .proof-item:nth-child(3) { border-inline-start:0; border-top:1px solid var(--line); }
-      .proof-item:nth-child(4) { border-top:1px solid var(--line); }
-      .safety-grid { grid-template-columns:1fr; }
-      .journey-head { grid-template-columns:1fr; gap:22px; }
-      .journey-index { min-width:0; padding-inline-start:0; border-inline-start:0; }
-      .chat-demo-grid { grid-template-columns:1fr; gap:38px; }
-      .chat-demo-copy { max-width:700px; }
-      .faq-grid { grid-template-columns:1fr; gap:38px; }
-    }
-    @media (max-width:640px) {
-      .shell { width:min(100% - 28px,var(--max)); }
-      .site-nav { height:64px; }
-      .brand img { width:38px; height:38px; }
-      .brand b { font-size:18px; }
-      .nav-actions .icon-btn:not(.menu-btn) { display:none; }
-      .hero { padding-top:64px; min-height:min(820px,calc(100svh - 90px)); }
-      .hero::before,.hero::after { inset:64px 0 0; }
-      .hero-inner { min-height:min(756px,calc(100svh - 154px)); padding-bottom:34px; }
-      .hero-copy { padding-top:210px; }
-      h1 { font-size:48px; }
-      .hero-lead { font-size:16px; line-height:1.8; }
-      .hero-actions .btn { width:100%; }
-      .hero-status { gap:12px; }
-      .proof { margin-top:-18px; }
-      .proof-inner { grid-template-columns:1fr 1fr; }
-      .proof-item { padding:16px; }
-      .section { padding:68px 0; }
-      .journey-head { padding-bottom:22px; margin-bottom:24px; }
-      .journey-head::after { width:42%; }
-      .journey-index b { font-size:42px; }
-      .map-showcase-head { align-items:flex-start; flex-direction:column; gap:12px; }
-      .map-controls { width:100%; }
-      .map-stop { flex:1; justify-content:center; padding-inline:8px; }
-      .map-stage { min-height:500px; }
-      .map-trip-status { right:12px; left:12px; bottom:12px; min-width:0; }
-      .chat-demo-section { padding:68px 0; }
-      .chat-window-head { padding:13px 14px; }
-      .chat-messages { min-height:280px; padding:15px; }
-      .chat-bubble { max-width:86%; }
-      .journey-board { min-height:720px; aspect-ratio:auto; background:#082f2c url("assets/journey-board.webp") 62% bottom / auto 350% no-repeat; }
-      .journey-board > img { display:none; }
-      .journey-pin { inset-inline:14px; width:auto; min-height:0; padding:14px 15px; }
-      .journey-pin:nth-of-type(1) { left:14px; right:14px; bottom:224px; }
-      .journey-pin:nth-of-type(2) { left:14px; right:14px; bottom:120px; }
-      .journey-pin:nth-of-type(3) { left:14px; right:14px; bottom:16px; }
-      .journey-pin::after { display:none; }
-      .journey-pin p { font-size:12px; line-height:1.5; }
-      .audience-grid { grid-template-columns:1fr; }
-      .audience-card { min-height:300px; }
-      .safety-points { grid-template-columns:1fr; }
-      .cta-inner,.footer-inner { align-items:flex-start; flex-direction:column; }
-      .cta-inner { padding:26px 22px; }
-      .store-strip-inner { align-items:flex-start; flex-direction:column; }
-      .store-badges { width:100%; }
-      .store-badge { min-width:0; flex:1 1 170px; }
-      .faq-section { padding:68px 0; }
-      .support-number { font-size:21px; }
-      .store-badges,.store-badge { width:100%; max-width:100%; min-width:0; }
-      .store-badge { grid-template-columns:34px minmax(0,1fr); padding-inline:12px; }
-      .store-badge strong { font-size:15px; }
-      .footer-links { flex-wrap:wrap; }
-    }
-  </style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0D14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E2638;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00E676;
+        }
+    </style>
 </head>
-<body>
-  <div class="launch-screen" id="launchScreen" aria-label="T+ الآن في البصرة">
-    <div class="launch-content">
-      <img src="assets/tplus-official-v2.png" alt="شعار T+ الرسمي">
-      <strong>الآن في البصرة</strong>
-      <span>T+ Taxi</span>
-      <i class="launch-line"></i>
-    </div>
-  </div>
-  <nav class="site-nav" aria-label="التنقل الرئيسي">
-    <div class="shell nav-inner">
-      <a class="brand" href="#top" aria-label="T+ Taxi">
-        <img src="assets/tplus-official-v2.png" alt="شعار T+ الرسمي">
-        <b dir="ltr">T<span>+</span> Taxi</b>
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#how">كيف تعمل</a>
-        <a href="#chat">التواصل</a>
-        <a href="#apps">التطبيقات</a>
-        <a href="#safety">الأمان</a>
-        <a href="#faq">الأسئلة</a>
-        <a href="#download">التحميل</a>
-      </div>
-      <div class="nav-actions">
-        <a class="icon-btn" href="https://wa.me/9647734449499" aria-label="تواصل عبر واتساب" title="واتساب"><i data-lucide="message-circle"></i></a>
-        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة" aria-expanded="false"><i data-lucide="menu"></i></button>
-      </div>
-    </div>
-  </nav>
+<body class="antialiased selection:bg-brand-emerald selection:text-black">
 
-  <main id="top">
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="shell hero-inner">
-        <div class="hero-copy">
-          <div class="eyebrow"><i data-lucide="map-pin"></i> الآن في البصرة</div>
-          <h1 id="heroTitle" dir="ltr">T+ Taxi</h1>
-          <p class="hero-lead">رحلتك أقرب. اختر مركبتك، شاهد السعر، وتابع الكابتن على الخريطة من الطلب حتى الوصول.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://api.nashwancs.com/index.html"><i data-lucide="navigation"></i> افتح تطبيق الراكب</a>
-            <a class="btn btn-secondary" href="https://api.nashwancs.com/captain.html#captainRegister"><i data-lucide="badge-plus"></i> سجل كابتن</a>
-          </div>
-          <div class="hero-status"><span><i></i>متاح في البصرة</span><span><i></i>سيارة وتكتك</span><span><i></i>متابعة مباشرة</span></div>
-        </div>
-      </div>
-    </section>
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="glass-panel rounded-2xl px-4 py-2.5 flex items-center justify-between border border-white/10 shadow-2xl">
+                
+                <!-- Brand Official Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full bg-black flex items-center justify-center p-1 border border-brand-emerald/40 group-hover:border-brand-emerald transition-all shadow-lg shadow-brand-emerald/20 overflow-hidden">
+                        <!-- Official Paper Plane Logo Icon -->
+                        <svg viewBox="0 0 1000 1000" class="w-full h-full">
+                            <circle cx="500" cy="500" r="500" fill="#0A0D14"/>
+                            <path d="M 820 210 L 180 460 L 360 800 L 480 610 L 820 210 Z" fill="#00E676"/>
+                            <path d="M 820 210 L 360 570 L 360 800 Z" fill="#10B981"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-tight text-white flex items-center gap-1">
+                            T<span class="text-brand-emerald">+</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold tracking-widest -mt-1">البصرة | BASRA</span>
+                    </div>
+                </a>
 
-    <div class="proof">
-      <div class="shell proof-inner">
-        <div class="proof-item"><strong>سعر واضح</strong><span>تعرف التكلفة قبل تأكيد الطلب</span></div>
-        <div class="proof-item"><strong>متابعة مباشرة</strong><span>موقع الكابتن ومراحل الرحلة</span></div>
-        <div class="proof-item"><strong>دعم محلي</strong><span>فريق قريب من المستخدمين</span></div>
-        <div class="proof-item"><strong>خيارات مناسبة</strong><span>سيارة أو تكتك حسب حاجتك</span></div>
-      </div>
-    </div>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-300">
+                    <a href="#hero" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-house text-xs text-brand-emerald"></i> الرئيسية
+                    </a>
+                    <a href="#services" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-cubes text-xs text-brand-emerald"></i> خدماتنا
+                    </a>
+                    <a href="#video-section" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-play text-xs text-brand-emerald"></i> فيديو الإطلاق
+                    </a>
+                    <a href="#estimator" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-calculator text-xs text-brand-emerald"></i> حاسبة الرحلات
+                    </a>
+                    <a href="#support" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-headset text-xs text-brand-emerald"></i> الدعم المباشر
+                    </a>
+                </div>
 
-    <section class="store-strip" id="download">
-      <div class="shell store-strip-inner">
-        <div><h2>تطبيق T+ قريباً على المتاجر</h2><p>نسختا الراكب والكابتن قيد التجهيز للنشر الرسمي.</p></div>
-        <div class="store-badges" aria-label="متاجر التطبيقات قريباً">
-          <div class="store-badge"><i data-lucide="play"></i><span><small>قريباً على</small><strong>Google Play</strong><em>قيد التجهيز</em></span></div>
-          <div class="store-badge"><i data-lucide="apple"></i><span><small>قريباً على</small><strong>App Store</strong><em>قيد التجهيز</em></span></div>
+                <!-- Action CTA & Direct Call -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:07734449499" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-darkCard text-brand-emerald border border-brand-emerald/30 hover:bg-brand-emerald hover:text-black transition-all text-xs font-bold">
+                        <i class="fa-solid fa-phone animate-bounce"></i>
+                        <span>07734449499</span>
+                    </a>
+                    <a href="#download" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-emeraldDark text-black font-extrabold text-xs sm:text-sm hover:shadow-lg hover:shadow-brand-emerald/30 transition-all flex items-center gap-2 transform active:scale-95">
+                        <i class="fa-solid fa-download"></i>
+                        <span>حمل التطبيق</span>
+                    </a>
+                </div>
+            </nav>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section class="section section-soft" id="how">
-      <div class="shell">
-        <div class="section-head journey-head">
-          <div class="journey-copy">
-            <span class="section-kicker">من موقعك إلى وجهتك</span>
-            <h2>رحلتك واضحة، خطوة بخطوة</h2>
-            <p>حدد نقطة الانطلاق، اختر المركبة الأنسب، وتابع الكابتن مباشرة حتى اكتمال الرحلة.</p>
-          </div>
-          <div class="journey-index" aria-label="ثلاث خطوات مترابطة على الخريطة">
-            <b>03</b>
-            <span>خطوات مترابطة<br>على الخريطة</span>
-          </div>
-        </div>
-        <div class="journey-board">
-          <img src="assets/journey-board.webp" alt="رحلة T+ من الموقع إلى المركبة والمتابعة" loading="lazy" decoding="async">
-          <article class="journey-pin"><div class="pin-title"><span class="pin-num">١</span><h3>حدد موقعك</h3></div><p>استخدم موقعك الحالي أو اختر نقطة الانطلاق على الخريطة.</p></article>
-          <article class="journey-pin"><div class="pin-title"><span class="pin-num">٢</span><h3>اختر المركبة</h3></div><p>قارن السعر والوقت المتوقع واختر السيارة أو التكتك.</p></article>
-          <article class="journey-pin"><div class="pin-title"><span class="pin-num">٣</span><h3>تابع الرحلة</h3></div><p>استلم تحديثات الوصول والبداية والإكمال لحظة بلحظة.</p></article>
-        </div>
-        <div class="map-showcase">
-          <div class="map-showcase-head">
-            <div class="map-showcase-title">
-              <i><span data-lucide="map"></span></i>
-              <div><strong>رحلة على خريطة البصرة</strong><span>عرض توضيحي لتجربة التتبع داخل T+</span></div>
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-brand-darkBg via-brand-darkBg to-[#0E1320]">
+        
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-emerald/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-brand-emeraldDark/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Text Column -->
+                <div class="lg:col-span-7 text-right">
+                    
+                    <!-- Live Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-emerald/30 mb-6 animate-pulse-glow">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-emerald animate-ping"></span>
+                        <span class="text-xs font-bold text-brand-emerald tracking-wide">المنصة الذكية الأولى للتنقل والتوصيل في البصرة</span>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight mb-6">
+                        تطبيق <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-emerald via-emerald-300 to-brand-emeraldDark text-glow-emerald">T+</span><br/>
+                        من حدائق البصرة... أطلق خيالك وانطلق!
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-300 font-medium leading-relaxed mb-8 max-w-2xl">
+                        من قلب الفيحاء البصرية، تنطلق طائرتنا الرقمية لتلبي كافة احتياجاتك اليومية: رحلات تكسي سريعة، خدمة "اشتري لي"، وتوصيل المنتجات والبضائع بأعلى درجات السرعة والأمان.
+                    </p>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 mb-10">
+                        <a href="#download" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-emerald to-brand-emeraldDark text-black font-black text-base hover:shadow-[0_0_35px_rgba(0,230,118,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-3">
+                            <i class="fa-solid fa-rocket text-lg"></i>
+                            <span>حمل التطبيق الآن</span>
+                        </a>
+                        <a href="#services" class="px-8 py-4 rounded-2xl glass-card text-white font-bold text-base hover:border-brand-emerald/50 transition-all flex items-center gap-3">
+                            <i class="fa-solid fa-layer-group text-brand-emerald"></i>
+                            <span>استكشف الخدمات</span>
+                        </a>
+                    </div>
+
+                    <!-- Fast Direct Call Quick Card -->
+                    <div class="p-4 rounded-2xl glass-panel border border-brand-emerald/30 inline-flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/20 flex items-center justify-center text-brand-emerald text-xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 block">خط الدعم المباشر السريع 24/7</span>
+                            <a href="tel:07734449499" class="text-lg font-black text-white hover:text-brand-emerald transition-colors tracking-wider" dir="ltr">
+                                07734449499
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right Feature Image Column (Girl in Basra Garden with Green Paper Plane) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        
+                        <!-- Glowing Backlight Ring -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-emerald to-emerald-600 rounded-[35px] blur-xl opacity-40 animate-pulse"></div>
+
+                        <!-- Card Image Container -->
+                        <div class="relative rounded-[32px] overflow-hidden border-2 border-brand-emerald/30 bg-brand-darkCard shadow-2xl group">
+                            
+                            <!-- Embedded Feature Image -->
+                            <img src="watermarked_img_10752313589164445247.jpg" 
+                                 alt="بنت تلعب بطائرة ورقية خضراء في حدائق البصرة - تطبيق T+" 
+                                 class="w-full h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+
+                            <!-- Image Overlay Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-transparent to-transparent opacity-80"></div>
+
+                            <!-- Floating Caption Badge -->
+                            <div class="absolute bottom-5 left-5 right-5 glass-panel p-4 rounded-2xl border border-white/10 text-center">
+                                <span class="text-xs font-bold text-brand-emerald block mb-1">
+                                    <i class="fa-solid fa-heart text-red-500 ml-1"></i> فرحة الإطلاق في حدائق البصرة
+                                </span>
+                                <p class="text-[11px] text-gray-300">
+                                    "أطلق خيالك مع الطائرة الورقية الخضراء واجعل رحلاتك وتوصيلاتك أسهل"
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="map-controls" aria-label="نقاط مسار الرحلة">
-              <button class="map-stop active" type="button" data-map-stop="start"><i data-lucide="circle-dot"></i> الانطلاق</button>
-              <button class="map-stop" type="button" data-map-stop="captain"><i data-lucide="navigation"></i> الكابتن</button>
-              <button class="map-stop" type="button" data-map-stop="end"><i data-lucide="map-pin"></i> الوصول</button>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 relative bg-brand-darkBg border-t border-brand-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase mb-2">خدمات تطبيق T+ المتميزة</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">كل ما تحتاجه في البصرة بلمسة واحدة</h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-emerald to-brand-emeraldDark mx-auto mt-4 rounded-full"></div>
             </div>
-          </div>
-          <div class="map-stage">
-            <div id="tplusMap" role="application" aria-label="خريطة تفاعلية لمسار رحلة توضيحية في البصرة"></div>
-            <div class="map-trip-status"><i></i><div><strong>الكابتن يتحرك نحو الوجهة</strong><span>المسار والوقت يتحدثان أثناء الرحلة</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="chat-demo-section" id="chat" aria-labelledby="chatDemoTitle">
-      <div class="shell chat-demo-grid">
-        <div class="chat-demo-copy">
-          <span class="section-kicker">تواصل بدون تأخير</span>
-          <h2 id="chatDemoTitle">الراكب والكابتن على تواصل</h2>
-          <p>رسائل واضحة أثناء الرحلة تساعد الطرفين على تنسيق الوصول بسرعة، بدون مغادرة التطبيق أو مشاركة أرقام شخصية.</p>
-          <div class="chat-points">
-            <div class="chat-point"><i><span data-lucide="message-circle"></span></i> ردود سريعة للحالات المتكررة</div>
-            <div class="chat-point"><i><span data-lucide="bell-ring"></span></i> تنبيه عند وصول رسالة جديدة</div>
-            <div class="chat-point"><i><span data-lucide="shield-check"></span></i> التواصل مرتبط بالرحلة الحالية</div>
-          </div>
-        </div>
-        <div class="chat-window" aria-label="معاينة تفاعلية لمحادثة بين الراكب والكابتن">
-          <div class="chat-window-head">
-            <div class="chat-person"><div class="chat-avatar">T+</div><div><strong>الكابتن مصطفى</strong><span id="chatPresence">متصل الآن</span></div></div>
-            <span class="chat-demo-label">عرض توضيحي</span>
-          </div>
-          <div class="chat-messages" id="chatMessages" aria-live="polite">
-            <div class="chat-bubble captain"><p>السلام عليكم، وصلت إلى نقطة الانطلاق.</p><time>10:24</time></div>
-            <div class="chat-bubble rider"><p>وعليكم السلام، دقيقة واحدة وجاي.</p><time>10:24 ✓✓</time></div>
-            <div class="chat-bubble captain"><p>تمام، أنتظرك بالموقع المحدد.</p><time>10:25</time></div>
-          </div>
-          <div class="chat-typing" id="chatTyping"></div>
-          <div class="chat-quick-replies" aria-label="ردود سريعة">
-            <button class="chat-reply" type="button">أنا جاي</button>
-            <button class="chat-reply" type="button">دقيقة واحدة</button>
-            <button class="chat-reply" type="button">هذا موقعي</button>
-          </div>
-          <form class="chat-compose" id="chatForm">
-            <input id="chatInput" type="text" maxlength="80" autocomplete="off" placeholder="اكتب رسالة..." aria-label="نص الرسالة">
-            <button class="chat-send" type="submit" aria-label="إرسال الرسالة"><i data-lucide="send"></i></button>
-          </form>
-        </div>
-      </div>
-    </section>
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service 1: Buy For Me (اشتري لي) -->
+                <div class="glass-card rounded-2xl p-6 relative group border-brand-emerald/30">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
+                        <i class="fa-solid fa-cart-flatbed-suitcases"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">خدمة "اشتري لي"</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                        حدد الطلبات والأغراض التي تريدها من أي أسواق، صيدلية، أو مطعم في البصرة وسيقوم مندوبنا بشرائها وتوصيلها حتى باب بيتك.
+                    </p>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> شراء مباشر نيابة عنك
+                        </li>
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> فاتورة رسمية وواضحة
+                        </li>
+                    </ul>
+                </div>
 
-    <section class="section" id="apps">
-      <div class="shell">
-        <div class="section-head"><span class="section-kicker">تطبيقان، خدمة واحدة</span><h2>مصمم للراكب والكابتن</h2><p>كل تطبيق يقدم الأدوات التي يحتاجها مستخدمه بدون شاشات مزدحمة.</p></div>
-        <div class="audience-grid">
-          <article class="audience-card"><h3>تطبيق الراكب</h3><p>اختيار المركبة، السعر، متابعة الكابتن، سجل الرحلات والدعم في مكان واحد.</p><a class="text-link" href="https://api.nashwancs.com/index.html">فتح التطبيق <i data-lucide="arrow-left"></i></a><img class="vehicle" src="assets/car.webp" alt="سيارة T+ البيضاء"></article>
-          <article class="audience-card"><h3>تطبيق الكابتن</h3><p>استقبال الطلبات، إدارة مراحل الرحلة، الخرائط، الأرباح والتواصل مع الراكب.</p><a class="text-link" href="https://api.nashwancs.com/captain.html">فتح تطبيق الكابتن <i data-lucide="arrow-left"></i></a><img class="vehicle" src="assets/tuk.webp" alt="تكتك T+"></article>
-        </div>
-      </div>
-    </section>
+                <!-- Service 2: Deliver My Products (توصيل منتجاتي) -->
+                <div class="glass-card rounded-2xl p-6 relative group border-brand-emerald/30">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">توصيل منتجاتي</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                        خدمة مخصصة لأصحاب المتاجر والمشاريع الناشئة والتاجر البصري لشحن وتوصيل الطلبات للزبائن داخل مناطق البصرة بسرعة فائقة.
+                    </p>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> تحصيل مالي دقيق (COD)
+                        </li>
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> أسعار خاصة للمشاريع
+                        </li>
+                    </ul>
+                </div>
 
-    <section class="safety-band" id="safety">
-      <div class="shell safety-grid">
-        <div><h2>الأمان جزء من الرحلة</h2><p>مراحل واضحة، بيانات كابتن، تتبع مباشر، ودعم يمكن الوصول إليه عند الحاجة.</p></div>
-        <div class="safety-points">
-          <div class="safety-point"><strong>كابتن معتمد</strong><span>طلبات التسجيل تمر بمراجعة الإدارة.</span></div>
-          <div class="safety-point"><strong>تتبع الرحلة</strong><span>حالة الرحلة وموقع المركبة ظاهران.</span></div>
-          <div class="safety-point"><strong>تواصل سريع</strong><span>اتصال ومراسلة أثناء الرحلة.</span></div>
-          <div class="safety-point"><strong>دعم T+</strong><span>قناة مباشرة للاستفسارات والمساعدة.</span></div>
-        </div>
-      </div>
-    </section>
+                <!-- Service 3: Taxi Ride -->
+                <div class="glass-card rounded-2xl p-6 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
+                        <i class="fa-solid fa-taxi"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">توصيل الركاب</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                        رحلات أمنة وسريعة عبر تكسي صالون أو تكتك اقتصادي في جميع أنحاء البصرة بدون انتظار وبأسعار ثابته.
+                    </p>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> تتبع مباشر للرحلة
+                        </li>
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> كباتن معتمدون
+                        </li>
+                    </ul>
+                </div>
 
-    <section class="faq-section" id="faq" aria-labelledby="faqTitle">
-      <div class="shell faq-grid">
-        <div class="faq-intro">
-          <span class="section-kicker">معلومات مهمة</span>
-          <h2 id="faqTitle">أسئلة شائعة</h2>
-          <p>إجابات مختصرة عن الخدمة قبل طلب رحلتك أو التسجيل ككابتن.</p>
-          <div class="support-direct">
-            <span>الدعم والتواصل</span>
-            <a class="support-number" href="tel:+9647734449499"><i data-lucide="phone"></i> 0773 444 9499</a>
-            <div class="support-actions">
-              <a href="https://wa.me/9647734449499"><i data-lucide="message-circle"></i> واتساب</a>
-              <a href="https://www.nashwancs.com"><i data-lucide="globe-2"></i> Nashwan CS</a>
+                <!-- Service 4: Express Delivery -->
+                <div class="glass-card rounded-2xl p-6 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">التوصيل السريع</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                        شحن ونقل الطرود والوثائق الهامة من وإلى أي عنوان في الفيحاء بأعلى درجات العناية والحماية.
+                    </p>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> تسليم في نفس اليوم
+                        </li>
+                        <li class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-brand-emerald"></i> إشعار فوري بالتسليم
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-          </div>
+
         </div>
-        <div class="faq-list">
-          <details open><summary>أين تتوفر خدمة T+؟</summary><p>تبدأ الخدمة داخل مدينة البصرة، ويجري توسيع مناطق التغطية تدريجياً بحسب توفر الكباتن.</p></details>
-          <details><summary>كيف يتم دفع أجرة الرحلة؟</summary><p>الدفع حالياً نقداً عند نهاية الرحلة، ويظهر خيار الدفع بوضوح داخل التطبيق قبل تأكيد الطلب.</p></details>
-          <details><summary>كيف أعرف سعر الرحلة؟</summary><p>يعرض التطبيق السعر المتوقع قبل التأكيد اعتماداً على المسافة ونوع المركبة المختارة.</p></details>
-          <details><summary>كيف أسجل ككابتن؟</summary><p>اضغط «سجل كابتن»، أكمل البيانات المطلوبة، ثم تراجع الإدارة الطلب قبل تفعيل الحساب.</p></details>
-        </div>
-      </div>
     </section>
 
-  </main>
+    <section id="video-section" class="py-20 relative bg-gradient-to-b from-brand-darkBg to-[#0A0E18] border-t border-brand-darkBorder">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="mb-10">
+                <span class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase block mb-2">عرض الفيديو التسويقي الرسمي</span>
+                <h3 class="text-3xl font-black text-white">فيديو إطلاق تطبيق T+ في البصرة</h3>
+                <p class="text-gray-400 text-xs mt-2">شاهد قصة انطلاق الطائرة الورقية الخضراء من حدائق البصرة إلى عالم الخدمات الذكية</p>
+            </div>
 
-  <footer>
-    <div class="shell footer-inner">
-      <span>© 2026 T+ Taxi — Developed by Nashwan CS</span>
-      <div class="footer-links"><a href="https://api.nashwancs.com/privacy.html">سياسة الخصوصية</a><a href="https://api.nashwancs.com/terms.html">شروط الاستخدام</a><a href="https://www.nashwancs.com">Nashwan CS</a></div>
-    </div>
-  </footer>
-  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    const launchScreen=document.getElementById('launchScreen');
-    window.setTimeout(()=>launchScreen?.classList.add('is-done'),1900);
-    window.setTimeout(()=>launchScreen?.remove(),2600);
-    window.lucide?.createIcons();
-    const menuBtn=document.getElementById('menuBtn');
-    const navLinks=document.getElementById('navLinks');
-    menuBtn?.addEventListener('click',()=>{
-      const open=navLinks.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded',String(open));
-    });
-    navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      navLinks.classList.remove('open');
-      menuBtn?.setAttribute('aria-expanded','false');
-    }));
-    if(window.L && document.getElementById('tplusMap')) {
-      const route=[
-        [30.5027,47.7724],
-        [30.5057,47.7761],
-        [30.5085,47.7793],
-        [30.5112,47.7837],
-        [30.5147,47.7888]
-      ];
-      const map=L.map('tplusMap',{zoomControl:true,scrollWheelZoom:false,attributionControl:true}).setView([30.5087,47.7806],14);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-        maxZoom:19,
-        attribution:'&copy; OpenStreetMap &copy; CARTO'
-      }).addTo(map);
-      const markerIcon=(label,extra='')=>L.divIcon({className:'',html:`<div class="tplus-map-marker ${extra}">${label}</div>`,iconSize:[38,38],iconAnchor:[19,19]});
-      const captainIcon=L.divIcon({className:'',html:'<div class="tplus-captain-marker">T+</div>',iconSize:[42,42],iconAnchor:[21,21]});
-      const startMarker=L.marker(route[0],{icon:markerIcon('أ')}).addTo(map).bindTooltip('نقطة الانطلاق',{direction:'top'});
-      const endMarker=L.marker(route.at(-1),{icon:markerIcon('و','end')}).addTo(map).bindTooltip('نقطة الوصول',{direction:'top'});
-      L.polyline(route,{color:'#ffffff',weight:9,opacity:.9,lineCap:'round'}).addTo(map);
-      L.polyline(route,{color:'#087a46',weight:5,opacity:1,lineCap:'round',dashArray:'12 9'}).addTo(map);
-      const captain=L.marker(route[1],{icon:captainIcon,zIndexOffset:500}).addTo(map);
-      const stops={start:route[0],captain:route[2],end:route.at(-1)};
-      document.querySelectorAll('[data-map-stop]').forEach(button=>button.addEventListener('click',()=>{
-        document.querySelectorAll('[data-map-stop]').forEach(item=>item.classList.toggle('active',item===button));
-        map.flyTo(stops[button.dataset.mapStop],15,{duration:.75});
-      }));
-      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        let step=1;
-        window.setInterval(()=>{
-          step=step>=route.length-1?1:step+1;
-          captain.setLatLng(route[step]);
-        },2200);
-      }
-      window.setTimeout(()=>map.invalidateSize(),250);
-    }
-    const chatMessages=document.getElementById('chatMessages');
-    const chatInput=document.getElementById('chatInput');
-    const chatTyping=document.getElementById('chatTyping');
-    const chatForm=document.getElementById('chatForm');
-    const chatResponses=['تمام، أشوفك بعد لحظات.','وصلني موقعك، أنا قريب.','حاضر، أنتظرك بالمكان المحدد.'];
-    let chatResponseIndex=0;
-    const addChatMessage=(text,type)=>{
-      if(!chatMessages || !text.trim()) return;
-      const bubble=document.createElement('div');
-      bubble.className=`chat-bubble ${type}`;
-      const message=document.createElement('p');
-      message.textContent=text.trim();
-      const time=document.createElement('time');
-      time.textContent=type==='rider'?'الآن ✓✓':'الآن';
-      bubble.append(message,time);
-      chatMessages.appendChild(bubble);
-      while(chatMessages.children.length>7) chatMessages.firstElementChild?.remove();
-      chatMessages.scrollTop=chatMessages.scrollHeight;
-    };
-    const sendDemoMessage=text=>{
-      if(!text.trim()) return;
-      addChatMessage(text,'rider');
-      if(chatInput) chatInput.value='';
-      if(chatTyping) chatTyping.textContent='الكابتن يكتب الآن...';
-      window.setTimeout(()=>{
-        if(chatTyping) chatTyping.textContent='';
-        addChatMessage(chatResponses[chatResponseIndex++%chatResponses.length],'captain');
-      },850);
-    };
-    chatForm?.addEventListener('submit',event=>{
-      event.preventDefault();
-      sendDemoMessage(chatInput?.value||'');
-    });
-    document.querySelectorAll('.chat-reply').forEach(button=>button.addEventListener('click',()=>sendDemoMessage(button.textContent||'')));
-  </script>
+            <!-- Embedded Interactive Video Player Container -->
+            <div class="relative rounded-3xl overflow-hidden glass-card border-2 border-brand-emerald/40 shadow-2xl bg-black">
+                
+                <!-- Video Element Ready for MP4 or Direct URL -->
+                <video id="promo-video" class="w-full h-[320px] sm:h-[480px] object-cover" controls poster="watermarked_img_10752313589164445247.jpg">
+                    <source src="" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو المباشر.
+                </video>
+
+                <!-- Custom Overlay Placeholder if no video uploaded yet -->
+                <div id="video-placeholder-overlay" class="absolute inset-0 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-opacity">
+                    <button onclick="playCustomVideo()" class="w-20 h-20 rounded-full bg-brand-emerald text-black flex items-center justify-center text-3xl shadow-lg shadow-brand-emerald/40 hover:scale-110 transition-transform mb-4">
+                        <i class="fa-solid fa-play ml-1"></i>
+                    </button>
+                    <h4 class="text-xl font-bold text-white mb-2">فيديو الإطلاق جاهز للعرض</h4>
+                    <p class="text-xs text-gray-300 max-w-md mb-6">يمكنك رفع وتشغيل ملتقيات الفيديو الخاصة بك مباشرة أو الضغط للبدء</p>
+                    <label class="px-5 py-2.5 rounded-xl bg-brand-darkCard text-brand-emerald border border-brand-emerald/40 text-xs font-bold cursor-pointer hover:bg-brand-emerald hover:text-black transition-all">
+                        <i class="fa-solid fa-upload ml-1.5"></i> اختر ملف فيديو الخاص بك
+                        <input type="file" accept="video/*" class="hidden" onchange="handleVideoUpload(event)">
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="estimator" class="py-20 relative bg-brand-darkBg border-t border-brand-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Calculator Box -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8 border border-brand-emerald/20 shadow-2xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center text-brand-emerald">
+                            <i class="fa-solid fa-calculator text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">حاسبة الرحلات والتوصيل</h3>
+                            <p class="text-xs text-gray-400">احسب تكلفة طلبك أو رحلتك مسبقاً</p>
+                        </div>
+                    </div>
+
+                    <!-- Pickup Dropoff -->
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1.5">منطقة الانطلاق</label>
+                            <select id="pickup-select" onchange="calculateFare()" class="w-full bg-brand-darkBg text-white text-sm rounded-xl px-4 py-3 border border-gray-700 focus:border-brand-emerald focus:outline-none cursor-pointer">
+                                <option value="gardens">حدائق البصرة العامة</option>
+                                <option value="corniche">كورنيش شط العرب</option>
+                                <option value="times_square">تايمز سكوير البصرة</option>
+                                <option value="basra_land">البصرة لاند</option>
+                                <option value="airport">مطار البصرة الدولي</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1.5">منطقة الوصول</label>
+                            <select id="dropoff-select" onchange="calculateFare()" class="w-full bg-brand-darkBg text-white text-sm rounded-xl px-4 py-3 border border-gray-700 focus:border-brand-emerald focus:outline-none cursor-pointer">
+                                <option value="times_square">تايمز سكوير البصرة</option>
+                                <option value="corniche">كورنيش شط العرب</option>
+                                <option value="gardens">حدائق البصرة العامة</option>
+                                <option value="basra_land">البصرة لاند</option>
+                                <option value="airport">مطار البصرة الدولي</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Card -->
+                    <div class="p-4 rounded-2xl bg-brand-darkBg/90 border border-brand-emerald/30 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block">السعر التقديري</span>
+                            <span id="fare-price" class="text-2xl font-black text-brand-emerald">3,500 د.ع</span>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-400 block">وقت الوصول</span>
+                            <span id="fare-time" class="text-sm font-bold text-white flex items-center gap-1 justify-end">
+                                <i class="fa-regular fa-clock text-brand-emerald"></i> 12 دقيقة
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Description -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-emerald/10 text-brand-emerald text-xs font-bold border border-brand-emerald/20">
+                        <i class="fa-solid fa-shield-halved"></i> أسعار ثابتة ومحسوبة بدقة
+                    </div>
+                    <h3 class="text-3xl font-black text-white leading-tight">
+                        تنقل وتوصيل بدون أي زيادات غير متوقعة
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        نظام التسعير العادل في T+ يضمن لك أفضل كلفة للتنقل بين أرجاء البصرة أو توصيل الأغراض والمنتجات بكل شفافية.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="support" class="py-20 bg-gradient-to-b from-[#0A0E18] to-brand-darkBg border-t border-brand-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-brand-emerald/30 relative overflow-hidden text-center">
+                
+                <div class="max-w-3xl mx-auto relative z-10 space-y-6">
+                    
+                    <div class="w-16 h-16 rounded-full bg-brand-emerald/20 border border-brand-emerald text-brand-emerald flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <h2 class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase">مركز الدعم والمساعدة المباشرة</h2>
+                    <h3 class="text-3xl sm:text-4xl font-black text-white">نحن في خدمتك دائماً على مدار الساعة</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        هل لديك أي استفسار، طلب خاص، أو تحتاج مساعدة فورية؟ فريق دعم T+ في البصرة جاهز للرد عليك فوراً.
+                    </p>
+
+                    <!-- Phone Number Spotlight Box -->
+                    <div class="py-4 px-6 rounded-2xl bg-brand-darkBg/90 border border-brand-emerald/40 inline-flex flex-col sm:flex-row items-center gap-6">
+                        <div class="text-right">
+                            <span class="text-xs text-gray-400 block">رقم الدعم المباشر</span>
+                            <span class="text-2xl sm:text-3xl font-black text-brand-emerald tracking-wider" dir="ltr">07734449499</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="tel:07734449499" class="px-5 py-2.5 rounded-xl bg-brand-emerald text-black font-extrabold text-xs hover:scale-105 transition-transform flex items-center gap-2">
+                                <i class="fa-solid fa-phone"></i> اتصل الآن
+                            </a>
+                            <a href="https://wa.me/9647734449499" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs hover:scale-105 transition-transform flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> واتساب مباشر
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="download" class="py-16 bg-brand-darkBg border-t border-brand-darkBorder text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="text-3xl font-black text-white mb-4">انطلق مع T+ اليوم في البصرة</h3>
+            <p class="text-gray-300 text-xs sm:text-sm mb-8">حمل التطبيق الآن واستمتع بجميع خدمات التنقل والتوصيل المباشر</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-6 py-3 rounded-2xl bg-white text-black font-bold flex items-center gap-3 hover:bg-brand-emerald transition-all">
+                    <i class="fa-brands fa-apple text-2xl"></i>
+                    <div class="text-right">
+                        <div class="text-[10px] text-gray-600">Download on</div>
+                        <div class="text-xs font-black">App Store</div>
+                    </div>
+                </a>
+                <a href="#" class="px-6 py-3 rounded-2xl bg-brand-darkCard text-white border border-white/20 font-bold flex items-center gap-3 hover:border-brand-emerald transition-all">
+                    <i class="fa-brands fa-google-play text-2xl text-brand-emerald"></i>
+                    <div class="text-right">
+                        <div class="text-[10px] text-gray-400">GET IT ON</div>
+                        <div class="text-xs font-black">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 border-t border-white/10 text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+            <p>© 2026 T+ Basra. جميع الحقوق محفوظة لشركة T+ الفيحاء.</p>
+            <div class="mt-4 sm:mt-0 space-x-4 space-x-reverse">
+                <a href="tel:07734449499" class="text-brand-emerald font-bold">هاتف الدعم: 07734449499</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Video Upload & Play Handler
+        function handleVideoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoElem = document.getElementById('promo-video');
+                const overlay = document.getElementById('video-placeholder-overlay');
+                videoElem.src = URL.createObjectURL(file);
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.style.display = 'none', 300);
+                videoElem.play();
+            }
+        }
+
+        function playCustomVideo() {
+            const videoElem = document.getElementById('promo-video');
+            const overlay = document.getElementById('video-placeholder-overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.style.display = 'none', 300);
+            if(videoElem.src) {
+                videoElem.play();
+            }
+        }
+
+        // Fare Calculator
+        function calculateFare() {
+            const p = document.getElementById('pickup-select').value;
+            const d = document.getElementById('dropoff-select').value;
+            const priceElem = document.getElementById('fare-price');
+
+            if (p === d) {
+                priceElem.innerText = "اختر وجهة مختلفة";
+                return;
+            }
+            priceElem.innerText = "3,500 د.ع";
+        }
+    </script>
 </body>
 </html>
