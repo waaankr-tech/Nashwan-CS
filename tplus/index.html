@@ -1,567 +1,481 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T+ | أطلق خيالك وانطلق في البصرة</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Cairo & Tajawal -->
+    <title>+T البصرة | التوصيل والخدمات الذكية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            emerald: '#00E676',
-                            emeraldDark: '#10B981',
-                            teal: '#059669',
-                            darkBg: '#0A0D14',
-                            darkCard: '#121824',
-                            darkBorder: '#1E2638',
-                            slate: '#0F172A'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        tajawal: ['Tajawal', 'sans-serif']
-                    },
-                    animation: {
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                        'float-slow': 'float 6s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4', filter: 'drop-shadow(0 0 15px rgba(0, 230, 118, 0.4))' },
-                            '50%': { opacity: '0.9', filter: 'drop-shadow(0 0 35px rgba(16, 185, 129, 0.8))' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #0D1117;
+            --bg-card: rgba(22, 27, 34, 0.75);
+            --primary-emerald: #0F8250;
+            --primary-mint: #40D98A;
+            --text-main: #F0F6FC;
+            --text-muted: #8B949E;
+            --border-glow: rgba(64, 217, 138, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: #0A0D14;
-            color: #F3F4F6;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
         }
 
-        .glass-panel {
-            background: rgba(18, 24, 36, 0.75);
+        /* Floating Background Lines & Low-Poly Icons Setup */
+        .floating-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .string-line {
+            stroke: rgba(255, 255, 255, 0.15);
+            stroke-width: 1.2;
+            stroke-dasharray: 4;
+        }
+
+        /* Floating Animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        @keyframes floatFast {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(-4deg); }
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: floatSlow 6s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(13, 17, 23, 0.85);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 230, 118, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .glass-card {
-            background: linear-gradient(135deg, rgba(30, 38, 56, 0.6) 0%, rgba(18, 24, 36, 0.85) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 230, 118, 0.15);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .glass-card:hover {
-            border-color: rgba(0, 230, 118, 0.45);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(0, 230, 118, 0.25);
+        .paper-plane-logo {
+            width: 42px;
+            height: 42px;
         }
 
-        .text-glow-emerald {
-            text-shadow: 0 0 20px rgba(0, 230, 118, 0.6);
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
+        .brand-name span {
+            color: var(--primary-mint);
         }
-        ::-webkit-scrollbar-track {
-            background: #0A0D14;
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #1E2638;
-            border-radius: 4px;
+
+        .social-tag {
+            background: rgba(64, 217, 138, 0.1);
+            border: 1px solid var(--primary-mint);
+            color: var(--primary-mint);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00E676;
+
+        .social-tag:hover {
+            background: var(--primary-mint);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 8%;
+            z-index: 10;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary-mint), var(--primary-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-emerald), var(--primary-mint));
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(15, 130, 80, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Character Visual Frame (Transparent Background) */
+        .hero-visual {
+            position: relative;
+            width: 480px;
+            height: 520px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
+            z-index: 5;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 5rem 8%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-mint);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(64, 217, 138, 0.15);
+        }
+
+        .service-icon-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary-mint);
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Support Banner */
+        .support-banner {
+            margin: 4rem 8%;
+            background: linear-gradient(135deg, rgba(15, 130, 80, 0.2), rgba(13, 17, 23, 0.9));
+            border: 1px solid var(--primary-emerald);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .support-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-mint);
+            direction: ltr;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(8, 11, 15, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 8%;
+            text-align: center;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            .hero-visual {
+                width: 100%;
+                height: auto;
+                margin-top: 2rem;
+            }
+            .support-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-emerald selection:text-black">
+<body>
 
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <nav class="glass-panel rounded-2xl px-4 py-2.5 flex items-center justify-between border border-white/10 shadow-2xl">
-                
-                <!-- Brand Official Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-full bg-black flex items-center justify-center p-1 border border-brand-emerald/40 group-hover:border-brand-emerald transition-all shadow-lg shadow-brand-emerald/20 overflow-hidden">
-                        <!-- Official Paper Plane Logo Icon -->
-                        <svg viewBox="0 0 1000 1000" class="w-full h-full">
-                            <circle cx="500" cy="500" r="500" fill="#0A0D14"/>
-                            <path d="M 820 210 L 180 460 L 360 800 L 480 610 L 820 210 Z" fill="#00E676"/>
-                            <path d="M 820 210 L 360 570 L 360 800 Z" fill="#10B981"/>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-black tracking-tight text-white flex items-center gap-1">
-                            T<span class="text-brand-emerald">+</span>
-                        </span>
-                        <span class="text-[10px] text-gray-400 font-bold tracking-widest -mt-1">البصرة | BASRA</span>
-                    </div>
-                </a>
+    <!-- Hanging Thin Lines & Floating Low-Poly Elements Background -->
+    <svg class="floating-canvas">
+        <line x1="15%" y1="0" x2="15%" y2="280" class="string-line" />
+        <line x1="85%" y1="0" x2="85%" y2="350" class="string-line" />
+        <line x1="50%" y1="0" x2="50%" y2="180" class="string-line" />
+    </svg>
 
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-300">
-                    <a href="#hero" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-house text-xs text-brand-emerald"></i> الرئيسية
-                    </a>
-                    <a href="#services" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-cubes text-xs text-brand-emerald"></i> خدماتنا
-                    </a>
-                    <a href="#video-section" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-circle-play text-xs text-brand-emerald"></i> فيديو الإطلاق
-                    </a>
-                    <a href="#estimator" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-calculator text-xs text-brand-emerald"></i> حاسبة الرحلات
-                    </a>
-                    <a href="#support" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-headset text-xs text-brand-emerald"></i> الدعم المباشر
-                    </a>
-                </div>
+    <!-- Floating 3D Elements -->
+    <div class="floating-element" style="top: 220px; left: 13%;">
+        <svg width="50" height="50" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 50,75 10,90" fill="#40D98A" opacity="0.8"/>
+        </svg>
+    </div>
 
-                <!-- Action CTA & Direct Call -->
-                <div class="flex items-center gap-3">
-                    <a href="tel:07734449499" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-darkCard text-brand-emerald border border-brand-emerald/30 hover:bg-brand-emerald hover:text-black transition-all text-xs font-bold">
-                        <i class="fa-solid fa-phone animate-bounce"></i>
-                        <span>07734449499</span>
-                    </a>
-                    <a href="#download" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-emeraldDark text-black font-extrabold text-xs sm:text-sm hover:shadow-lg hover:shadow-brand-emerald/30 transition-all flex items-center gap-2 transform active:scale-95">
-                        <i class="fa-solid fa-download"></i>
-                        <span>حمل التطبيق</span>
-                    </a>
-                </div>
-            </nav>
+    <div class="floating-element" style="top: 290px; right: 13%; animation-delay: -3s;">
+        <svg width="60" height="60" viewBox="0 0 100 100">
+            <rect x="20" y="20" width="60" height="60" rx="15" fill="#0F8250" opacity="0.8"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo-container">
+            <!-- Green Paper Plane Logo (Exact Geometry & Colors) -->
+            <svg class="paper-plane-logo" viewBox="0 0 500 500">
+                <path d="M 450,50 L 50,230 L 220,300 L 260,450 L 320,350 L 450,50 Z" fill="#0F8250"/>
+                <path d="M 450,50 L 220,300 L 450,50 Z" fill="#40D98A"/>
+                <path d="M 220,300 L 260,450 L 320,350 Z" fill="#0A5C38"/>
+            </svg>
+            <div class="brand-name">+T <span>البصرة</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="https://instagram.com/tplus.iq" target="_blank" class="social-tag">Insta: @tplus.iq</a>
+            <a href="https://tiktok.com/@tplus.iq" target="_blank" class="social-tag">TikTok: @tplus.iq</a>
         </div>
     </header>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-brand-darkBg via-brand-darkBg to-[#0E1320]">
-        
-        <!-- Background Ambient Glow -->
-        <div class="absolute top-1/4 right-10 w-96 h-96 bg-brand-emerald/10 rounded-full blur-[140px] pointer-events-none"></div>
-        <div class="absolute bottom-10 left-10 w-96 h-96 bg-brand-emeraldDark/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">توصيلك أسرع من الخيال مع <span>+T البصرة</span></h1>
+            <p class="hero-desc">المنصة الرائدة في البصرة لنقل الركاب والخدمات الذكية. تكسي، تكتك، اشتري لي، وتوصيل منتجات بأعلى مستويات الأمان والأناقة.</p>
+            <a href="https://wa.me/9647734449499" class="btn-primary">
+                اطلب خدمة الان
+            </a>
+        </div>
+        <div class="hero-visual">
+            <!-- Transparent Background Animated Character Visual -->
+            <svg viewBox="0 0 400 400" class="character-img">
+                <circle cx="200" cy="200" r="160" fill="url(#grad)" opacity="0.15"/>
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#40D98A;" />
+                        <stop offset="100%" style="stop-color:#0F8250;" />
+                    </linearGradient>
+                </defs>
+                <!-- Stylized Courier Character Representation -->
+                <path d="M150 350 C150 250, 250 250, 250 350" fill="#0F8250"/>
+                <circle cx="200" cy="180" r="50" fill="#FFE0BD"/>
+                <!-- Cap with Green Logo -->
+                <path d="M145 170 C145 130, 255 130, 255 170 Z" fill="#0F8250"/>
+                <path d="M185 155 L 215 155 L 200 145 Z" fill="#40D98A"/>
+            </svg>
+        </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Hero Left Text Column -->
-                <div class="lg:col-span-7 text-right">
-                    
-                    <!-- Live Badge -->
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-emerald/30 mb-6 animate-pulse-glow">
-                        <span class="w-2.5 h-2.5 rounded-full bg-brand-emerald animate-ping"></span>
-                        <span class="text-xs font-bold text-brand-emerald tracking-wide">المنصة الذكية الأولى للتنقل والتوصيل في البصرة</span>
-                    </div>
-
-                    <!-- Main Title -->
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight mb-6">
-                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-emerald via-emerald-300 to-brand-emeraldDark text-glow-emerald">T+</span><br/>
-                        ... أطلق خيالك وانطلق!
-                    </h1>
-
-                    <p class="text-base sm:text-lg text-gray-300 font-medium leading-relaxed mb-8 max-w-2xl">
-                        من قلب الفيحاء البصرية، تنطلق طائرتنا الرقمية لتلبي كافة احتياجاتك اليومية: رحلات تكسي سريعة، خدمة "اشتري لي"، وتوصيل المنتجات والبضائع بأعلى درجات السرعة والأمان.
-                    </p>
-
-                    <!-- Hero CTA Buttons -->
-                    <div class="flex flex-wrap items-center gap-4 mb-10">
-                        <a href="#download" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-emerald to-brand-emeraldDark text-black font-black text-base hover:shadow-[0_0_35px_rgba(0,230,118,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-3">
-                            <i class="fa-solid fa-rocket text-lg"></i>
-                            <span>حمل التطبيق الآن</span>
-                        </a>
-                        <a href="#services" class="px-8 py-4 rounded-2xl glass-card text-white font-bold text-base hover:border-brand-emerald/50 transition-all flex items-center gap-3">
-                            <i class="fa-solid fa-layer-group text-brand-emerald"></i>
-                            <span>استكشف الخدمات</span>
-                        </a>
-                    </div>
-
-                    <!-- Fast Direct Call Quick Card -->
-                    <div class="p-4 rounded-2xl glass-panel border border-brand-emerald/30 inline-flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/20 flex items-center justify-center text-brand-emerald text-xl">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-400 block">خط الدعم المباشر السريع 24/7</span>
-                            <a href="tel:07734449499" class="text-lg font-black text-white hover:text-brand-emerald transition-colors tracking-wider" dir="ltr">
-                                
-                            </a>
-                        </div>
-                    </div>
-
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2 class="section-title">خدماتنا المتميزة</h2>
+            <p style="color: var(--text-muted)">اختر الخدمة المناسبة لاحتياجك اليومي في البصرة</p>
+        </div>
+        <div class="services-grid">
+            <!-- Taxi -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M20 60 L30 35 L70 35 L80 60 Z" fill="#0F8250"/>
+                        <rect x="15" y="60" width="70" height="20" rx="5" fill="#40D98A"/>
+                        <circle cx="30" cy="80" r="8" fill="#0D1117"/>
+                        <circle cx="70" cy="80" r="8" fill="#0D1117"/>
+                    </svg>
                 </div>
+                <h3 class="service-title">تكسي +T</h3>
+                <p class="service-desc">تنقل داخل البصرة بسيارات حديثة ومكيفة مع أفضل الكباتن بأمان وراحة التامة.</p>
+            </div>
 
-                <!-- Hero Right Feature Image Column (Girl in Basra Garden with Green Paper Plane) -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        
-                        <!-- Glowing Backlight Ring -->
-                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-emerald to-emerald-600 rounded-[35px] blur-xl opacity-40 animate-pulse"></div>
-
-                        <!-- Card Image Container -->
-                        <div class="relative rounded-[32px] overflow-hidden border-2 border-brand-emerald/30 bg-brand-darkCard shadow-2xl group">
-                            
-                            <!-- Embedded Feature Image -->
-                            <img src="watermarked_img_10752313589164445247.jpg" 
-                                 alt=" - تطبيق T+" 
-                                 class="w-full h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
-
-                            <!-- Image Overlay Gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-transparent to-transparent opacity-80"></div>
-
-                            <!-- Floating Caption Badge -->
-                            <div class="absolute bottom-5 left-5 right-5 glass-panel p-4 rounded-2xl border border-white/10 text-center">
-                                <span class="text-xs font-bold text-brand-emerald block mb-1">
-                                    <i class="fa-solid fa-heart text-red-500 ml-1"></i> 
-                                </span>
-                                <p class="text-[11px] text-gray-300">
-                                    "أطلق خيالك مع الطائرة الورقية الخضراء واجعل رحلاتك وطلباتك أسهل"
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
+            <!-- TukTuk -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M30 40 L60 40 L70 70 L20 70 Z" fill="#0F8250"/>
+                        <circle cx="25" cy="75" r="7" fill="#40D98A"/>
+                        <circle cx="65" cy="75" r="7" fill="#40D98A"/>
+                    </svg>
                 </div>
+                <h3 class="service-title">تكتك +T</h3>
+                <p class="service-desc">وسيلة مشوارك السريع والاقتصادي للمناطق والمشاوير المزدحمة بكل سهولة.</p>
+            </div>
 
+            <!-- Buy For Me -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M25 35 L75 35 L68 75 L32 75 Z" fill="none" stroke="#40D98A" stroke-width="6"/>
+                        <path d="M40 35 C40 20, 60 20, 60 35" fill="none" stroke="#0F8250" stroke-width="6"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">اشتري لي</h3>
+                <p class="service-desc">نوفر لك مشوار التسوق! كابتن +T يشتري كافة احتياجاتك من الأسواق ويجيبها للباب.</p>
+            </div>
+
+            <!-- Deliver Parcels -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <rect x="20" y="30" width="60" height="50" rx="6" fill="#0F8250"/>
+                        <path d="M20 45 L50 60 L80 45" fill="none" stroke="#40D98A" stroke-width="5"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">توصيل منتجاتي</h3>
+                <p class="service-desc">حلول توصيل متكاملة لأصحاب المتاجر والمشاريع في البصرة لشحن المنتجات للزبائن بسرع وقت.</p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-20 relative bg-brand-darkBg border-t border-brand-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase mb-2">خدمات تطبيق T+ المتميزة</h2>
-                <h3 class="text-3xl sm:text-4xl font-black text-white">كل ما تحتاجه في البصرة بلمسة واحدة</h3>
-                <div class="w-20 h-1 bg-gradient-to-r from-brand-emerald to-brand-emeraldDark mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Service 1: Buy For Me (اشتري لي) -->
-                <div class="glass-card rounded-2xl p-6 relative group border-brand-emerald/30">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
-                        <i class="fa-solid fa-cart-flatbed-suitcases"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">خدمة "اشتري لي"</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                        حدد الطلبات والأغراض التي تريدها من أي أسواق، صيدلية، أو مطعم في البصرة وسيقوم مندوبنا بشرائها وتوصيلها حتى باب بيتك.
-                    </p>
-                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> شراء مباشر نيابة عنك
-                        </li>
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> فاتورة رسمية وواضحة
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service 2: Deliver My Products (توصيل منتجاتي) -->
-                <div class="glass-card rounded-2xl p-6 relative group border-brand-emerald/30">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
-                        <i class="fa-solid fa-box-open"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">توصيل منتجاتي</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                        خدمة مخصصة لأصحاب المتاجر والمشاريع الناشئة والتاجر البصري لشحن وتوصيل الطلبات للزبائن داخل مناطق البصرة بسرعة فائقة.
-                    </p>
-                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> تحصيل مالي دقيق (COD)
-                        </li>
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> أسعار خاصة للمشاريع
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service 3: Taxi Ride -->
-                <div class="glass-card rounded-2xl p-6 relative group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
-                        <i class="fa-solid fa-taxi"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">توصيل الركاب</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                        رحلات أمنة وسريعة عبر تكسي صالون أو تكتك اقتصادي في جميع أنحاء البصرة بدون انتظار وبأسعار ثابته.
-                    </p>
-                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> تتبع مباشر للرحلة
-                        </li>
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> كباتن معتمدون
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service 4: Express Delivery -->
-                <div class="glass-card rounded-2xl p-6 relative group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/15 flex items-center justify-center text-brand-emerald mb-6 border border-brand-emerald/30 group-hover:bg-brand-emerald group-hover:text-black transition-all text-2xl">
-                        <i class="fa-solid fa-truck-fast"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-2">التوصيل السريع</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                        شحن ونقل الطرود والوثائق الهامة من وإلى أي عنوان في الفيحاء بأعلى درجات العناية والحماية.
-                    </p>
-                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> تسليم في نفس اليوم
-                        </li>
-                        <li class="flex items-center gap-1.5">
-                            <i class="fa-solid fa-check text-brand-emerald"></i> إشعار فوري بالتسليم
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
+    <!-- Support Center Banner -->
+    <section class="support-banner">
+        <div class="support-info">
+            <h3>مركز الدعم المباشر</h3>
+            <p style="color: var(--text-muted)">فريقنا جاهز لمساعدتك وإجابة استفساراتك على مدار الساعة</p>
+            <div class="phone-number">07734449499</div>
         </div>
-    </section>
-
-    <section id="video-section" class="py-20 relative bg-gradient-to-b from-brand-darkBg to-[#0A0E18] border-t border-brand-darkBorder">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            
-            <div class="mb-10">
-                <span class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase block mb-2">عرض الفيديو التسويقي الرسمي</span>
-                <h3 class="text-3xl font-black text-white">فيديو إطلاق تطبيق T+ في البصرة</h3>
-                <p class="text-gray-400 text-xs mt-2">شاهد قصة انطلاق الطائرة الورقية الخضراء من حدائق البصرة إلى عالم الخدمات الذكية</p>
-            </div>
-
-            <!-- Embedded Interactive Video Player Container -->
-            <div class="relative rounded-3xl overflow-hidden glass-card border-2 border-brand-emerald/40 shadow-2xl bg-black">
-                
-                <!-- Video Element Ready for MP4 or Direct URL -->
-                <video id="promo-video" class="w-full h-[320px] sm:h-[480px] object-cover" controls poster="watermarked_img_10752313589164445247.jpg">
-                    <source src="" type="video/mp4">
-                    متصفحك لا يدعم تشغيل الفيديو المباشر.
-                </video>
-
-                <!-- Custom Overlay Placeholder if no video uploaded yet -->
-                <div id="video-placeholder-overlay" class="absolute inset-0 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-opacity">
-                    <button onclick="playCustomVideo()" class="w-20 h-20 rounded-full bg-brand-emerald text-black flex items-center justify-center text-3xl shadow-lg shadow-brand-emerald/40 hover:scale-110 transition-transform mb-4">
-                        <i class="fa-solid fa-play ml-1"></i>
-                    </button>
-                    <h4 class="text-xl font-bold text-white mb-2">فيديو الإطلاق جاهز للعرض</h4>
-                    <p class="text-xs text-gray-300 max-w-md mb-6">يمكنك رفع وتشغيل ملتقيات الفيديو الخاصة بك مباشرة أو الضغط للبدء</p>
-                    <label class="px-5 py-2.5 rounded-xl bg-brand-darkCard text-brand-emerald border border-brand-emerald/40 text-xs font-bold cursor-pointer hover:bg-brand-emerald hover:text-black transition-all">
-                        <i class="fa-solid fa-upload ml-1.5"></i> اختر ملف فيديو الخاص بك
-                        <input type="file" accept="video/*" class="hidden" onchange="handleVideoUpload(event)">
-                    </label>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="estimator" class="py-20 relative bg-brand-darkBg border-t border-brand-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Calculator Box -->
-                <div class="lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8 border border-brand-emerald/20 shadow-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center text-brand-emerald">
-                            <i class="fa-solid fa-calculator text-lg"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">حاسبة الرحلات والتوصيل</h3>
-                            <p class="text-xs text-gray-400">احسب تكلفة طلبك أو رحلتك مسبقاً</p>
-                        </div>
-                    </div>
-
-                    <!-- Pickup Dropoff -->
-                    <div class="space-y-4 mb-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1.5">منطقة الانطلاق</label>
-                            <select id="pickup-select" onchange="calculateFare()" class="w-full bg-brand-darkBg text-white text-sm rounded-xl px-4 py-3 border border-gray-700 focus:border-brand-emerald focus:outline-none cursor-pointer">
-                                <option value="gardens">حدائق البصرة العامة</option>
-                                <option value="corniche">كورنيش شط العرب</option>
-                                <option value="times_square">تايمز سكوير البصرة</option>
-                                <option value="basra_land">البصرة لاند</option>
-                                <option value="airport">مطار البصرة الدولي</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-300 mb-1.5">منطقة الوصول</label>
-                            <select id="dropoff-select" onchange="calculateFare()" class="w-full bg-brand-darkBg text-white text-sm rounded-xl px-4 py-3 border border-gray-700 focus:border-brand-emerald focus:outline-none cursor-pointer">
-                                <option value="times_square">تايمز سكوير البصرة</option>
-                                <option value="corniche">كورنيش شط العرب</option>
-                                <option value="gardens">حدائق البصرة العامة</option>
-                                <option value="basra_land">البصرة لاند</option>
-                                <option value="airport">مطار البصرة الدولي</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Output Card -->
-                    <div class="p-4 rounded-2xl bg-brand-darkBg/90 border border-brand-emerald/30 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-gray-400 block">السعر التقديري</span>
-                            <span id="fare-price" class="text-2xl font-black text-brand-emerald">3,500 د.ع</span>
-                        </div>
-                        <div class="text-left">
-                            <span class="text-xs text-gray-400 block">وقت الوصول</span>
-                            <span id="fare-time" class="text-sm font-bold text-white flex items-center gap-1 justify-end">
-                                <i class="fa-regular fa-clock text-brand-emerald"></i> 12 دقيقة
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Side Description -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-emerald/10 text-brand-emerald text-xs font-bold border border-brand-emerald/20">
-                        <i class="fa-solid fa-shield-halved"></i> أسعار ثابتة ومحسوبة بدقة
-                    </div>
-                    <h3 class="text-3xl font-black text-white leading-tight">
-                        تنقل وتوصيل بدون أي زيادات غير متوقعة
-                    </h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        نظام التسعير العادل في T+ يضمن لك أفضل كلفة للتنقل بين أرجاء البصرة أو توصيل الأغراض والمنتجات بكل شفافية.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="support" class="py-20 bg-gradient-to-b from-[#0A0E18] to-brand-darkBg border-t border-brand-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-brand-emerald/30 relative overflow-hidden text-center">
-                
-                <div class="max-w-3xl mx-auto relative z-10 space-y-6">
-                    
-                    <div class="w-16 h-16 rounded-full bg-brand-emerald/20 border border-brand-emerald text-brand-emerald flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-
-                    <h2 class="text-xs font-extrabold text-brand-emerald tracking-widest uppercase">مركز الدعم والمساعدة المباشرة</h2>
-                    <h3 class="text-3xl sm:text-4xl font-black text-white">نحن في خدمتك دائماً على مدار الساعة</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        هل لديك أي استفسار، طلب خاص، أو تحتاج مساعدة فورية؟ فريق دعم T+ في البصرة جاهز للرد عليك فوراً.
-                    </p>
-
-                    <!-- Phone Number Spotlight Box -->
-                    <div class="py-4 px-6 rounded-2xl bg-brand-darkBg/90 border border-brand-emerald/40 inline-flex flex-col sm:flex-row items-center gap-6">
-                        <div class="text-right">
-                            <span class="text-xs text-gray-400 block">رقم الدعم المباشر</span>
-                            <span class="text-2xl sm:text-3xl font-black text-brand-emerald tracking-wider" dir="ltr">07734449499</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <a href="tel:07734449499" class="px-5 py-2.5 rounded-xl bg-brand-emerald text-black font-extrabold text-xs hover:scale-105 transition-transform flex items-center gap-2">
-                                <i class="fa-solid fa-phone"></i> اتصل الآن
-                            </a>
-                            <a href="https://wa.me/9647734449499" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs hover:scale-105 transition-transform flex items-center gap-2">
-                                <i class="fa-brands fa-whatsapp text-sm"></i> واتساب مباشر
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="download" class="py-16 bg-brand-darkBg border-t border-brand-darkBorder text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h3 class="text-3xl font-black text-white mb-4">انطلق مع T+ اليوم في البصرة</h3>
-            <p class="text-gray-300 text-xs sm:text-sm mb-8">حمل التطبيق الآن واستمتع بجميع خدمات التنقل والتوصيل المباشر</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="px-6 py-3 rounded-2xl bg-white text-black font-bold flex items-center gap-3 hover:bg-brand-emerald transition-all">
-                    <i class="fa-brands fa-apple text-2xl"></i>
-                    <div class="text-right">
-                        <div class="text-[10px] text-gray-600">Download on</div>
-                        <div class="text-xs font-black">App Store</div>
-                    </div>
-                </a>
-                <a href="#" class="px-6 py-3 rounded-2xl bg-brand-darkCard text-white border border-white/20 font-bold flex items-center gap-3 hover:border-brand-emerald transition-all">
-                    <i class="fa-brands fa-google-play text-2xl text-brand-emerald"></i>
-                    <div class="text-right">
-                        <div class="text-[10px] text-gray-400">GET IT ON</div>
-                        <div class="text-xs font-black">Google Play</div>
-                    </div>
-                </a>
-            </div>
+        <div>
+            <a href="tel:07734449499" class="btn-primary">اتصال مباشر الأن</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-8 border-t border-white/10 text-gray-500 text-xs">
-        <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-            <p>© 2026 T+ Basra. جميع الحقوق محفوظة لشركة T+ الفيحاء.</p>
-            <div class="mt-4 sm:mt-0 space-x-4 space-x-reverse">
-                <a href="tel:07734449499" class="text-brand-emerald font-bold">هاتف الدعم: 07734449499</a>
-            </div>
+    <footer>
+        <div class="footer-socials">
+            <a href="https://instagram.com/tplus.iq" target="_blank" class="social-tag">Instagram: tplus.iq</a>
+            <a href="https://tiktok.com/@tplus.iq" target="_blank" class="social-tag">TikTok: tplus.iq</a>
         </div>
+        <p>جميع الحقوق محفوظة © +T البصرة - خدمات التوصيل والحلول الذكية</p>
     </footer>
 
-    <script>
-        // Custom Video Upload & Play Handler
-        function handleVideoUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const videoElem = document.getElementById('promo-video');
-                const overlay = document.getElementById('video-placeholder-overlay');
-                videoElem.src = URL.createObjectURL(file);
-                overlay.style.opacity = '0';
-                setTimeout(() => overlay.style.display = 'none', 300);
-                videoElem.play();
-            }
-        }
-
-        function playCustomVideo() {
-            const videoElem = document.getElementById('promo-video');
-            const overlay = document.getElementById('video-placeholder-overlay');
-            overlay.style.opacity = '0';
-            setTimeout(() => overlay.style.display = 'none', 300);
-            if(videoElem.src) {
-                videoElem.play();
-            }
-        }
-
-        // Fare Calculator
-        function calculateFare() {
-            const p = document.getElementById('pickup-select').value;
-            const d = document.getElementById('dropoff-select').value;
-            const priceElem = document.getElementById('fare-price');
-
-            if (p === d) {
-                priceElem.innerText = "اختر وجهة مختلفة";
-                return;
-            }
-            priceElem.innerText = "3,500 د.ع";
-        }
-    </script>
 </body>
 </html>
