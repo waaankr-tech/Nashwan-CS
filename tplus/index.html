@@ -113,12 +113,6 @@
         .pulse-effect {
             animation: pulse-ring 3s infinite ease-in-out;
         }
-
-        /* Service Icon Wrapper */
-        .service-icon-wrap {
-            background: linear-gradient(135deg, rgba(15, 130, 80, 0.25) 0%, rgba(64, 217, 138, 0.08) 100%);
-            border: 1px solid rgba(64, 217, 138, 0.25);
-        }
     </style>
 </head>
 <body class="selection:bg-brand-emerald selection:text-white">
@@ -131,6 +125,7 @@
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-emerald to-brand-mint p-0.5 shadow-glow-mint transition-transform group-hover:scale-105">
                     <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center p-2">
+                        <!-- Green Paper Plane Logo Icon -->
                         <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-brand-mint stroke-current stroke-2">
                             <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -228,32 +223,10 @@
 
                 </div>
 
-                <!-- Hero Right / Visual Card (Graphic Illustration) -->
+                <!-- Hero Right / Visual Card -->
                 <div class="lg:col-span-5 relative flex justify-center">
                     <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden glass-card p-3 shadow-glow-emerald border border-brand-mint/20 animate-float">
-                        <!-- Graphic Illustration instead of Image -->
-                        <div class="w-full h-full rounded-2xl bg-gradient-to-b from-brand-card to-brand-dark flex flex-col items-center justify-center relative overflow-hidden">
-                            <!-- Decorative grid lines -->
-                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 40px 40px;"></div>
-                            
-                            <!-- Big Glowing Paper Plane -->
-                            <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-32 h-32 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center shadow-glow-mint">
-                                    <svg viewBox="0 0 24 24" fill="none" class="w-16 h-16 text-brand-mint stroke-current stroke-1.5">
-                                        <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="mt-6 text-center px-6">
-                                    <div class="text-white font-bold text-xl">انطلق مع +T</div>
-                                    <div class="text-brand-muted text-sm mt-1">سرعة، أمان، وراحة</div>
-                                </div>
-                            </div>
-
-                            <!-- Floating particles -->
-                            <div class="absolute top-10 right-10 w-2 h-2 rounded-full bg-brand-mint/60 animate-ping"></div>
-                            <div class="absolute bottom-16 left-8 w-1.5 h-1.5 rounded-full bg-brand-mint/40 animate-ping" style="animation-delay: 1s;"></div>
-                            <div class="absolute top-1/2 right-6 w-1 h-1 rounded-full bg-brand-mint/50 animate-ping" style="animation-delay: 2s;"></div>
-                        </div>
+                        <img src="hero.jpg" alt="+T البصرة" class="w-full h-full object-cover rounded-2xl" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'">
                         
                         <!-- Floating Badge -->
                         <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-nav border border-white/10 flex items-center justify-between">
@@ -291,78 +264,53 @@
                 <!-- Service 1: Taxi -->
                 <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
                     <div>
-                        <!-- Graphic Icon instead of Image -->
-                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
-                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
-                                <path d="M5 17h14M6 17v2a1 1 0 001 1h1a1 1 0 001-1v-2m10 0v2a1 1 0 01-1 1h-1a1 1 0 01-1-1v-2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 17V9a2 2 0 012-2h14a2 2 0 012 2v8" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M7 9V6a1 1 0 011-1h8a1 1 0 011 1v3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="7" cy="13" r="1" fill="currentColor"/>
-                                <circle cx="17" cy="13" r="1" fill="currentColor"/>
-                            </svg>
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-brand-card">
+                            <img src="service-taxi.jpg" alt="تكسي +T" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600&auto=format&fit=crop'">
                         </div>
                         <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">تنقل مريح</div>
                         <h4 class="text-2xl font-bold text-white mb-2">تكسي +T</h4>
                         <p class="text-brand-muted text-sm leading-relaxed mb-6">سيارات حديثة وكباتن مؤهلون لرحلات آمنة ومريحة داخل وخارج البصرة.</p>
                     </div>
+                    <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكسي" class="w-full py-3 rounded-xl bg-brand-card border border-brand-border text-center text-sm font-bold text-white hover:border-brand-mint hover:text-brand-mint transition-all">اطلب تكسي الآن</a>
                 </div>
 
                 <!-- Service 2: TukTuk -->
                 <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
                     <div>
-                        <!-- Graphic Icon instead of Image -->
-                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
-                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
-                                <path d="M4 16V8a2 2 0 012-2h9l3 3v7" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4 16h16" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 16v2m8-2v2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="8" cy="19" r="2" fill="none"/>
-                                <circle cx="16" cy="19" r="2" fill="none"/>
-                                <path d="M15 6v3h3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-brand-card">
+                            <img src="service-tuktuk.jpg" alt="تكتك +T" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=600&auto=format&fit=crop'">
                         </div>
                         <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">اقتصادي وسريع</div>
                         <h4 class="text-2xl font-bold text-white mb-2">تكتك +T</h4>
                         <p class="text-brand-muted text-sm leading-relaxed mb-6">الخيار الأسرع لتفادي الازدحامات والمشاوير القريبة داخل المناطق السكنية والتجارية.</p>
                     </div>
+                    <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكتك" class="w-full py-3 rounded-xl bg-brand-card border border-brand-border text-center text-sm font-bold text-white hover:border-brand-mint hover:text-brand-mint transition-all">اطلب تكتك الآن</a>
                 </div>
 
                 <!-- Service 3: Buy For Me -->
                 <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
                     <div>
-                        <!-- Graphic Icon instead of Image -->
-                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
-                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
-                                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 6h18" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16 10a4 4 0 01-8 0" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-brand-card">
+                            <img src="service-shop.jpg" alt="اشتري لي +T" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=600&auto=format&fit=crop'">
                         </div>
                         <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">تسوق بالنيابة</div>
                         <h4 class="text-2xl font-bold text-white mb-2">اشتري لي</h4>
                         <p class="text-brand-muted text-sm leading-relaxed mb-6">اكتب قائمتك الخاصة (مسواق، أدوية، مطاعم) وسيقوم الكابتن بشراء كل ما تحتاجه وإيصاله لبابك.</p>
                     </div>
+                    <a href="https://wa.me/9647734449499?text=اريد%20خدمة%20اشتري%20لي" class="w-full py-3 rounded-xl bg-brand-card border border-brand-border text-center text-sm font-bold text-white hover:border-brand-mint hover:text-brand-mint transition-all">اطلب تسوق الآن</a>
                 </div>
 
                 <!-- Service 4: Delivery Parcels -->
                 <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
                     <div>
-                        <!-- Graphic Icon instead of Image -->
-                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
-                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
-                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3.27 6.96L12 12.01l8.73-5.05" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 22.08V12" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-brand-card">
+                            <img src="service-parcels.jpg" alt="توصيل منتجاتي +T" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop'">
                         </div>
                         <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">لأصحاب المتاجر</div>
                         <h4 class="text-2xl font-bold text-white mb-2">توصيل منتجاتي</h4>
                         <p class="text-brand-muted text-sm leading-relaxed mb-6">حلول لوجستية متكاملة وأمينة لشحن وتوصيل الطرود والمنتجات لعملائك في البصرة.</p>
                     </div>
+                    <a href="https://wa.me/9647734449499?text=اريد%20توصيل%20منتجات" class="w-full py-3 rounded-xl bg-brand-card border border-brand-border text-center text-sm font-bold text-white hover:border-brand-mint hover:text-brand-mint transition-all">ارسل طرد الآن</a>
                 </div>
 
             </div>
@@ -391,22 +339,8 @@
                     </div>
 
                     <div class="lg:col-span-5 flex justify-center">
-                        <!-- Graphic Illustration instead of Image -->
-                        <div class="w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-brand-border shadow-card-hover bg-gradient-to-br from-brand-card to-brand-dark flex items-center justify-center relative">
-                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 30px 30px;"></div>
-                            <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-24 h-24 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center">
-                                    <svg viewBox="0 0 24 24" fill="none" class="w-12 h-12 text-brand-mint stroke-current stroke-1.5">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path d="M12 2a10 10 0 00-9.95 9" stroke-linecap="round"/>
-                                        <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="mt-4 text-center px-6">
-                                    <div class="text-white font-bold text-lg">كابتن +T</div>
-                                    <div class="text-brand-muted text-xs mt-1">مرونة، دخل إضافي، وأمان</div>
-                                </div>
-                            </div>
+                        <div class="w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-brand-border shadow-card-hover">
+                            <img src="captain.jpg" alt="كابتن +T" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop'">
                         </div>
                     </div>
                 </div>
@@ -421,23 +355,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-5">
-                    <!-- Graphic Illustration instead of Image -->
-                    <div class="aspect-[4/3] rounded-3xl overflow-hidden glass-card p-2 border border-brand-border flex items-center justify-center relative">
-                        <div class="w-full h-full rounded-2xl bg-gradient-to-br from-brand-card to-brand-dark flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 30px 30px;"></div>
-                            <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-20 h-20 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center">
-                                    <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-brand-mint stroke-current stroke-1.5">
-                                        <path d="M3 18v-6a9 9 0 0118 0v6" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    <div class="text-white font-bold text-lg">دعم 24/7</div>
-                                    <div class="text-brand-muted text-xs mt-1">فريقنا جاهز لخدمتك</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden glass-card p-2 border border-brand-border">
+                        <img src="support.jpg" alt="مركز دعم +T" class="w-full h-full object-cover rounded-2xl" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop'">
                     </div>
                 </div>
 
@@ -489,4 +408,69 @@
                 </a>
 
                 <!-- TikTok Badge -->
-                <a href="https://tiktok.com/@tplus.iq" target="_blank" rel="noopener"
+                <a href="https://tiktok.com/@tplus.iq" target="_blank" rel="noopener" class="flex items-center gap-4 px-8 py-4 rounded-2xl glass-card glass-card-hover border border-brand-border">
+                    <i class="fab fa-tiktok text-3xl text-white"></i>
+                    <div class="text-right">
+                        <div class="text-xs text-brand-muted font-semibold">تيك توك الرسمي</div>
+                        <div class="text-lg font-bold text-white" dir="ltr">@tplus.iq</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-12 bg-brand-dark text-brand-muted text-sm border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-emerald flex items-center justify-center p-2 text-white">
+                            <svg viewBox="0 0 24 24" fill="none" class="w-full h-full stroke-current stroke-2">
+                                <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black text-white">T<span class="text-brand-mint">+</span> البصرة</span>
+                    </div>
+                    <p class="text-brand-muted text-xs leading-relaxed max-w-sm">
+                        تطبيق +T هو المنصة الرائدة للتنقل الذكي وخدمات الشحن السريع في محافظة البصرة. صُمم خصيصاً لتقديم تجربة موثوقة وسريعة وآمنة.
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 space-y-3">
+                    <h5 class="text-white font-bold text-base">الروابط</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-brand-mint transition-colors">الخدمات</a></li>
+                        <li><a href="#join" class="hover:text-brand-mint transition-colors">انضم ككابتن</a></li>
+                        <li><a href="#support" class="hover:text-brand-mint transition-colors">مركز الدعم</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2 space-y-3">
+                    <h5 class="text-white font-bold text-base">التواصل</h5>
+                    <ul class="space-y-2 text-xs" dir="ltr">
+                        <li class="text-right"><a href="tel:07734449499" class="hover:text-brand-mint transition-colors">07734449499</a></li>
+                        <li class="text-right"><a href="https://instagram.com/tplus.iq" target="_blank" class="hover:text-brand-mint transition-colors">@tplus.iq</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h5 class="text-white font-bold text-base">الموقع</h5>
+                    <p class="text-xs leading-relaxed">العراق - البصرة - خدمات متوفرة لكافة المناطق والحدود الإدارية.</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-brand-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p>© 2026 جميع الحقوق محفوظة لـ **تطبيق +T البصرة**.</p>
+                <div class="flex items-center gap-2 text-brand-mint font-semibold">
+                    <span>تصميم وتطوير بكل حب لأهل البصرة</span>
+                    <i class="fas fa-heart text-red-500"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
