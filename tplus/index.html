@@ -3,479 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>+T البصرة | التوصيل والخدمات الذكية</title>
+    <title>+T البصرة | تطبيق التوصيل والتنقل الذكي الأول</title>
+    <meta name="description" content="تطبيق +T البصرة للتوصيل السريع والتنقل الذكي. خدمات التاكسي، والتكتك، واشتري لي، وتوصيل المنتجات بأعلى جودة وأسرع وقت.">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="+T البصرة - تطبيقك السريع للتنقل والتوصيل">
+    <meta property="og:description" content="تكسي، تكتك، اشتري لي، وتوصيل منتجات في البصرة بلمسة واحدة.">
+    <meta property="og:image" content="og-image-1200x630.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Tailwind CSS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0D1117',
+                            card: '#161B22',
+                            border: '#21262D',
+                            emerald: '#0F8250',
+                            mint: '#40D98A',
+                            accent: '#1F6FEB',
+                            text: '#F0F6FC',
+                            muted: '#8B949E'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-mint': '0 0 25px rgba(64, 217, 138, 0.25)',
+                        'glow-emerald': '0 0 35px rgba(15, 130, 80, 0.35)',
+                        'card-hover': '0 20px 30px -10px rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --bg-dark: #0D1117;
-            --bg-card: rgba(22, 27, 34, 0.75);
-            --primary-emerald: #0F8250;
-            --primary-mint: #40D98A;
-            --text-main: #F0F6FC;
-            --text-muted: #8B949E;
-            --border-glow: rgba(64, 217, 138, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            background-color: #0D1117;
+            color: #F0F6FC;
             overflow-x: hidden;
-            position: relative;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Floating Background Lines & Low-Poly Icons Setup */
-        .floating-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D1117;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0F8250;
         }
 
-        .string-line {
-            stroke: rgba(255, 255, 255, 0.15);
-            stroke-width: 1.2;
-            stroke-dasharray: 4;
-        }
-
-        /* Floating Animation */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
-        }
-
-        @keyframes floatFast {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(-4deg); }
-        }
-
-        .floating-element {
-            position: absolute;
-            animation: floatSlow 6s ease-in-out infinite;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-            z-index: 2;
-        }
-
-        /* Header */
-        header {
-            position: sticky;
-            top: 0;
+        /* Glassmorphism */
+        .glass-nav {
             background: rgba(13, 17, 23, 0.85);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            z-index: 100;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .paper-plane-logo {
-            width: 42px;
-            height: 42px;
-        }
-
-        .brand-name {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-
-        .brand-name span {
-            color: var(--primary-mint);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .social-tag {
-            background: rgba(64, 217, 138, 0.1);
-            border: 1px solid var(--primary-mint);
-            color: var(--primary-mint);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-tag:hover {
-            background: var(--primary-mint);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px var(--border-glow);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 4rem 8%;
-            z-index: 10;
-        }
-
-        .hero-content {
-            max-width: 550px;
-        }
-
-        .hero-title {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title span {
-            background: linear-gradient(135deg, var(--primary-mint), var(--primary-emerald));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--primary-emerald), var(--primary-mint));
-            color: #ffffff;
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(15, 130, 80, 0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Character Visual Frame (Transparent Background) */
-        .hero-visual {
-            position: relative;
-            width: 480px;
-            height: 520px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .character-img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
-            z-index: 5;
-        }
-
-        /* Services Grid */
-        .services-section {
-            padding: 5rem 8%;
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title {
-            font-size: 2.3rem;
-            font-weight: 800;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--bg-card);
+        .glass-card {
+            background: rgba(22, 27, 34, 0.75);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
-
-        .service-card:hover {
-            border-color: var(--primary-mint);
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(64, 217, 138, 0.15);
+            border-color: rgba(64, 217, 138, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(15, 130, 80, 0.3);
         }
 
-        .service-icon-box {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 1.5rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Green Paper Plane SVG Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
         }
 
-        .service-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--primary-mint);
+        /* Pulse Ring for CTA */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .pulse-effect {
+            animation: pulse-ring 3s infinite ease-in-out;
         }
 
-        .service-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Support Banner */
-        .support-banner {
-            margin: 4rem 8%;
-            background: linear-gradient(135deg, rgba(15, 130, 80, 0.2), rgba(13, 17, 23, 0.9));
-            border: 1px solid var(--primary-emerald);
-            border-radius: 24px;
-            padding: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 10;
-        }
-
-        .support-info h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .phone-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-mint);
-            direction: ltr;
-            display: inline-block;
-            margin: 1rem 0;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(8, 11, 15, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2.5rem 8%;
-            text-align: center;
-            color: var(--text-muted);
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer-socials {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 2rem;
-            }
-            .hero-visual {
-                width: 100%;
-                height: auto;
-                margin-top: 2rem;
-            }
-            .support-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
+        /* Service Icon Wrapper */
+        .service-icon-wrap {
+            background: linear-gradient(135deg, rgba(15, 130, 80, 0.25) 0%, rgba(64, 217, 138, 0.08) 100%);
+            border: 1px solid rgba(64, 217, 138, 0.25);
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-brand-emerald selection:text-white">
 
-    <!-- Hanging Thin Lines & Floating Low-Poly Elements Background -->
-    <svg class="floating-canvas">
-        <line x1="15%" y1="0" x2="15%" y2="280" class="string-line" />
-        <line x1="85%" y1="0" x2="85%" y2="350" class="string-line" />
-        <line x1="50%" y1="0" x2="50%" y2="180" class="string-line" />
-    </svg>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-emerald to-brand-mint p-0.5 shadow-glow-mint transition-transform group-hover:scale-105">
+                    <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center p-2">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-brand-mint stroke-current stroke-2">
+                            <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black tracking-wider text-white">T<span class="text-brand-mint">+</span></span>
+                    <span class="text-[10px] text-brand-muted tracking-widest font-semibold uppercase -mt-1">BASRA DELIVERY</span>
+                </div>
+            </a>
 
-    <!-- Floating 3D Elements -->
-    <div class="floating-element" style="top: 220px; left: 13%;">
-        <svg width="50" height="50" viewBox="0 0 100 100">
-            <polygon points="50,10 90,90 50,75 10,90" fill="#40D98A" opacity="0.8"/>
-        </svg>
-    </div>
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#services" class="text-brand-text hover:text-brand-mint transition-colors">خدماتنا</a>
+                <a href="#about" class="text-brand-text hover:text-brand-mint transition-colors">عن +T</a>
+                <a href="#support" class="text-brand-text hover:text-brand-mint transition-colors">الدعم الفني</a>
+                <a href="#join" class="text-brand-text hover:text-brand-mint transition-colors">انضم ككابتن</a>
+            </div>
 
-    <div class="floating-element" style="top: 290px; right: 13%; animation-delay: -3s;">
-        <svg width="60" height="60" viewBox="0 0 100 100">
-            <rect x="20" y="20" width="60" height="60" rx="15" fill="#0F8250" opacity="0.8"/>
-        </svg>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo-container">
-            <!-- Green Paper Plane Logo (Exact Geometry & Colors) -->
-            <svg class="paper-plane-logo" viewBox="0 0 500 500">
-                <path d="M 450,50 L 50,230 L 220,300 L 260,450 L 320,350 L 450,50 Z" fill="#0F8250"/>
-                <path d="M 450,50 L 220,300 L 450,50 Z" fill="#40D98A"/>
-                <path d="M 220,300 L 260,450 L 320,350 Z" fill="#0A5C38"/>
-            </svg>
-            <div class="brand-name">+T <span>البصرة</span></div>
-        </a>
-        <div class="nav-links">
-            <a href="https://instagram.com/tplus.iq" target="_blank" class="social-tag">Insta: @tplus.iq</a>
-            <a href="https://tiktok.com/@tplus.iq" target="_blank" class="social-tag">TikTok: @tplus.iq</a>
+            <!-- Header Socials & Call Actions -->
+            <div class="flex items-center gap-3">
+                <a href="https://instagram.com/tplus.iq" target="_blank" rel="noopener" class="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-brand-card border border-brand-border text-brand-text hover:text-brand-mint hover:border-brand-mint transition-all" title="إنستغرام">
+                    <i class="fab fa-instagram text-lg"></i>
+                </a>
+                <a href="https://tiktok.com/@tplus.iq" target="_blank" rel="noopener" class="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-brand-card border border-brand-border text-brand-text hover:text-brand-mint hover:border-brand-mint transition-all" title="تيك توك">
+                    <i class="fab fa-tiktok text-lg"></i>
+                </a>
+                <a href="https://wa.me/9647734449499" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-brand-emerald to-brand-mint text-brand-dark font-bold px-5 py-2.5 rounded-xl shadow-glow-mint hover:opacity-95 transition-all transform hover:scale-105 text-sm">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>طلب سريع</span>
+                </a>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">توصيلك أسرع من الخيال مع <span>+T البصرة</span></h1>
-            <p class="hero-desc">المنصة الرائدة في البصرة لنقل الركاب والخدمات الذكية. تكسي، تكتك، اشتري لي، وتوصيل منتجات بأعلى مستويات الأمان والأناقة.</p>
-            <a href="https://wa.me/9647734449499" class="btn-primary">
-                اطلب خدمة الان
-            </a>
-        </div>
-        <div class="hero-visual">
-            <!-- Transparent Background Animated Character Visual -->
-            <svg viewBox="0 0 400 400" class="character-img">
-                <circle cx="200" cy="200" r="160" fill="url(#grad)" opacity="0.15"/>
-                <defs>
-                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#40D98A;" />
-                        <stop offset="100%" style="stop-color:#0F8250;" />
-                    </linearGradient>
-                </defs>
-                <!-- Stylized Courier Character Representation -->
-                <path d="M150 350 C150 250, 250 250, 250 350" fill="#0F8250"/>
-                <circle cx="200" cy="180" r="50" fill="#FFE0BD"/>
-                <!-- Cap with Green Logo -->
-                <path d="M145 170 C145 130, 255 130, 255 170 Z" fill="#0F8250"/>
-                <path d="M185 155 L 215 155 L 200 145 Z" fill="#40D98A"/>
-            </svg>
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-emerald/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left / Content -->
+                <div class="lg:col-span-7 text-center lg:text-right space-y-8">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card border border-brand-border text-brand-mint text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-mint animate-ping"></span>
+                        <span>تطبيق التوصيل والتنقل الأسرع في البصرة</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white">
+                        البصرة بين يديك.. <br>
+                        <span class="bg-gradient-to-r from-brand-mint via-emerald-400 to-teal-200 bg-clip-text text-transparent">بلمسة طائرة ورقية</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        اطلب تكسي، تكتك، شحناتك الخاصة، أو دعنا نشتري لك كل احتياجاتك اليومية. تجربة رقمية فاخرة فائقة السرعة مصممة خصيصاً لأهل البصرة.
+                    </p>
+
+                    <!-- Download Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#" class="flex items-center gap-3 bg-brand-card border border-brand-border hover:border-brand-mint px-6 py-3.5 rounded-2xl glass-card-hover text-right min-w-[180px]">
+                            <i class="fab fa-apple text-3xl text-brand-mint"></i>
+                            <div>
+                                <div class="text-[10px] text-brand-muted uppercase font-bold">حمّل الآن من</div>
+                                <div class="text-base font-bold text-white">App Store</div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="flex items-center gap-3 bg-brand-card border border-brand-border hover:border-brand-mint px-6 py-3.5 rounded-2xl glass-card-hover text-right min-w-[180px]">
+                            <i class="fab fa-google-play text-3xl text-brand-mint"></i>
+                            <div>
+                                <div class="text-[10px] text-brand-muted uppercase font-bold">احصل عليه من</div>
+                                <div class="text-base font-bold text-white">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Bar -->
+                    <div class="pt-8 border-t border-brand-border/60 grid grid-cols-3 gap-4 text-center lg:text-right">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-brand-mint">100%</div>
+                            <div class="text-xs text-brand-muted font-medium mt-1">تغطية شاملة للبصرة</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-brand-mint">24/7</div>
+                            <div class="text-xs text-brand-muted font-medium mt-1">دعم مباشر وحي</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-brand-mint">+T</div>
+                            <div class="text-xs text-brand-muted font-medium mt-1">أعلى معايير الأمان</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right / Visual Card (Graphic Illustration) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden glass-card p-3 shadow-glow-emerald border border-brand-mint/20 animate-float">
+                        <!-- Graphic Illustration instead of Image -->
+                        <div class="w-full h-full rounded-2xl bg-gradient-to-b from-brand-card to-brand-dark flex flex-col items-center justify-center relative overflow-hidden">
+                            <!-- Decorative grid lines -->
+                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 40px 40px;"></div>
+                            
+                            <!-- Big Glowing Paper Plane -->
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="w-32 h-32 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center shadow-glow-mint">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-16 h-16 text-brand-mint stroke-current stroke-1.5">
+                                        <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-6 text-center px-6">
+                                    <div class="text-white font-bold text-xl">انطلق مع +T</div>
+                                    <div class="text-brand-muted text-sm mt-1">سرعة، أمان، وراحة</div>
+                                </div>
+                            </div>
+
+                            <!-- Floating particles -->
+                            <div class="absolute top-10 right-10 w-2 h-2 rounded-full bg-brand-mint/60 animate-ping"></div>
+                            <div class="absolute bottom-16 left-8 w-1.5 h-1.5 rounded-full bg-brand-mint/40 animate-ping" style="animation-delay: 1s;"></div>
+                            <div class="absolute top-1/2 right-6 w-1 h-1 rounded-full bg-brand-mint/50 animate-ping" style="animation-delay: 2s;"></div>
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-nav border border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-emerald/30 border border-brand-mint flex items-center justify-center text-brand-mint">
+                                    <i class="fas fa-bolt text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">سرعة الاستجابة</div>
+                                    <div class="text-xs text-brand-muted">أقل من 3 دقائق للوصول</div>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-brand-mint bg-brand-emerald/20 px-3 py-1 rounded-full border border-brand-mint/30">نشط الآن</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-section">
-        <div class="section-header">
-            <h2 class="section-title">خدماتنا المتميزة</h2>
-            <p style="color: var(--text-muted)">اختر الخدمة المناسبة لاحتياجك اليومي في البصرة</p>
+    <section id="services" class="py-24 relative bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-sm font-extrabold text-brand-mint uppercase tracking-widest">منظومة خدمات متكاملة</h2>
+                <h3 class="text-3xl sm:text-5xl font-black text-white">كل ما تحتاجه في البصرة عبر تطبيق +T</h3>
+                <p class="text-brand-muted text-base sm:text-lg">صممنا الخدمات لتغطي كل تفاصيل يومك بكل أريحية وبسهولة مطلقة.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1: Taxi -->
+                <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Graphic Icon instead of Image -->
+                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
+                                <path d="M5 17h14M6 17v2a1 1 0 001 1h1a1 1 0 001-1v-2m10 0v2a1 1 0 01-1 1h-1a1 1 0 01-1-1v-2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 17V9a2 2 0 012-2h14a2 2 0 012 2v8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 9V6a1 1 0 011-1h8a1 1 0 011 1v3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="7" cy="13" r="1" fill="currentColor"/>
+                                <circle cx="17" cy="13" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">تنقل مريح</div>
+                        <h4 class="text-2xl font-bold text-white mb-2">تكسي +T</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">سيارات حديثة وكباتن مؤهلون لرحلات آمنة ومريحة داخل وخارج البصرة.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2: TukTuk -->
+                <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Graphic Icon instead of Image -->
+                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
+                                <path d="M4 16V8a2 2 0 012-2h9l3 3v7" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 16h16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 16v2m8-2v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="8" cy="19" r="2" fill="none"/>
+                                <circle cx="16" cy="19" r="2" fill="none"/>
+                                <path d="M15 6v3h3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">اقتصادي وسريع</div>
+                        <h4 class="text-2xl font-bold text-white mb-2">تكتك +T</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">الخيار الأسرع لتفادي الازدحامات والمشاوير القريبة داخل المناطق السكنية والتجارية.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Buy For Me -->
+                <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Graphic Icon instead of Image -->
+                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
+                                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 6h18" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 10a4 4 0 01-8 0" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">تسوق بالنيابة</div>
+                        <h4 class="text-2xl font-bold text-white mb-2">اشتري لي</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">اكتب قائمتك الخاصة (مسواق، أدوية، مطاعم) وسيقوم الكابتن بشراء كل ما تحتاجه وإيصاله لبابك.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4: Delivery Parcels -->
+                <div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Graphic Icon instead of Image -->
+                        <div class="aspect-[4/3] rounded-2xl mb-6 service-icon-wrap flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(#40D98A 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <svg viewBox="0 0 24 24" fill="none" class="w-20 h-20 text-brand-mint stroke-current stroke-1.5 relative z-10">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.27 6.96L12 12.01l8.73-5.05" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 22.08V12" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="inline-block px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-mint/30 text-brand-mint text-xs font-bold mb-3">لأصحاب المتاجر</div>
+                        <h4 class="text-2xl font-bold text-white mb-2">توصيل منتجاتي</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">حلول لوجستية متكاملة وأمينة لشحن وتوصيل الطرود والمنتجات لعملائك في البصرة.</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="services-grid">
-            <!-- Taxi -->
-            <div class="service-card">
-                <div class="service-icon-box">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <path d="M20 60 L30 35 L70 35 L80 60 Z" fill="#0F8250"/>
-                        <rect x="15" y="60" width="70" height="20" rx="5" fill="#40D98A"/>
-                        <circle cx="30" cy="80" r="8" fill="#0D1117"/>
-                        <circle cx="70" cy="80" r="8" fill="#0D1117"/>
-                    </svg>
-                </div>
-                <h3 class="service-title">تكسي +T</h3>
-                <p class="service-desc">تنقل داخل البصرة بسيارات حديثة ومكيفة مع أفضل الكباتن بأمان وراحة التامة.</p>
-            </div>
+    </section>
 
-            <!-- TukTuk -->
-            <div class="service-card">
-                <div class="service-icon-box">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <path d="M30 40 L60 40 L70 70 L20 70 Z" fill="#0F8250"/>
-                        <circle cx="25" cy="75" r="7" fill="#40D98A"/>
-                        <circle cx="65" cy="75" r="7" fill="#40D98A"/>
-                    </svg>
-                </div>
-                <h3 class="service-title">تكتك +T</h3>
-                <p class="service-desc">وسيلة مشوارك السريع والاقتصادي للمناطق والمشاوير المزدحمة بكل سهولة.</p>
-            </div>
+    <!-- Join as Captain Section -->
+    <section id="join" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-brand-mint/30 relative overflow-hidden bg-gradient-to-r from-brand-card via-brand-dark to-brand-card">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                        <span class="text-brand-mint text-sm font-bold uppercase tracking-widest">فرص عمل واعدة</span>
+                        <h3 class="text-3xl sm:text-5xl font-black text-white">انضم إلى فريق كباتن +T في البصرة</h3>
+                        <p class="text-brand-muted text-base sm:text-lg leading-relaxed">
+                            هل تملك سيارة، تكتك، أو دراجة؟ زِد مدخولك اليومي وانضم لشبكة أبطال +T مع مرونة كاملة في ساعات العمل وعمولات هي الأفضل في السوق.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <a href="https://wa.me/9647734449499?text=ارغب%20بالانضمام%20ككابتن" target="_blank" class="bg-gradient-to-r from-brand-emerald to-brand-mint text-brand-dark font-black px-8 py-4 rounded-2xl shadow-glow-mint hover:scale-105 transition-all text-base flex items-center gap-3">
+                                <i class="fas fa-steering-wheel text-xl"></i>
+                                <span>قدم طلبك الآن ككابتن</span>
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- Buy For Me -->
-            <div class="service-card">
-                <div class="service-icon-box">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <path d="M25 35 L75 35 L68 75 L32 75 Z" fill="none" stroke="#40D98A" stroke-width="6"/>
-                        <path d="M40 35 C40 20, 60 20, 60 35" fill="none" stroke="#0F8250" stroke-width="6"/>
-                    </svg>
+                    <div class="lg:col-span-5 flex justify-center">
+                        <!-- Graphic Illustration instead of Image -->
+                        <div class="w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-brand-border shadow-card-hover bg-gradient-to-br from-brand-card to-brand-dark flex items-center justify-center relative">
+                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 30px 30px;"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="w-24 h-24 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-12 h-12 text-brand-mint stroke-current stroke-1.5">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 2a10 10 0 00-9.95 9" stroke-linecap="round"/>
+                                        <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-4 text-center px-6">
+                                    <div class="text-white font-bold text-lg">كابتن +T</div>
+                                    <div class="text-brand-muted text-xs mt-1">مرونة، دخل إضافي، وأمان</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="service-title">اشتري لي</h3>
-                <p class="service-desc">نوفر لك مشوار التسوق! كابتن +T يشتري كافة احتياجاتك من الأسواق ويجيبها للباب.</p>
-            </div>
 
-            <!-- Deliver Parcels -->
-            <div class="service-card">
-                <div class="service-icon-box">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <rect x="20" y="30" width="60" height="50" rx="6" fill="#0F8250"/>
-                        <path d="M20 45 L50 60 L80 45" fill="none" stroke="#40D98A" stroke-width="5"/>
-                    </svg>
-                </div>
-                <h3 class="service-title">توصيل منتجاتي</h3>
-                <p class="service-desc">حلول توصيل متكاملة لأصحاب المتاجر والمشاريع في البصرة لشحن المنتجات للزبائن بسرع وقت.</p>
             </div>
         </div>
     </section>
 
-    <!-- Support Center Banner -->
-    <section class="support-banner">
-        <div class="support-info">
-            <h3>مركز الدعم المباشر</h3>
-            <p style="color: var(--text-muted)">فريقنا جاهز لمساعدتك وإجابة استفساراتك على مدار الساعة</p>
-            <div class="phone-number">07734449499</div>
-        </div>
-        <div>
-            <a href="tel:07734449499" class="btn-primary">اتصال مباشر الأن</a>
+    <!-- Support Center Section -->
+    <section id="support" class="py-20 relative bg-brand-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <!-- Graphic Illustration instead of Image -->
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden glass-card p-2 border border-brand-border flex items-center justify-center relative">
+                        <div class="w-full h-full rounded-2xl bg-gradient-to-br from-brand-card to-brand-dark flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#40D98A 1px, transparent 1px), linear-gradient(90deg, #40D98A 1px, transparent 1px); background-size: 30px 30px;"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="w-20 h-20 rounded-full bg-brand-emerald/20 border border-brand-mint/30 flex items-center justify-center">
+                                    <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-brand-mint stroke-current stroke-1.5">
+                                        <path d="M3 18v-6a9 9 0 0118 0v6" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <div class="text-white font-bold text-lg">دعم 24/7</div>
+                                    <div class="text-brand-muted text-xs mt-1">فريقنا جاهز لخدمتك</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-emerald/20 text-brand-mint text-xs font-bold">
+                        <i class="fas fa-headset"></i>
+                        <span>دعم مباشر 24 ساعة</span>
+                    </div>
+
+                    <h3 class="text-3xl sm:text-5xl font-black text-white">نحن معك في كل مشوار وسؤال</h3>
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed">
+                        فريق خدمة العملاء متواجد على مدار الساعة لضمان تقديم أعلى مستويات الخدمة المباشرة والإجابة على استفساراتكم فوراً.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <!-- Direct Phone -->
+                        <a href="tel:07734449499" class="w-full sm:w-auto flex items-center justify-center gap-4 bg-brand-card border border-brand-border hover:border-brand-mint px-8 py-4 rounded-2xl text-white font-bold text-lg transition-all group">
+                            <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 text-brand-mint flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span dir="ltr">0773 444 9499</span>
+                        </a>
+
+                        <!-- Direct WhatsApp -->
+                        <a href="https://wa.me/9647734449499" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-4 bg-brand-emerald hover:bg-brand-emerald/90 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-glow-mint">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>تحدث معنا واتساب</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-socials">
-            <a href="https://instagram.com/tplus.iq" target="_blank" class="social-tag">Instagram: tplus.iq</a>
-            <a href="https://tiktok.com/@tplus.iq" target="_blank" class="social-tag">TikTok: tplus.iq</a>
-        </div>
-        <p>جميع الحقوق محفوظة © +T البصرة - خدمات التوصيل والحلول الذكية</p>
-    </footer>
+    <!-- Social Media Banner -->
+    <section class="py-16 border-t border-b border-brand-border/50 relative bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <h4 class="text-2xl font-bold text-white">تابع حساباتنا الرسمية لمعرفة العروض والجديد</h4>
+            
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <!-- Instagram Badge -->
+                <a href="https://instagram.com/tplus.iq" target="_blank" rel="noopener" class="flex items-center gap-4 px-8 py-4 rounded-2xl glass-card glass-card-hover border border-brand-border">
+                    <i class="fab fa-instagram text-3xl text-pink-500"></i>
+                    <div class="text-right">
+                        <div class="text-xs text-brand-muted font-semibold">إنستغرام الرسمي</div>
+                        <div class="text-lg font-bold text-white" dir="ltr">@tplus.iq</div>
+                    </div>
+                </a>
 
-</body>
-</html>
+                <!-- TikTok Badge -->
+                <a href="https://tiktok.com/@tplus.iq" target="_blank" rel="noopener"
