@@ -53,23 +53,24 @@
             color: #1E293B;
         }
 
-        /* Glassmorphism Effects */
+        /* Glassmorphism Ultra-Clean Effect */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
 
         .glass-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.08);
         }
 
         /* Service Cards Background Radial Glows */
@@ -86,14 +87,14 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.12;
             transition: all 0.3s ease;
             z-index: 0;
         }
 
         .service-card-glow:hover::before {
             transform: scale(1.5);
-            opacity: 0.25;
+            opacity: 0.22;
         }
 
         .card-taxi::before { background-color: #2563EB; }
@@ -105,28 +106,41 @@
 </head>
 <body class="antialiased text-brand-text">
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80">
+    <!-- 🌐 Header / Navigation المطوّر (شكل نظيف وعصري) -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2">
-                <span class="text-3xl font-black text-brand-green tracking-wider">T<span class="text-brand-dark">+</span></span>
-                <span class="text-xs bg-brand-green/10 text-brand-green font-bold px-2 py-0.5 rounded-full">البصرة</span>
+            
+            <!-- Logo مع أيقونة أنيقة وطابع البصرة -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all duration-300 shadow-sm">
+                    <i class="fa-solid fa-paper-plane text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1">
+                        <span class="text-2xl font-black text-slate-900 tracking-tight">T</span>
+                        <span class="text-2xl font-black text-brand-green">+</span>
+                    </div>
+                    <span class="text-[10px] tracking-wider text-slate-500 font-bold -mt-1">بصرة ديجيتال</span>
+                </div>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 font-bold text-sm text-slate-700">
-                <a href="#services" class="hover:text-brand-green transition-colors">خدماتنا</a>
-                <a href="#about" class="hover:text-brand-green transition-colors">عن +T</a>
-                <a href="#captain" class="hover:text-brand-green transition-colors">انضم ككابتن</a>
-                <a href="#support" class="hover:text-brand-green transition-colors">الدعم الفني</a>
+            <!-- Nav Links (روابط التنقل بسلاسل نظيفة وبدون زحمة) -->
+            <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/60 shadow-inner">
+                <a href="#services" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">الخدمات</a>
+                <a href="#captain" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">انضم ككابتن</a>
+                <a href="#support" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">الدعم الفني</a>
             </nav>
 
-            <!-- CTA Button -->
-            <a href="https://wa.me/9647734449499" target="_blank" class="bg-brand-green hover:bg-brand-greenDark text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-green/20 flex items-center gap-2 transition-all">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>طلب سريع</span>
-            </a>
+            <!-- CTA Actions (زر الواتساب السريع المطور) -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/9647734449499" target="_blank" class="bg-brand-green hover:bg-brand-greenDark text-white font-bold px-5 py-2.5 rounded-2xl shadow-lg shadow-brand-green/20 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+                    <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <span class="text-xs sm:text-sm">طلب سريع</span>
+                </a>
+            </div>
+
         </div>
     </header>
 
@@ -139,7 +153,7 @@
                 <div class="lg:col-span-7 text-center lg:text-right space-y-6">
                     <div class="inline-flex items-center gap-2 bg-emerald-100/80 text-brand-greenDark px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>تطبيق والتنقل والتوصيل الأسرع في البصرة</span>
+                        <span>تطبيق التنقل والتوصيل الأسرع في البصرة</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
