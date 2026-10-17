@@ -32,13 +32,6 @@
                             cardBg: '#FFFFFF',
                             text: '#1E293B',
                             muted: '#64748B'
-                        },
-                        service: {
-                            taxi: '#2563EB',
-                            tuktuk: '#EA580C',
-                            shop: '#9333EA',
-                            parcels: '#0891B2',
-                            bike: '#25B66A'
                         }
                     }
                 }
@@ -61,56 +54,32 @@
             border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
 
-        .glass-card {
+        /* كروت الخدمات المتدرجة الحديثة */
+        .service-card-pro {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Service Cards Background Radial Glows */
-        .service-card-glow {
-            position: relative;
+            border-radius: 1.75rem;
             overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .service-card-glow::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            opacity: 0.12;
-            transition: all 0.3s ease;
-            z-index: 0;
+        .service-card-pro:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
         }
-
-        .service-card-glow:hover::before {
-            transform: scale(1.5);
-            opacity: 0.22;
-        }
-
-        .card-taxi::before { background-color: #2563EB; }
-        .card-tuktuk::before { background-color: #EA580C; }
-        .card-shop::before { background-color: #9333EA; }
-        .card-parcels::before { background-color: #0891B2; }
-        .card-bike::before { background-color: #25B66A; }
     </style>
 </head>
 <body class="antialiased text-brand-text">
 
-    <!-- 🌐 Header / Navigation المطوّر (شكل نظيف وعصري) -->
+    <!-- 🌐 Header / Navigation المطوّر -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo مع أيقونة أنيقة وطابع البصرة -->
+            <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all duration-300 shadow-sm">
                     <i class="fa-solid fa-paper-plane text-lg"></i>
@@ -124,14 +93,14 @@
                 </div>
             </a>
 
-            <!-- Nav Links (روابط التنقل بسلاسل نظيفة وبدون زحمة) -->
+            <!-- Nav Links -->
             <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/60 shadow-inner">
                 <a href="#services" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">الخدمات</a>
                 <a href="#captain" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">انضم ككابتن</a>
                 <a href="#support" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-white transition-all">الدعم الفني</a>
             </nav>
 
-            <!-- CTA Actions (زر الواتساب السريع المطور) -->
+            <!-- CTA Actions -->
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/9647734449499" target="_blank" class="bg-brand-green hover:bg-brand-greenDark text-white font-bold px-5 py-2.5 rounded-2xl shadow-lg shadow-brand-green/20 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
                     <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
@@ -227,7 +196,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section (كروت الخدمات بالتصميم المتدرج الجديد بدلاً من الأزرار التقليدية) -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -241,84 +210,104 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
 
                 <!-- 1. تكسي +T -->
-                <div class="service-card-glow card-taxi glass-card rounded-3xl p-6 flex flex-col justify-between relative z-10">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-service-taxi flex items-center justify-center text-2xl font-black mb-6">
+                <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكسي" target="_blank" class="service-card-pro group">
+                    <div class="bg-gradient-to-b from-blue-600/15 via-blue-600/5 to-transparent p-6 pb-4 flex justify-between items-start relative">
+                        <div>
+                            <span class="text-[10px] font-extrabold text-blue-700 bg-blue-100/80 px-2.5 py-1 rounded-md">تنقل مريح</span>
+                            <h3 class="text-xl font-black text-slate-900 mt-3">تكسي +T</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-car"></i>
                         </div>
-                        <span class="text-[11px] font-bold text-service-taxi bg-blue-50 px-2.5 py-1 rounded-md">تنقل مريح</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">تكسي +T</h3>
+                    </div>
+                    <div class="px-6 py-4 flex-1">
                         <p class="text-xs text-slate-500 leading-relaxed">سيارات حديثة وكباتن مؤهلون لرحلات آمنة ومريحة داخل وخارج البصرة.</p>
                     </div>
-                    <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكسي" target="_blank" class="mt-6 w-full py-2.5 rounded-xl bg-service-taxi hover:bg-blue-700 text-white font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>اطلب تكسي الآن</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
+                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <span>اطلب الخدمة فوراً</span>
+                        <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                    </div>
+                </a>
 
                 <!-- 2. تكتك +T -->
-                <div class="service-card-glow card-tuktuk glass-card rounded-3xl p-6 flex flex-col justify-between relative z-10">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-orange-50 text-service-tuktuk flex items-center justify-center text-2xl font-black mb-6">
+                <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكتك" target="_blank" class="service-card-pro group">
+                    <div class="bg-gradient-to-b from-orange-600/15 via-orange-600/5 to-transparent p-6 pb-4 flex justify-between items-start relative">
+                        <div>
+                            <span class="text-[10px] font-extrabold text-orange-700 bg-orange-100/80 px-2.5 py-1 rounded-md">اقتصادي وسريع</span>
+                            <h3 class="text-xl font-black text-slate-900 mt-3">تكتك +T</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-motorcycle"></i>
                         </div>
-                        <span class="text-[11px] font-bold text-service-tuktuk bg-orange-50 px-2.5 py-1 rounded-md">اقتصادي وسريع</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">تكتك +T</h3>
+                    </div>
+                    <div class="px-6 py-4 flex-1">
                         <p class="text-xs text-slate-500 leading-relaxed">الخيار الأسرع لتفادي الازدحامات والمشاوير القريبة داخل المناطق السكنية والتجارية.</p>
                     </div>
-                    <a href="https://wa.me/9647734449499?text=اريد%20طلب%20تكتك" target="_blank" class="mt-6 w-full py-2.5 rounded-xl bg-service-tuktuk hover:bg-orange-700 text-white font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>اطلب تكتك الآن</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
+                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all">
+                        <span>اطلب الخدمة فوراً</span>
+                        <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                    </div>
+                </a>
 
                 <!-- 3. اشتري لي -->
-                <div class="service-card-glow card-shop glass-card rounded-3xl p-6 flex flex-col justify-between relative z-10">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-purple-50 text-service-shop flex items-center justify-center text-2xl font-black mb-6">
+                <a href="https://wa.me/9647734449499?text=اريد%20خدمة%20اشتري%20لي" target="_blank" class="service-card-pro group">
+                    <div class="bg-gradient-to-b from-purple-600/15 via-purple-600/5 to-transparent p-6 pb-4 flex justify-between items-start relative">
+                        <div>
+                            <span class="text-[10px] font-extrabold text-purple-700 bg-purple-100/80 px-2.5 py-1 rounded-md">تسوق بالنيابة</span>
+                            <h3 class="text-xl font-black text-slate-900 mt-3">اشتري لي</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </div>
-                        <span class="text-[11px] font-bold text-service-shop bg-purple-50 px-2.5 py-1 rounded-md">تسوق بالنيابة</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">اشتري لي</h3>
+                    </div>
+                    <div class="px-6 py-4 flex-1">
                         <p class="text-xs text-slate-500 leading-relaxed">اكتب قائمتك الخاصة (مسواق، أدوية، مطاعم) وسيقوم الكابتن بشراء كل ما تحتاجه وإيصاله لبابك.</p>
                     </div>
-                    <a href="https://wa.me/9647734449499?text=اريد%20خدمة%20اشتري%20لي" target="_blank" class="mt-6 w-full py-2.5 rounded-xl bg-service-shop hover:bg-purple-700 text-white font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>اطلب تسوق الآن</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
+                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <span>اطلب الخدمة فوراً</span>
+                        <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                    </div>
+                </a>
 
                 <!-- 4. توصيل منتجاتي -->
-                <div class="service-card-glow card-parcels glass-card rounded-3xl p-6 flex flex-col justify-between relative z-10">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-cyan-50 text-service-parcels flex items-center justify-center text-2xl font-black mb-6">
+                <a href="https://wa.me/9647734449499?text=اريد%20توصيل%20منتجات" target="_blank" class="service-card-pro group">
+                    <div class="bg-gradient-to-b from-cyan-600/15 via-cyan-600/5 to-transparent p-6 pb-4 flex justify-between items-start relative">
+                        <div>
+                            <span class="text-[10px] font-extrabold text-cyan-700 bg-cyan-100/80 px-2.5 py-1 rounded-md">لأصحاب المتاجر</span>
+                            <h3 class="text-xl font-black text-slate-900 mt-3">توصيل منتجاتي</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-600 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-box-open"></i>
                         </div>
-                        <span class="text-[11px] font-bold text-service-parcels bg-cyan-50 px-2.5 py-1 rounded-md">لأصحاب المتاجر</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">توصيل منتجاتي</h3>
+                    </div>
+                    <div class="px-6 py-4 flex-1">
                         <p class="text-xs text-slate-500 leading-relaxed">حلول لوجستية متكاملة وأمينة لشحن وتوصيل الطرود والمنتجات لعملائك في البصرة.</p>
                     </div>
-                    <a href="https://wa.me/9647734449499?text=اريد%20توصيل%20منتجات" target="_blank" class="mt-6 w-full py-2.5 rounded-xl bg-service-parcels hover:bg-cyan-700 text-white font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>ارسل طرد الآن</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
+                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                        <span>اطلب الخدمة فوراً</span>
+                        <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                    </div>
+                </a>
 
                 <!-- 5. كابتن دراجة -->
-                <div class="service-card-glow card-bike glass-card rounded-3xl p-6 flex flex-col justify-between relative z-10">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-service-bike flex items-center justify-center text-2xl font-black mb-6">
+                <a href="https://wa.me/9647734449499?text=اريد%20طلب%20دراجة" target="_blank" class="service-card-pro group">
+                    <div class="bg-gradient-to-b from-emerald-600/15 via-emerald-600/5 to-transparent p-6 pb-4 flex justify-between items-start relative">
+                        <div>
+                            <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-md">انطلاق وحيوية</span>
+                            <h3 class="text-xl font-black text-slate-900 mt-3">كابتن دراجة</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-person-biking"></i>
                         </div>
-                        <span class="text-[11px] font-bold text-service-bike bg-emerald-50 px-2.5 py-1 rounded-md">انطلاق وحيوية</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-2">كابتن دراجة</h3>
+                    </div>
+                    <div class="px-6 py-4 flex-1">
                         <p class="text-xs text-slate-500 leading-relaxed">توصيل فائق السرعة للرسائل الهامة والمستندات والطلبات الصغيرة فورياً.</p>
                     </div>
-                    <a href="https://wa.me/9647734449499?text=اريد%20طلب%20دراجة" target="_blank" class="mt-6 w-full py-2.5 rounded-xl bg-service-bike hover:bg-emerald-700 text-white font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>اطلب دراجة الآن</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                </div>
+                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <span>اطلب الخدمة فوراً</span>
+                        <i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                    </div>
+                </a>
 
             </div>
 
