@@ -322,73 +322,71 @@
 
         </div>
     </section>
+<!-- 🎨 قسم حكاية البصرة | معرض المشاهد الفنية الأفقي المتطور -->
+<section id="gallery" class="py-20 bg-slate-900 text-white overflow-hidden border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+            <span class="text-brand-green font-bold text-xs bg-brand-green/10 px-3 py-1 rounded-full border border-brand-green/20">روح البصرة</span>
+            <h2 class="text-2xl sm:text-4xl font-black mt-3">البصرة بين يديك.. بلمسة طائرة ورقية</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2">اسحب أفقياً لاستكشاف مشاهد أسلوب الحياة والتوصيل مع +T</p>
+        </div>
+        
+        <!-- أزرار التمرير السريع (للكمبيوتر) -->
+        <div class="hidden sm:flex items-center gap-2" dir="ltr">
+            <button onclick="document.getElementById('art-gallery').scrollBy({left: -320, behavior: 'smooth'})" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-brand-green text-white flex items-center justify-center transition-all border border-slate-700">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="document.getElementById('art-gallery').scrollBy({left: 320, behavior: 'smooth'})" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-brand-green text-white flex items-center justify-center transition-all border border-slate-700">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
 
-    <!-- 🎨 قسم حكاية البصرة | معرض المشاهد الفنية الأفقي المتطور -->
-    <section id="gallery" class="py-20 bg-slate-900 text-white overflow-hidden border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-                <span class="text-brand-green font-bold text-xs bg-brand-green/10 px-3 py-1 rounded-full border border-brand-green/20">روح البصرة</span>
-                <h2 class="text-2xl sm:text-4xl font-black mt-3">البصرة بين يديك.. بلمسة طائرة ورقية</h2>
-                <p class="text-slate-400 text-xs sm:text-sm mt-2">اسحب أفقياً لاستكشاف مشاهد أسلوب الحياة والتوصيل مع +T</p>
-            </div>
-            
-            <!-- أزرار التمرير السريع (للكمبيوتر) -->
-            <div class="hidden sm:flex items-center gap-2" dir="ltr">
-                <button onclick="document.getElementById('art-gallery').scrollBy({left: -320, behavior: 'smooth'})" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-brand-green text-white flex items-center justify-center transition-all border border-slate-700">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button onclick="document.getElementById('art-gallery').scrollBy({left: 320, behavior: 'smooth'})" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-brand-green text-white flex items-center justify-center transition-all border border-slate-700">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+    <!-- شريط العرض الأفقي (Snap Carousel) -->
+    <div id="art-gallery" class="flex items-center gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-4 sm:px-8 pb-8 pt-2" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+        
+        <!-- اللوحة 1 -->
+        <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
+            <img src="assets/story1.jpg.jpg" alt="+T البصرة - مشهد 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-6 right-6 left-6 text-right">
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 01</span>
+                <h4 class="text-lg font-bold text-white mt-2">بداية المشوار</h4>
             </div>
         </div>
 
-        <!-- شريط العرض الأفقي (Snap Carousel) بدون تأثير عمودي -->
-        <div id="art-gallery" class="flex items-center gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-4 sm:px-8 pb-8 pt-2" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
-            
-            <!-- اللوحة 1 -->
-            <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
-                <img src="story1.jpg" alt="+T البصرة - مشهد 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                <div class="absolute bottom-6 right-6 left-6 text-right">
-                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 01</span>
-                    <h4 class="text-lg font-bold text-white mt-2">بداية المشوار</h4>
-                </div>
+        <!-- اللوحة 2 -->
+        <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
+            <img src="assets/story2.jpg.jpg" alt="+T البصرة - مشهد 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-6 right-6 left-6 text-right">
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 02</span>
+                <h4 class="text-lg font-bold text-white mt-2">انطلاق وحرية</h4>
             </div>
-
-            <!-- اللوحة 2 -->
-            <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
-                <img src="story2.jpg" alt="+T البصرة - مشهد 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                <div class="absolute bottom-6 right-6 left-6 text-right">
-                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 02</span>
-                    <h4 class="text-lg font-bold text-white mt-2">انطلاق وحرية</h4>
-                </div>
-            </div>
-
-            <!-- اللوحة 3 -->
-            <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
-                <img src="story3.jpg" alt="+T البصرة - مشهد 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                <div class="absolute bottom-6 right-6 left-6 text-right">
-                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 03</span>
-                    <h4 class="text-lg font-bold text-white mt-2">سرعة وبهجة</h4>
-                </div>
-            </div>
-
-            <!-- اللوحة 4 -->
-            <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
-                <img src="story4.jpg" alt="+T البصرة - مشهد 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                <div class="absolute bottom-6 right-6 left-6 text-right">
-                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 04</span>
-                    <h4 class="text-lg font-bold text-white mt-2">خدمات متكاملة</h4>
-                </div>
-            </div>
-
         </div>
-    </section>
 
+        <!-- اللوحة 3 -->
+        <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
+            <img src="assets/story3.jpg.jpg" alt="+T البصرة - مشهد 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-6 right-6 left-6 text-right">
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 03</span>
+                <h4 class="text-lg font-bold text-white mt-2">سرعة وبهجة</h4>
+            </div>
+        </div>
+
+        <!-- اللوحة 4 -->
+        <div class="snap-center shrink-0 w-[270px] sm:w-[310px] h-[480px] rounded-3xl overflow-hidden relative group border border-slate-700/60 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-brand-green/50">
+            <img src="assets/story4.jpg.jpg" alt="+T البصرة - مشهد 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-6 right-6 left-6 text-right">
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">مشهد 04</span>
+                <h4 class="text-lg font-bold text-white mt-2">خدمات متكاملة</h4>
+            </div>
+        </div>
+
+    </div>
+</section>
     <!-- Join as Captain Section -->
     <section id="captain" class="py-20 bg-slate-900 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
