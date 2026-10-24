@@ -324,12 +324,12 @@
         </div>
     </section>
 
-    <!-- 🛒 الفقرة الجديدة المتطورة الخاصة بـ خدمة "اشتري لي" -->
+    <!-- 🛒 الفقرة الجديدة المتطورة الخاصة بـ خدمة "اشتري لي" (بصور تتبدل تلقائياً بتنسيق WebP) -->
     <section id="buy-for-me" class="py-20 bg-gradient-to-b from-slate-50 via-emerald-50/30 to-white relative overflow-hidden border-t border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- العنوان والتعريف بالفقرة -->
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
                 <span class="inline-flex items-center gap-2 text-purple-700 bg-purple-100/80 px-4 py-1.5 rounded-full text-xs font-bold">
                     <i class="fa-solid fa-basket-shopping"></i>
                     <span>خدمة التسوق والطلب بالنيابة</span>
@@ -339,61 +339,74 @@
                     <span class="text-brand-green">كابتن +T يشتري ويجيبلك لحد باب بيتك</span>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    سواءً كانت أدوية عاجلة من الصيدلية أو مسواق وصغار احتياجات البيت، اكتب طلبك وحنا نكفيك العنوة فوراً بكل أمانة وسرعة.
+                    سواءً أدوية عاجلة من الصيدلية أو مسواق البيت اليومي، اكتب طلبك وتكفل بكل العنوة فوراً وبأعلى سرعة في البصرة.
                 </p>
             </div>
 
-            <!-- عرض الصور المطور (شبكة بطاقات تفاعلية أنيقة) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            <!-- الكارت الموحد المتطور مع تبديل تلقائي للصور -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-2xl shadow-slate-200/50 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- البطاقة الأولى: توصيل الأدوية والصيدلية -->
-                <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-xl shadow-slate-200/50 flex flex-col justify-between group hover:border-teal-500/50 transition-all duration-500 hover:-translate-y-2">
-                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] mb-6 bg-slate-100">
-                        <!-- الصورة الأولى -->
-                        <img src="assets/pharmacy.jpg" alt="دواك يوصلك بأسرع وقت" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+                <!-- حاوية الصور المتغيرة تلقائياً (Slider Banner) -->
+                <div class="lg:col-span-6 relative rounded-3xl overflow-hidden aspect-[4/5] bg-slate-900 shadow-inner group">
+                    
+                    <!-- الشريحة الأولى: الصيدلية -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                        <img src="assets/pharmacy.webp" alt="دواك يوصلك بأسرع وقت" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
                         <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 flex items-center gap-2 shadow-md">
                             <i class="fa-solid fa-prescription-bottle-medical"></i>
-                            <span>طوارئ وعلاج</span>
+                            <span>صيدلية وأدوية</span>
                         </div>
                         <div class="absolute bottom-6 right-6 left-6 text-white space-y-1">
                             <h3 class="text-2xl font-black">دواك يوصلك بأسرع وقت</h3>
-                            <p class="text-xs text-slate-200">صيدليات البصرة كبسة زر بعيدة عنك</p>
+                            <p class="text-xs text-slate-200">اطلب علاجك ويوصلك من أقرب صيدلية</p>
                         </div>
                     </div>
-                    <div class="space-y-4 px-2">
-                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                            ارسل اسم العلاج أو صورة الوصفة الطبية للكابتن، وراح يجيبلك المستلزمات الطبية والأدوية من أقرب صيدلية متوفرة فورياً.
-                        </p>
-                        <a href="https://wa.me/9647734449499?text=اريد%20طلب%20علاج%20من%20الصيدلية" target="_blank" class="w-full py-3 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm text-center transition-all shadow-lg shadow-teal-600/20 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-comment-medical text-base"></i>
-                            <span>اطلب أدوية الآن</span>
-                        </a>
+
+                    <!-- الشريحة الثانية: المسواق والخضار -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                        <img src="assets/groceries.webp" alt="مسواق البيت والخضار" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-brand-green flex items-center gap-2 shadow-md">
+                            <i class="fa-solid fa-carrot"></i>
+                            <span>مسواق البيت</span>
+                        </div>
+                        <div class="absolute bottom-6 right-6 left-6 text-white space-y-1">
+                            <h3 class="text-2xl font-black">كل خضرتك وأغراض بيتك لحد بابك</h3>
+                            <p class="text-xs text-slate-200">طازجة ومن أفضل محلات البصرة</p>
+                        </div>
+                    </div>
+
+                    <!-- مؤشرات التبديل التلقائي (Dots) -->
+                    <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+                        <span class="slide-dot w-2 h-2 rounded-full bg-white transition-all duration-300"></span>
+                        <span class="slide-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"></span>
                     </div>
                 </div>
 
-                <!-- البطاقة الثانية: مسواق الخضار وأغراض البيت -->
-                <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-xl shadow-slate-200/50 flex flex-col justify-between group hover:border-brand-green/50 transition-all duration-500 hover:-translate-y-2">
-                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] mb-6 bg-slate-100">
-                        <!-- الصورة الثانية -->
-                        <img src="assets/groceries.jpg" alt="كل خضرتك وأغراض بيتك توصل لحد بابك" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-brand-green flex items-center gap-2 shadow-md">
-                            <i class="fa-solid fa-carrot"></i>
-                            <span>مسواق يومي</span>
-                        </div>
-                        <div class="absolute bottom-6 right-6 left-6 text-white space-y-1">
-                            <h3 class="text-2xl font-black">كل خضرتك وأغراض بيتك توصل لحد بابك</h3>
-                            <p class="text-xs text-slate-200">طازجة ومن محلاتك المفضلات بالبصرة</p>
-                        </div>
+                <!-- تفاصيل ومعلومات الخدمة وأزرار الإرسال السريع -->
+                <div class="lg:col-span-6 space-y-6 text-right">
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 text-brand-green px-3 py-1 rounded-lg text-xs font-bold">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>خدمة فورية متوفرة 24/7</span>
                     </div>
-                    <div class="space-y-4 px-2">
-                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                            خضار، فواكه، ألبان، أو أغراض السوبرماركت اليومية. اكتب قائمتك وكابتن +T يختار لك أفضل المواد بعناية ويجيبها لحد باب بيتك.
-                        </p>
-                        <a href="https://wa.me/9647734449499?text=اريد%20طلب%20مسواق%20وخضار" target="_blank" class="w-full py-3 rounded-2xl bg-brand-green hover:bg-brand-greenDark text-white font-bold text-xs sm:text-sm text-center transition-all shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
+
+                    <h3 class="text-2xl sm:text-3xl font-black text-slate-900 leading-snug">
+                        اطلب أي شيء ببالك وسنقوم بشرائه وإيصاله فوراَ
+                    </h3>
+
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        لا داعي لمغادرة منزلك أو ترك عملك. سواء كانت قائمة مسواق طويلة، أغراض سوبرماركت، أو أدوية عлі وجه السرعة؛ كباتن +T في خدمتك طوال اليوم في كافة مناطق البصرة.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a href="https://wa.me/9647734449499?text=اريد%20طلب%20علاج%20من%20الصيدلية" target="_blank" class="flex-1 py-3.5 px-5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm text-center transition-all shadow-lg shadow-teal-600/20 flex items-center justify-center gap-2.5">
+                            <i class="fa-solid fa-comment-medical text-base"></i>
+                            <span>طلب أدوية صيدلية</span>
+                        </a>
+                        <a href="https://wa.me/9647734449499?text=اريد%20طلب%20مسواق%20وخضار" target="_blank" class="flex-1 py-3.5 px-5 rounded-2xl bg-brand-green hover:bg-brand-greenDark text-white font-bold text-xs sm:text-sm text-center transition-all shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2.5">
                             <i class="fa-solid fa-basket-shopping text-base"></i>
-                            <span>ارسل قائمة المسواق</span>
+                            <span>طلب مسواق البيت</span>
                         </a>
                     </div>
                 </div>
@@ -402,6 +415,27 @@
 
         </div>
     </section>
+
+    <!-- سكربت جافاسكريبت المسؤول عن التبديل التلقائي للصور كل 3 ثوانٍ -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slide-dot');
+
+        function changeSlide() {
+            slides.forEach((slide, index) => {
+                slide.style.opacity = index === currentSlide ? '1' : '0';
+            });
+            dots.forEach((dot, index) => {
+                dot.style.backgroundColor = index === currentSlide ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
+                dot.style.width = index === currentSlide ? '16px' : '8px';
+            });
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+
+        // تبديل تلقائي كل 3.5 ثانية
+        setInterval(changeSlide, 3500);
+    </script>
 
     <!-- 🎨 قسم حكاية البصرة | معرض المشاهد الفنية الأفقي المتطور -->
     <section id="gallery" class="py-20 bg-slate-900 text-white overflow-hidden border-y border-slate-800">
