@@ -28,7 +28,6 @@
                             green: '#25B66A',
                             greenDark: '#1F9858',
                             dark: '#0F172A',
-                            navy: '#0b1329',
                             lightBg: '#F8FAFC',
                             cardBg: '#FFFFFF',
                             text: '#1E293B',
@@ -47,10 +46,13 @@
             color: #1E293B;
         }
 
-        /* Header Dark Style (مثل الواجهة المطلوبة) */
-        .header-dark {
-            background: #0b1329;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        /* Glassmorphism Ultra-Clean Effect للهيدر الملون المتطور */
+        .glass-nav-pro {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(37, 182, 106, 0.15);
+            box-shadow: 0 4px 20px -2px rgba(37, 182, 106, 0.05);
         }
 
         /* كروت الخدمات المتدرجة الحديثة */
@@ -83,38 +85,38 @@
 </head>
 <body class="antialiased text-brand-text">
 
-    <!-- 🌐 Header / Navigation الجديد المصمم بنمط داكن مثل الواجهة المطلوبة -->
-    <header class="fixed top-0 left-0 right-0 z-50 header-dark transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between text-white">
+    <!-- 🌐 Header / Navigation المطوّر والملون بأناقة -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav-pro transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- الجانب الأيمن: زر اللغة والقائمة -->
-            <div class="flex items-center gap-4">
-                <button class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-200 transition-all md:hidden">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-                <a href="#" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                    <i class="fa-solid fa-globe text-brand-green"></i>
-                    <span>English</span>
-                </a>
-            </div>
-
-            <!-- المنتصف: الشعار باسم +T بصرة -->
-            <a href="#" class="flex items-center gap-2.5 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white shadow-lg shadow-brand-green/30 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-paper-plane text-base"></i>
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-green to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-green/20 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-paper-plane text-lg"></i>
                 </div>
-                <div class="flex flex-col text-right">
-                    <div class="flex items-center gap-1 leading-none">
-                        <span class="text-2xl font-black tracking-tight text-white">+T</span>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1">
+                        <span class="text-2xl font-black text-slate-900 tracking-tight">+T</span>
                     </div>
-                    <span class="text-[9px] tracking-wider text-emerald-400 font-bold mt-0.5">بصرة ديجيتال</span>
+                    <span class="text-[10px] tracking-wider text-brand-green font-extrabold -mt-1">بصرة ديجيتال</span>
                 </div>
             </a>
 
-            <!-- الجانب الأيسر: زر طلب سريع -->
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-emerald-50/60 p-1.5 rounded-full border border-emerald-500/20 shadow-inner">
+                <a href="#services" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green hover:bg-white transition-all">الخدمات</a>
+                <a href="#buy-for-me" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green hover:bg-white transition-all">اشتري لي</a>
+                <a href="#gallery" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green hover:bg-white transition-all">حكاية البصرة</a>
+                <a href="#captain" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green hover:bg-white transition-all">انضم ككابتن</a>
+                <a href="#support" class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green hover:bg-white transition-all">الدعم الفني</a>
+            </nav>
+
+            <!-- CTA Actions -->
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/9647734449499" target="_blank" class="bg-brand-green hover:bg-brand-greenDark text-white font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-brand-green/20 flex items-center gap-2 transition-all transform hover:-translate-y-0.5">
-                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                <a href="https://wa.me/9647734449499" target="_blank" class="bg-gradient-to-r from-brand-green to-emerald-500 hover:from-brand-greenDark hover:to-emerald-600 text-white font-bold px-5 py-2.5 rounded-2xl shadow-lg shadow-brand-green/25 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+                    <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
                     <span class="text-xs sm:text-sm">طلب سريع</span>
                 </a>
             </div>
@@ -122,22 +124,22 @@
         </div>
     </header>
 
-    <!-- 🌟 Hero Section المطور والملون -->
-    <section class="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-emerald-100/60 via-emerald-50/30 to-white relative overflow-hidden">
+    <!-- 🌟 Hero Section المطور والملون بامتياز (البداية المتطورة) -->
+    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-emerald-100/60 via-emerald-50/30 to-white relative overflow-hidden">
         
-        <!-- خلفية جمالية ملونة -->
+        <!-- خلفية جمالية ملونة متدرجة ناعمة -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-20 left-0 w-80 h-80 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
             
-            <!-- شارة ترحيبية -->
+            <!-- شارة ترحيبية ملونة -->
             <div class="inline-flex items-center gap-2 bg-white text-brand-green px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold shadow-sm border border-emerald-200">
                 <i class="fa-solid fa-paper-plane text-brand-green"></i>
                 <span>تطبيق التنقل والتوصيل الأول في البصرة</span>
             </div>
 
-            <!-- العنوان الرئيسي -->
+            <!-- العنوان الرئيسي الجريء -->
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
                 مشوارك بلمسة.. <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-teal-600">توصل وانت مرتاح 100%</span>
@@ -148,20 +150,20 @@
                 تكسي، تكتك، دراجة، أو شراء واحتياجات يومية. منصة +T توفر لك أسرع وأأمن تغطية شاملة لكافة مناطق ومحلات البصرة.
             </p>
 
-            <!-- 🔍 شريط البحث / الطلب السريع التفاعلي -->
+            <!-- 🔍 شريط البحث / الطلب السريع التفاعلي الملون -->
             <div class="max-w-xl mx-auto pt-2">
                 <form action="https://wa.me/9647734449499" target="_blank" method="get" class="relative flex items-center bg-white rounded-2xl shadow-xl shadow-emerald-900/5 border-2 border-emerald-500/30 p-2 transition-all focus-within:border-brand-green">
                     <i class="fa-solid fa-location-dot text-brand-green text-lg px-3"></i>
                     <input type="text" placeholder="وين تحب تروح؟ أو شنو تحب نشتريلك؟" class="w-full bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none placeholder:text-slate-400 font-medium">
-                    <button type="submit" class="bg-brand-green hover:bg-brand-greenDark text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2 shrink-0 transition-all shadow-md shadow-brand-green/20">
+                    <button type="submit" class="bg-gradient-to-r from-brand-green to-emerald-500 hover:from-brand-greenDark hover:to-emerald-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2 shrink-0 transition-all shadow-md shadow-brand-green/20">
                         <span>اطلب الآن</span>
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
                 </form>
             </div>
 
-            <!-- ⚡ شبكة الميزات الأربع المصغرة -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4 max-w-3xl mx-auto">
+            <!-- ⚡ شبكة الميزات الأربع المصغرة الملونة -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 max-w-3xl mx-auto">
                 
                 <div class="bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-emerald-500/20 shadow-sm flex items-center gap-3 text-right group hover:border-brand-green transition-all">
                     <div class="w-10 h-10 rounded-xl bg-emerald-100 text-brand-green flex items-center justify-center text-base shrink-0 group-hover:scale-110 transition-transform">
@@ -205,21 +207,15 @@
 
             </div>
 
-            <!-- 📱 أزرار تحميل التطبيق الرسمية من متجري Google Play و App Store (بدلاً من الأزرار السابقة) -->
-            <div class="flex flex-row items-center justify-center gap-3 pt-4 max-w-md mx-auto">
-                <a href="#download" class="flex-1 bg-slate-900 hover:bg-black text-white px-4 sm:px-6 py-3 rounded-2xl flex items-center justify-center gap-3 shadow-xl transition-all border border-slate-800 hover:scale-[1.02]">
-                    <i class="fa-brands fa-apple text-2xl sm:text-3xl"></i>
-                    <div class="text-right">
-                        <span class="text-[9px] block text-slate-400 font-medium">حمّل الآن من</span>
-                        <span class="text-xs sm:text-sm font-bold block leading-none mt-0.5">App Store</span>
-                    </div>
+            <!-- 🔘 أزرار التوجيه الرئيسية -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 max-w-md mx-auto">
+                <a href="#services" class="w-full sm:flex-1 bg-gradient-to-r from-brand-green to-emerald-500 hover:from-brand-greenDark hover:to-emerald-600 text-white py-3.5 px-6 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
+                    <span>تصفح الخدمات</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
                 </a>
-                <a href="#download" class="flex-1 bg-slate-900 hover:bg-black text-white px-4 sm:px-6 py-3 rounded-2xl flex items-center justify-center gap-3 shadow-xl transition-all border border-slate-800 hover:scale-[1.02]">
-                    <i class="fa-brands fa-google-play text-xl sm:text-2xl text-emerald-400"></i>
-                    <div class="text-right">
-                        <span class="text-[9px] block text-slate-400 font-medium">احصل عليه من</span>
-                        <span class="text-xs sm:text-sm font-bold block leading-none mt-0.5">Google Play</span>
-                    </div>
+                <a href="#buy-for-me" class="w-full sm:flex-1 bg-slate-900 hover:bg-black text-white py-3.5 px-6 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span>خدمة اشتري لي</span>
+                    <i class="fa-solid fa-basket-shopping text-xs"></i>
                 </a>
             </div>
 
